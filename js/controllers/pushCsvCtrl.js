@@ -93,14 +93,12 @@ angular.module("sop").controller("pushCsvCtrl", function($scope, $state, $cookie
 
 	$scope.upload = function (file) {
 
-		console.log(file.name);
-
 		$scope.botao = false;
 
 		if($scope.store.id == 'CATEGORY'){
 			var ids = $scope.categoria.id;
 		}else if($scope.store.id == 'STORE'){
-				var ids = $scope.tienda2.id;
+			var ids = $scope.tienda2.id;
 		}
 
 		if($scope.tipo.id == 'age'){
@@ -206,11 +204,24 @@ angular.module("sop").controller("pushCsvCtrl", function($scope, $state, $cookie
 				title : $scope.titulo
 			}
 
+		}else if($scope.tipo.id == 'file'){
+			
+			var dados = {
+				file: file,
+				type_filter : "file",
+				type : "STORE",
+				id : ids,
+				options : {
+				},			
+				description : $scope.descripcion,
+				title : $scope.titulo
+			}
+
 		}
 
-		console.log($scope.tipo.id);
-
-		Upload.upload({
+		console.log(dados);
+		
+		/*Upload.upload({
 			url: baseAPI.baseURL + 'api/wb/admin/push-notification',
 			data: dados
 		}).then(function (resp) {
@@ -222,7 +233,7 @@ angular.module("sop").controller("pushCsvCtrl", function($scope, $state, $cookie
 			var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
 			console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
 			document.getElementById('status').innerHTML = 'progress: ' + progressPercentage + '% ' + evt.config.data.file.name;
-		});
+		})*/;
 	};
 
 	$scope.sair = function(){

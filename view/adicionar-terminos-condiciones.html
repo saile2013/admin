@@ -1,0 +1,147 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp;
+        <a ui-sref="terminos-condiciones">
+            <i class="fas fa-chevron-right"></i> &nbsp; términos y condiciones
+        </a> &nbsp;
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">añadir</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="terminos-condiciones">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+        <!--<div id="txtA">
+        	<a ui-sref="dicionario-pasillos({id: id})">
+            	<i class="fas fa-file-csv"></i> carga  archivo diccionaro de los pasillos
+            </a>
+        </div>-->
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+        <div id="conTxtB">
+
+            <div style="float: left; width: 100%;">
+
+                <div id="txtH">Términos y condiciones</div>
+                
+                <div id="inputA" style="width: 50%;">
+                    <Label>TÍtulo</Label>
+                    <input type="text" ng-model="titulo" style="width: 500px;" placeholder="Ej: TÍtulo">
+                </div>
+
+                <div id="inputA" style="width: 50%;">
+                    <Label>Url (necesita empezar con un / )</Label>
+                    <input type="text" ng-model="url" style="width: 500px;" placeholder="Ej: /terminos-y-condiciones-promo-flash">
+                </div>
+
+                <div id="inputA" style="width: 50%;">
+                    <Label>Alias (necesita empezar con un # )</Label>
+                    <input type="text" ng-model="alias" style="width: 500px;" placeholder="Ej: #terminos-y-condiciones-promo-flash">
+                </div>
+
+                <div id="inputA" style="width: 50%;">
+                    <Label>Tiendas</Label>
+                    <select style="float: left; width: 300px; border: 1px solid #CCC; padding-top: 10px; 
+                            padding-bottom: 10px;" 
+                            ng-model="tienda" 
+                            ng-change="verre()">
+                            <option value="">Selecciona una tienda</option>
+                            <option ng-repeat="tienda in tiendas | orderBy:'value'" value="{{tienda.key}}">{{tienda.value}}</option>
+                    </select>
+                </div>
+
+                <div id="inputA" style="width: 50%; margin-top: 5px; position: relative; z-index: 1000;">
+                    <Label>Icons</Label>
+                    <div style="float: left; width: 200px; border: 1px solid #CCC; padding-top: 10px; background-color: #FFF;
+                                border-radius: 5px; padding: 10px; cursor: pointer;">
+                        
+                        <div ng-click="abreIcones()"
+                            style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #333;">
+                            Selecciona un icone
+                        </div>
+
+                        <div ng-show="iconsAbr" style="float: left; margin-top: 10px; width: 100%;">
+                            <div style="float: left; width: 100%; padding-top: 10px; padding-bottom: 5px; border-top: 1px solid #CCC;">
+                                <img src="https://loro.com.co/c0bb41e5bb3a53b9d2511d6bfef92e39.svg" width="25">
+                            </div>
+                            <div style="float: left; width: 100%; padding-top: 10px; padding-bottom: 5px; border-top: 1px solid #CCC;">
+                                <i class="fab fa-accusoft"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div style="float:left; width: 100%; margin-top: 20px;">
+
+                    <div id="inputA">
+                        <Label>De</Label>
+                        <input type="date" ng-model="de">
+                    </div>
+
+                    <div id="inputA">
+                        <Label>&nbsp;</Label>
+                        <input type="time" id="hra1"
+                            style="float: left; margin-left: 10px; padding-left: 10px; width: 95px; border: none;">
+                    </div>
+
+                    
+                    <div id="inputA">
+                        <Label>Hasta</Label>
+                        <input type="date" ng-model="ate">
+                    </div>
+
+                    <div id="inputA">
+                        <Label>&nbsp;</Label>
+                        <input type="time" id="hra2"
+                            style="float: left; margin-left: 10px; padding-left: 10px; width: 95px; border: none;">
+                    </div>
+
+                </div>
+
+                <div class="inputA" style="margin-top: 20px; width: 100%;">
+                    <Label>Descripción</Label>
+                    <textarea style="width: 1000px;" ui-tinymce ng-model="tinymceModel"></textarea>
+                </div>
+                
+                <div id="inputA" style="width:100%; margin-top: 28px;">
+                    <button type="button" ng-click="salvar()">
+                        <span ng-show="botao">Salvar</span>
+                        <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                    </button>
+                </div>
+                
+                <div id="status" 
+                    style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

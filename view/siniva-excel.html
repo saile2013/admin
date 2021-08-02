@@ -1,0 +1,54 @@
+﻿<div id="perfilPedidos">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos" 
+        style="position:fixed; left:50%; margin-left:-600px; top:50%; margin-top:-300px; background:#FFF; 
+        width:100%; max-width:1200px; height:600px; border:1px solid #333; z-index:2000; border-radius: 10px; overflow-x: hidden;">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+
+            <div id="txtA" 
+                ng-click="exportToExcel('#tableToExport')"
+                style="font-family: Arial, Helvetica, sans-serif; cursor: pointer; font-size: 17px; margin-top: 10px; margin-bottom: 20px;">
+                <i class="fas fa-file-csv" style="font-size: 1.2em;"></i> Export to excel
+            </div>
+
+            <div id="tableToExport">
+            <table border="1" cellpadding="8" style="font-family: Arial, Helvetica, sans-serif; margin-bottom: 40px; font-size: 15px; width: 100%;">
+            <thead>
+            <tr class="table-header">
+                <th>ID</th>
+                <th>SKU</th>
+                <th>Nombre del prodcuto</th>
+                <th>Tienda</th>
+                <th>Precio</th>
+                <th>Categorías</th>            
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="ivan in ivans">
+                <td>{{ivan.id}}</td>
+                <td>{{ivan.sku}}</td>
+                <td>{{ivan.product}}</td>
+                <td>{{ivan.store}}</td>
+                <td>$ {{ivan.price}}</td>
+                <td>
+                    <div ng-if="ivan.category_id == 1">Juegos</div>
+                    <div ng-if="ivan.category_id == 2">Deportivos</div>
+                    <div ng-if="ivan.category_id == 3">Útiles escolares</div>
+                    <div ng-if="ivan.category_id == 4">Vestuario</div>
+                    <div ng-if="ivan.category_id == 5">Electrodoméstico</div>
+                    <div ng-if="ivan.category_id == 6">Vestuario Accesorios</div>
+                </td>
+            </tr>
+            </tbody>
+            </table>
+            </div>
+                        
+        </div>
+    </div>
+</div>

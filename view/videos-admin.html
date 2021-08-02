@@ -1,0 +1,301 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp;
+        <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">videos admin</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="home">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB" style="padding-top: 80px; padding-bottom: 80px;">
+        <div style="margin: 0 auto; width: 1150px;">
+            
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/ESgEZKNkgf9OsMkqr6TLiNUBAR8Vhb34WapY4E72SUyykQ?e=kIgUSz" target="_blank">
+                <div style="float: left; margin-left: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Blacklist
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/Eci5IerVnuJNjD9_xZ52nd8BTEjhWgKeSr9esNAOpFYvlA?e=bVe5l1" target="_blank">
+                <div style="float: left; margin-left: 40px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fa fa-th-large" aria-hidden="true"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Categorías
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EbNxnOJhrFdBo4o-ytkB-F4BxAunq9i2vv8OuGnofHQyqQ?e=DjNBWV" target="_blank">
+                <div style="float: left; margin-left: 40px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-receipt"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Cupones
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/ESsAThKZIMdDrZM5vhWJGbEBlYL9Jq_ENAtSbfE4HYk_9g?e=4iIloJ" target="_blank">
+                <div style="float: left; margin-left: 40px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-percent"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Dia sin Iva
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EbiVB2FIkllGjZLw9F3gRIEBH2Ef8cWH-V6k37cu_OjkmQ?e=eDsWoF" target="_blank">
+                <div style="float: left; margin-left: 40px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Emails Tiendas
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EXG_ly8qSv9AlguJZhUlRmIB8JmXCySg86ygMbdQwj2oeA?e=V0NWrr" target="_blank">
+                <div style="float: left; margin-left: 40px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-chart-area"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Estadisticas
+                    </div>
+                </div>
+            </a>
+
+            <div style="float: left; width: 100%; margin-top: 30px;">
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EW0YpMOCHotLjn3izRwGyeMB0weTsUBNU84SLr0thf3WYg?e=Kk6cjC" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fa fa-calendar" aria-hidden="true"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Histórico
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EQyftCHb9wFPnwyQ1uYJvwABenUzx4Xszd26HfGfS7Et-Q?e=DS6EO8" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-search-plus"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Keywords
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EUH1EYWXsghGi6m7rHIzVDABIha1aRtgMWnWujJaF8mOAQ?e=5ECYju" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fa fa-truck" aria-hidden="true"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Logistica
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EfVRhUlIsyhLl2pzOtlxgdkBGLuS6uZmbIKbDA5V6PDqEA?e=c7nQwL" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-wrench"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Mantenimiento
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EeVJwRo7QGhMgdE5pTsirdAB37PsvJqogRROEqNfgzPM9g?e=ARdqqP" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fa fa-shopping-basket" aria-hidden="true"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Ordenes
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EZYYyKIREc1JuQUencKY8-QB_R7-n_xNsmmQr0f10zHB5A?e=1hcOp4" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Orden Tiendas
+                    </div>
+                </div>
+            </a>
+
+            </div>
+
+            <div style="float: left; width: 100%; margin-top: 30px;">
+                
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EbvX_1XfU4VGi1uFG4soPGsBglcdVS3odD4KiKR5epq49A?e=dLGZ1g" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-funnel-dollar"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Precio Increibles y recomendados
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EYAgCT_F5chMowXZtltn1toBlp9HUWbziWlm9_pomzX1jA?e=CvOxnn" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fa fa-cubes" aria-hidden="true"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Productos
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EXYulGw4pzBBnqQeTxC0-yoB48Sc0mYU5l9eZ43DORoHWQ?e=N8WB9r" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-bell"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Push Notification
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EZEbSNQzT2ZBrchhpuqrywgB2YKgEXuFCO6OgUjdjQwdBQ?e=V3bf08" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fa fa-barcode" aria-hidden="true"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Refunds
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/EQz7Wes2yR5LiP6ZkmbdCyEBsjUDTNoTyZsodrGZ2kfRDg?e=hvETki" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-clock"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Servicios (48 horas)
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/ERLrn3Xn1HdJtJra6DFm8kgBIewYYRxROc7AvwpEbNItXw?e=Xg4n7w" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-photo-video"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Sliders
+                    </div>
+                </div>
+            </a>
+
+            </div>
+
+            <div style="float: left; width: 100%; margin-top: 30px;">
+            
+            <a href="https://lorocomco-my.sharepoint.com/personal/s_galvez_loro_com_co/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fs%5Fgalvez%5Floro%5Fcom%5Fco%2FDocuments%2FVideos%20Admin%2FAdmin%2DModulo%2DTiendas%2Emp4&parent=%2Fpersonal%2Fs%5Fgalvez%5Floro%5Fcom%5Fco%2FDocuments%2FVideos%20Admin&originalPath=aHR0cHM6Ly9sb3JvY29tY28tbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvc19nYWx2ZXpfbG9yb19jb21fY28vRVEwRFJmZGZNVXBCdEFCVXVnRl8wZW9CREdIY3Nvd0J2WnJmUEpuR2tyVnFCdz9ydGltZT15aGxJYXN0TzJFZw" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Tiendas
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://lorocomco-my.sharepoint.com/:v:/g/personal/s_galvez_loro_com_co/ET3ZeN3YRYRJrQGx6NlxW7YBzDwV8b5ECFqAP-X07XINvQ?e=kTggii" target="_blank">
+                <div style="float: left; margin-left: 20px; margin-right: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-user-friends"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Usuarios
+                    </div>
+                </div>
+            </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

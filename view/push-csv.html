@@ -1,0 +1,188 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp;
+        <a ui-sref="pushs">
+            <i class="fas fa-chevron-right"></i> &nbsp; notificaciones push
+        </a> &nbsp;
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">.CSV</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="home">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="push-csv">
+            	<i class="fas fa-file-csv"></i> push vía CSV
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB" style="padding-top: 40px; padding-bottom: 0px;">
+        <div style="float: left; margin-bottom: 50px; width: 100%;">
+            
+            <div style="float: left; margin-left: 15px; width: 100%; margin-bottom: 40px;">
+                <label style="float: left; width: 100%; font-size: 15px; color: #333; font-style: italic; text-decoration: underline;">
+                    Elección un Archivo
+                </label>
+
+                <!--<input type="file" ng-model="file"
+                       placeholder="Archivo Csv" 
+                       style="border-radius: 5px; border: none; width: 400px; margin-top: 25px;">-->
+
+                <div 
+                    style="float:left; margin-left: 20px; margin-top: 30px; font-size: 2em; color: #00c198;" 
+                    class="button" ngf-select="selec($file)" ng-model="file" name="file" ngf-pattern="'.csv'"
+                    ngf-accept="'.csv'"><i class="fas fa-upload"></i>
+                    <span style="font-size: 12px;">{{nameFile}}</span>
+                </div>
+                
+            </div>
+
+            <div style="float: left; margin-left: 15px;">
+                <select ng-model="tipo" 
+                        ng-change="seleTipos()"
+                        ng-options="tipo as tipo.name for tipo in tipos track by tipo.id">
+                        <option value="">Selecciona un tipo</option>
+                </select>
+            </div>
+
+            <div style="float: left; margin-left: 15px;">
+                <select ng-model="store" 
+                        ng-change="seleStores()"
+                        ng-options="store as store.name for store in stores track by store.id">
+                        <option value="">Selecciona un item</option>
+                </select>
+            </div>
+
+            <div ng-show="store.id == 'CATEGORY'" style="float: left; margin-left: 15px;">
+                <select ng-model="categoria" 
+                        ng-change="seleCategorias()"
+                        ng-options="categoria as categoria.name for categoria in categorias track by categoria.id">
+                        <option value="">Selecciona una categoría</option>
+                </select>
+            </div>
+
+            <div ng-show="store.id == 'STORE'" style="float: left; margin-left: 15px;">
+                <select ng-model="tienda2" 
+                        ng-options="tienda as tienda.name for tienda in tiendas track by tienda.id">
+                        <option value="">Selecciona una tienda</option>
+                </select>
+            </div>
+        </div>
+
+        <!---->
+        <div ng-show="tipo.id == 'age'">
+            <div style="float: left; margin-left: 15px;">
+                <select ng-model="start" 
+                        ng-options="start as start.name for start in starts track by start.id">
+                </select>
+            </div>
+            <div style="float: left; margin-left: 15px;">
+                <select ng-model="finish" 
+                        ng-options="finish as finish.name for finish in finishs track by finish.id">
+                </select>
+            </div>
+        </div>
+
+        <!---->
+        <div ng-show="tipo.id == 'platform'">
+            <div style="float: left; margin-left: 15px;">
+                <select ng-model="platform" 
+                        ng-options="platform as platform.name for platform in platforms track by platform.id">
+                        <option value="">Selecciona una plataforma</option>
+                </select>
+            </div>
+        </div>
+
+        <!---->
+        <div ng-show="tipo.id == 'store_followers'">
+            <div style="float: left; margin-left: 15px;">
+                <select ng-model="tienda" 
+                        ng-options="tienda as tienda.name for tienda in tiendas track by tienda.id">
+                        <option value="">Selecciona una tienda</option>
+                </select>
+            </div>
+        </div>
+
+        <!---->
+        <div ng-show="tipo.id == 'gender' || tipo.id == 'users_with_orders'">
+            <div style="float: left; margin-left: 15px;">
+                <select ng-model="gender" 
+                        ng-options="gender as gender.name for gender in genders track by gender.id">
+                        <option value="">Selecciona un genero</option>
+                </select>
+            </div>
+        </div>
+
+        <!---->
+        <div ng-show="tipo.id == 'specific_user'">
+            <div style="float: left; margin-left: 15px;">
+                <input type="text" ng-model="email"
+                       placeholder="E-mail" 
+                       style="padding: 8px; border-radius: 5px; border: none; width: 200px;">
+            </div>
+        </div>
+
+        <!---->
+        <div style="float: left; margin-left: 15px; margin-top: 50px; width: 100%;">
+            <input type="text" ng-model="titulo"
+                    placeholder="Título" 
+                    style="padding: 8px; border-radius: 5px; border: none; width: 400px;">
+        </div>
+
+        <!---->
+        <div style="float: left; margin-left: 15px; margin-top: 40px; width: 100%;">
+            <textarea   
+                ng-model="descripcion"
+                placeholder="Descripción" 
+                style="padding: 8px; border-radius: 5px; border: none; width: 400px; font-family: Arial, Helvetica, sans-serif;">
+            </textarea>
+        </div>
+
+        <div style="float:left; margin-top:40px; width:100%; height:1px; background:#FFF;"></div>
+
+        <div style="float: left; margin-top: 10px; width: 100%;">
+            <button type="button" ng-click="submit()"
+                    style="float: left; margin-left: 15px; width:300px; background:#00c198; border-radius:5px; border:none; color:#FFF; 
+                           font-weight:bold; cursor:pointer; padding-top: 12px; padding-bottom: 12px; margin-top: 30px; margin-bottom: 50px;">                
+                    <span ng-show="botao">Enviar</span>
+                    <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+            </button>
+        </div>
+
+        <div id="status" style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+
+    </div>
+
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

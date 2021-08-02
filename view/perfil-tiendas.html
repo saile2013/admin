@@ -1,0 +1,84 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="tiendas">
+            <i class="fas fa-chevron-right"></i> &nbsp; tiendas &nbsp; 
+        </a>
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home" style="text-transform: lowercase;">{{nameTienda}}</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="adicionar-pasillos({idTien: id})">
+            	<i class="fas fa-plus"></i> añadir
+            </a>
+        </div>        
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contMais" ng-show="!tiendas">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+    
+    <div ng-repeat="tienda in tiendas">
+        <div id="contB">
+            <div id="contFto" style="margin-left: 20px;">
+                <div id="fto" 
+                     style="background:url({{tienda.banner.thumbnail}}) center center no-repeat;
+                            background-size:contain;">
+                </div>
+            </div>
+            <div id="txtB">{{tienda.name}}</div>
+            <div id="txtC">{{tienda.store_name}}</div>
+            <div id="txtD"><b>Sort:</b> {{tienda.sort}}</div>
+
+            <a ui-sref="editar-pasillos({id:tienda.id, store_id:tienda.store_id})">
+                <div id="ctnEdit" style="margin-top: -40px;">
+                    <i class="fas fa-edit"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div ng-show="semresult" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="tiendas && !parou && !semresult">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

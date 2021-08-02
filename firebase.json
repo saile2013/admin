@@ -1,0 +1,18 @@
+{
+  "hosting": {
+    "public": "/",
+    "_site": "qa-superadmin-loro",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
+

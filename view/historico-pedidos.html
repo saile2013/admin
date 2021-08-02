@@ -1,0 +1,48 @@
+﻿<div id="perfilPedidos">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos" style="position:fixed; left:50%; margin-left:-450px; top:50%; margin-top:-250px; background:#FFF; 
+                                width:100%; max-width:900px; height:500px; border:1px solid #333; z-index:2000; border-radius: 10px; 
+                                overflow-x: hidden;">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+            
+            <div id="tituPedidos">órdenes ID: {{order_id}}</div>
+            
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 10px;">Transacción</div>
+
+            <div id="txtAPedidos"><b>Referencia:</b> {{dev_reference}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Total:</b> $ {{amount}}</div>
+            <div id="txtAPedidos"><b>Código de operador:</b> {{carrier_code}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Código de Autorización:</b> {{authorization_code}}</div>
+            <div id="txtAPedidos"><b>URL del banco:</b> {{bank_url}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>País:</b> {{country}}</div>
+            <div id="txtAPedidos"><b>Moneda:</b> {{currency}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>ID de transacción:</b> {{id}}</div>
+            <div id="txtAPedidos"><b>Descripciones:</b> {{descriptions}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Fecha de pago:</b> {{paid_date}}</div>
+            
+            <div id="txtAPedidos"><b>Cuotas:</b> {{installments}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Mensaje:</b> {{message}}</div>
+            
+            <div id="txtAPedidos"><b>Estado:</b> {{status}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Estado del banco:</b> {{status_bank}}</div>
+
+            <div id="txtAPedidos"><b>ID de entradas:</b> {{ticket_id}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Código de trazabilidad:</b> {{trazability_code}}</div>
+
+            <div>
+                <div id="txtAPedidos"><b>Fecha de reembolso:</b> {{date_refund}}</div>
+            </div>
+            <div>
+                <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Estado de orden:</b> {{status_order}}</div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>

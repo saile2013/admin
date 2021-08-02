@@ -1,0 +1,92 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">productos increíbles</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>    
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="home">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="precos-incriveis.adicionar({id: 1})">
+            	<i class="fas fa-plus"></i> añadir
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contMais" ng-show="!produtos">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+    
+    <div ng-repeat="produto in produtos">        
+        <div id="contB">
+            <div id="contFto" style="margin-left: 20px;">
+                <div id="fto" 
+                     style="background:url({{produto.product.main_picture}}) center center no-repeat;
+                            background-size:cover;">
+                </div>
+            </div>
+            <div id="txtB">{{produto.product.name}}</div>
+            <div id="txtC">
+                <b>Status:</b> 
+                <div style="display: inline;" ng-show="produto.product.is_published">Publicado</div> 
+                <div style="display: inline;" ng-show="!produto.product.is_published">No publicado</div>
+            </div>
+            <div id="txtD"><b>Tienda:</b> {{produto.product.store.name}}</div>
+
+            <a ng-click="rmvProdutos(produto.product.id)">
+                <div id="ctnEdit" style="margin-top: -38px; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </div>
+            </a>
+        </div>        
+    </div>
+
+    <div ng-show="!produto" ng-repeat="produto in produtos" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="produtos && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+        
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

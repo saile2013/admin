@@ -1,0 +1,32 @@
+﻿<div id="perfilPedidos">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+            
+            <div id="tituPedidos">ID: {{id}}</div>
+            <div id="txtAPedidos" 
+                 style="background-color: #00c198; color: #FFF; margin-bottom: 20px;">
+                 Productos (cantidad {{produtos.length}})
+            </div>
+
+            <div id="lisProdutos" ng-repeat="produto in produtos">
+                <div id="txtAPedidos" ><b>Nombre del producto:</b> {{produto.product_name}}</div>
+                
+                <div id="txtAPedidos" 
+                     style="background-color: #F4F4F4;"><b>Estado:</b> {{produto.status}}</div>
+
+                <div id="txtAPedidos" ><b>Nombre de la tienda:</b> {{produto.store_name}}</div>
+
+                <div id="txtAPedidos" 
+                     style="background-color: #F4F4F4;"><b>Precio unitario:</b> $ {{produto.unit_price}}</div>
+
+            </div>
+        </div>
+    </div>
+</div>

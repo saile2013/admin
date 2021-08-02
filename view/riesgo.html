@@ -1,0 +1,121 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">areas de riesgo</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="adicionar-riesgo">
+            	<i class="fas fa-plus"></i> añadir
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB">
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 8%;">
+            ID
+        </div>
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 24%; text-align: left;">
+            Latitud
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 24%;">
+            Longitud
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 24%;">
+            Radio
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 8%;">
+            Editar
+        </div>        
+    </div> 
+
+    <div id="contMais" ng-show="!pedidos">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-repeat="pedido in pedidos">
+        <div id="contB">
+            <div id="idPed" style="width: 8%;">
+                {{pedido.id}}
+            </div>
+            <div id="idPed" style="width: 24%;">
+                {{pedido.lat}}
+            </div>
+            <div id="nmCliPed" style="width: 24%;">
+                {{pedido.lng}}
+            </div>
+            <div id="emCliPed" style="width: 24%;">
+                {{pedido.radio}}
+            </div>
+            <a ng-click="editaRiesgo(pedido.id)" style="cursor: pointer;">
+                <div id="hsPed" style="width: 8%;">
+                    <i class="far fa-edit"></i>
+                </div>
+            </a>
+        </div>
+        <div id="ediEnd{{pedido.id}}"  style="float: left; width: 100%; display: none;">
+            <div ng-click="putEnde(pedido.id)" id="btn{{pedido.id}}"
+                 style="float: right; margin-right: 25px; margin-top: 15px; cursor: pointer;">
+                 <i style="color: #00c198; font-size: 1.5em;" class="fas fa-check-square"></i>
+            </div>
+            <div style="float: right; width: 250px;">
+                <input type="text" id="radio{{pedido.id}}" placeholder="Radio" ng-value="pedido.radio"
+                    style="border-radius: 5px; padding: 8px; width: 200px; margin-top: 10px;" />
+            </div>
+            <div style="float: right; width: 250px;">
+                <input type="text" id="lng{{pedido.id}}" placeholder="Longitude" ng-value="pedido.lng"
+                    style="border-radius: 5px; padding: 8px; width: 200px; margin-top: 10px;" />
+            </div>
+            <div style="float: right; width: 250px;">
+                <input type="text" id="lat{{pedido.id}}" placeholder="Latitude" ng-value="pedido.lat"
+                    style="border-radius: 5px; padding: 8px; width: 200px; margin-top: 10px;" />
+            </div>
+
+            <div id="status{{pedido.id}}" 
+                 style="float: right; margin-right: 10px; margin-top: 20px; font-size: 12px; color:#B70609;
+                        font-family: Arial, Helvetica, sans-serif;">
+            </div>
+        </div>
+    </div>
+    
+    <div ng-show="!pedido" ng-repeat="pedido in pedidos" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="pedidos && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

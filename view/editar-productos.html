@@ -1,0 +1,266 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ng-show="tp!='shoppers'" ui-sref="productos">
+            <i class="fas fa-chevron-right"></i> &nbsp; productos 
+        </a>
+        <a ng-show="tp=='shoppers'" ui-sref="shoppers">
+            <i class="fas fa-chevron-right"></i> &nbsp; productos 
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">editar productos</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ng-show="tp!='shoppers'" ui-sref="productos">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+            <a ng-show="tp=='shoppers'" ui-sref="shoppers">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+
+        <div id="conTxtB">
+            <form name="contatoForm">
+            <div id="txtH">Editar productos</div>
+            
+            <div id="inputA">
+                <Label>Name</Label>
+                <input type="text" style="width: 400px;" ng-model="name" placeholder="Ej: Camisa Oslo #Four Brothers">
+            </div>
+            
+            <div id="inputA" style="width: 100%; margin-top: 10px; margin-bottom: 130px;">
+                <label>Description</label>
+                <textarea style="width: 550px; height: 100px;" ng-model="description" placeholder="Ej: Descripción del producto"></textarea>
+            </div>
+
+            <div id="inputA">
+                <label>Precio</label>
+                <input type="text" fcsa-number="{ prepend: '$' }" ng-model="price" placeholder="Ej: 129900">
+            </div>
+
+            <!--<div id="inputA">
+                <label>Descuento</label>
+                <input type="number" ng-model="descuento" placeholder="Ej: %">
+            </div>-->
+
+            <!--<div id="inputA">
+                <label>Stock</label>
+                <input type="text" ng-model="stock" placeholder="Ej: 2" readonly>
+            </div>-->
+
+            <div id="inputA">
+                <label>IVA</label>
+                <input type="text" ng-model="tax_percent" placeholder="Ej: 60" ng-disabled="checkboxModel.value1==1">
+            </div>
+
+            <div id="inputA">
+                <label>Desactivar IVA</label>
+                <input style="width: 20px; margin-top: 6px;" type="checkbox" ng-model="checkboxModel.value1"
+                       ng-true-value="1" ng-false-value="0">
+            </div>
+
+            <div id="inputA">
+                <label>Habilitar para destacado</label>
+                <input style="width: 20px; margin-top: 6px;" type="checkbox" ng-model="sort"
+                       ng-true-value="10" ng-checked="sort==10">
+            </div>
+
+            <div style="width: 100%; float: left;">
+                <div id="inputA" style="width: 19%; margin-top: 10px;">
+                    <label>Descuento</label>
+                    <input type="text" ng-model="discount" placeholder="Ej: 100">
+                    <div style="float: left; width: 100%; font-size: 12px; margin-top: 5px;">
+                        (numero menor o igual 100, significa porcentaje, y un numero mayor a 100, es el valor final)
+                    </div>
+                </div>
+
+                <div style="width: 70%; float: left; margin-top: 8px;">
+                    <div id="inputA" style="width:100px; float: left;">
+                        <label>De</label>
+                        <input type="date" ng-model="data1"> 
+                    </div>
+
+                    <div id="inputA" style="width:90px; float: left; margin-left: 120px;">
+                        <label>&nbsp;</label>
+                        <input type="time" id="hra1" style="width:90px">
+                    </div>
+
+                    <div id="inputA" style="width:100px; float: left; margin-left: 50px;">
+                        <label>Hasta</label>
+                        <input type="date" ng-model="data2">
+                    </div>
+
+                    <div id="inputA" style="width:90px; float: left; margin-left: 120px;">
+                        <label>&nbsp;</label>
+                        <input type="time" id="hra2" style="width:90px">
+                    </div>
+                </div>
+            </div>
+
+            <div id="inputA" style="width: 100%; margin-top: 50px;">
+                <label>Valor ICO</label>
+                <input type="text" ng-model="ico_percent" placeholder="Ej: 100">
+            </div>
+
+            <!--<div style="float: left; width: 100%; margin-top: 20px;">
+                <div id="inputA">
+                    <label>De</label>
+                    <input type="date" ng-model="data1"> 
+                </div>
+                <div id="inputA">
+                    <label>Hasta</label>
+                    <input type="date" ng-model="data2">
+                </div>
+            </div>-->
+
+            <div id="inputA" style="float: left; width: 100%; margin-top: 30px;">
+                <label>Categorías</label>
+            </div>
+
+            <div id="inputA" style="float: left; width: 80%; margin-top: -30px;">
+                <div style="float: left; width: 100%; height: 100px; overflow-x: hidden; border-radius: 5px; padding: 10px; background-color: #FFF; border: 1px solid #CCC;">
+                    <div ng-repeat="selCliente in selClientes" style="float: left; margin-bottom: 5px; margin-top: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #00c198; padding: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #00c198;">
+                        {{selCliente.name}} <b>#{{selCliente.id}}</b> &nbsp;
+                        <a href="javascript:" ng-click="remCliente(selCliente.id)">x</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="inputA" style="float: left; width: 80%; margin-top: 80px;">
+                <div style="float: left; width: 100%; border-radius: 5px; padding: 10px; background-color: #FFF; border: 1px solid #CCC; height: 300px; overflow-x: hidden;">
+                    <div style="float: left; width: 100%; margin-top: 10px; margin-bottom: 20px;">
+                        <input type="text" ng-model="seCliente" placeholder="Buscar..." style="border: 1px solid #00c198; width: 250px; height: 18px;">
+                        <button type="button" ng-click="buCliente()" style="float: left; margin-left: -35px; border: none; width: 50px;">ok</button>
+                    </div>
+                    <div ng-repeat="cliente in clientes" ng-click="selCliente(cliente.id, cliente.name)" style="float: left; width: 100%; margin-bottom: 20px; cursor: pointer;">
+                        
+                        <div style="float: left; width: 50px; height: 50px; border-radius: 50%; border: 1px solid #333; 
+                                    background:url({{cliente.img_category}}) center center no-repeat;
+                                    background-size:contain;"></div>
+                        
+                        <div style="float: left; margin-top: 18px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                            {{cliente.name}} &nbsp; <b>#{{cliente.id}}</b>
+                        </div>
+                    </div>
+                    <div style="float: left; margin-bottom: 20px; width: 100%; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                        <span ng-click="maisCliente()" style="padding: 10px; color: #00c198; border: 1px solid #00c198; border-radius: 5px; width: 150px; cursor: pointer;">más...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div id="inputA" style="float: left; width: 80%;">
+                <multiple-autocomplete ng-model="selectedList"
+                    object-property="name"
+                    suggestions-arr="optionsList">
+                </multiple-autocomplete>
+            </div>-->
+            
+            <div id="linhaB" style="margin-top: 300px;"></div>
+
+            <div style="float:left; width: 100%; margin-bottom: 70px;">
+
+                <div id="inputA" style="width: 18%; margin-bottom: 100px;">
+                    <label>Main Picture (1024x1024)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="bannerW1" src="{{mainPicture}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+                    <form>
+                        <input style="position: relative; z-index: 2;" type='file' ng-change="carrega1()" ng-model='yourModel1' base-sixty-four-input>
+                    </form>
+                </div>
+    
+                <div id="inputA" style="width: 18%; margin-bottom: 100px;">
+                    <label>Picture One (1024x1024)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="bannerW2" src="{{pictureOne}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+                    <form>
+                        <input style="position: relative; z-index: 2;" type='file' ng-change="carrega2()" ng-model='yourModel2' base-sixty-four-input>
+                    </form>
+                </div>
+    
+                <div id="inputA" style="width: 18%; margin-bottom: 100px;">
+                    <label>Picture Two (1024x1024)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="bannerW3" src="{{pictureTwo}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+                    <form>
+                        <input style="position: relative; z-index: 2;" type='file' ng-change="carrega3()" ng-model='yourModel3' base-sixty-four-input>
+                    </form>
+                </div>
+    
+                <div id="inputA" style="width: 18%; margin-bottom: 100px;">
+                    <label>Picture Three (1024x1024)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="bannerW4" src="{{pictureThree}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+                    <form>
+                        <input style="position: relative; z-index: 2;" type='file' ng-change="carrega4()" ng-model='yourModel4' base-sixty-four-input>
+                    </form>
+                </div>
+    
+                <div id="inputA" style="float: left; width: 18%; margin-bottom: 100px;">
+                    <label>Picture Four (1024x1024)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="bannerW5" src="{{pictureFour}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+
+                    <form>
+                        <input style="position: relative; z-index: 2;" type='file' ng-change="carrega5()" ng-model='yourModel5' base-sixty-four-input>
+                    </form>
+                </div>
+    
+            </div>
+            
+            <div id="linhaB"></div>
+
+            <div id="inputA" style="width:100%;">
+                <button type="button" ng-click="salvar()">
+                    <span ng-show="botao">Salvar</span>
+                    <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                </button>
+            </div>
+
+            <div id="status" style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+
+        </div>
+        </form>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

@@ -1,0 +1,19 @@
+﻿<div id="perfilPedidos">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos" style="position:fixed; left:50%; margin-left:-450px; top:50%; margin-top:-100px; background:#FFF; 
+                                width:100%; max-width:900px; height:200px; border:1px solid #333; z-index:2000; border-radius: 10px; 
+                                overflow-x: hidden;">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">            
+            <div id="tituPedidos">ID: {{idPed}}</div>
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 10px;">Mensaje de estado</div>
+
+            <div id="tituPedidos" style="text-transform: uppercase;">{{payments}}</div>
+        </div>
+    </div>
+</div>

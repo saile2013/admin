@@ -1,0 +1,286 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA"></div>
+</div>
+
+<div id="div2Bus"></div>
+
+<div id="div4">
+    <div id="conTxt"></div>
+</div>
+
+<div id="div5">
+    <div id="contIniDiv5" style="margin-top: 70px;">
+
+        <a ui-sref="pedidos">
+            <div id="ctnBordaDiv5">
+                <div id="bordaDiv5"><i class="fa fa-shopping-basket" aria-hidden="true"></i></div>
+                <div id="txtBordaDiv5">Listado Completo de Pedidos</div>
+            </div>
+        </a>
+
+        <a ui-sref="refunds">
+            <div id="ctnBordaDiv5">
+                <div id="bordaDiv5"><i class="fa fa-barcode" aria-hidden="true"></i></div>
+                <div id="txtBordaDiv5">Refunds</div>
+            </div>
+        </a>
+
+        <a ui-sref="categorias">
+            <div id="ctnBordaDiv5">
+                <div id="bordaDiv5"><i class="fa fa-th-large" aria-hidden="true"></i></div>
+                <div id="txtBordaDiv5">Administrar Categorías</div>
+            </div>
+        </a>
+
+        <a ui-sref="productos">
+            <div id="ctnBordaDiv5">
+                <div id="bordaDiv5"><i class="fa fa-cubes" aria-hidden="true"></i></div>
+                <div id="txtBordaDiv5">Administrar Productos</div>
+            </div>
+        </a>
+
+        <a ui-sref="tiendas">
+            <div id="ctnBordaDiv5">
+                <div id="bordaDiv5"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+                <div id="txtBordaDiv5">Tiendas</div>
+            </div>
+        </a>
+
+        <a ui-sref="cotacao-logistica">
+            <div id="ctnBordaDiv5">
+                <div id="bordaDiv5"><i class="fa fa-truck" aria-hidden="true"></i></div>
+                <div id="txtBordaDiv5">Logistica</div>
+            </div>
+        </a>
+
+        <a ui-sref="utilizacion">
+            <div id="ctnBordaDiv5">
+                <div id="bordaDiv5"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                <div id="txtBordaDiv5">Histórico de Utilización</div>
+            </div>
+        </a>
+
+        <!--<a ui-sref="tiendas-tematicas">
+            <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                <div id="bordaDiv5"><i class="fas fa-cart-plus"></i></div>
+                <div id="txtBordaDiv5">Tiendas Tematicas</div>
+            </div>
+        </a>-->
+
+        <a ui-sref="sliders">
+            <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                <div id="bordaDiv5"><i class="fas fa-photo-video"></i></div>
+                <div id="txtBordaDiv5">Sliders</div>
+            </div>
+        </a>
+
+        <a ui-sref="clientes">
+            <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                <div id="bordaDiv5"><i class="fas fa-user-friends"></i></div>
+                <div id="txtBordaDiv5">Clientes</div>
+            </div>
+        </a>
+
+        <a ui-sref="pushs">
+            <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                <div id="bordaDiv5"><i class="fas fa-bell"></i></div>
+                <div id="txtBordaDiv5">Notificaciones <br> Push</div>
+            </div>
+        </a>
+
+        <a ui-sref="tiendas-estatisticas">
+            <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                <div id="bordaDiv5"><i class="fas fa-chart-area"></i></div>
+                <div id="txtBordaDiv5">Estadisticas</div>
+            </div>
+        </a>
+
+        <a ui-sref="cupons">
+            <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                <div id="bordaDiv5"><i class="fas fa-receipt"></i></div>
+                <div id="txtBordaDiv5">Cupones</div>
+            </div>
+        </a>
+
+        <a ui-sref="siniva">
+            <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                <div id="bordaDiv5"><i class="fas fa-percent"></i></div>
+                <div id="txtBordaDiv5">Día sin IVA</div>
+            </div>
+        </a>
+
+        <a ui-sref="home-publicidade">
+            <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                <div id="bordaDiv5"><i class="fas fa-ad"></i></div>
+                <div id="txtBordaDiv5">Publicidad</div>
+            </div>
+        </a>
+
+        <div style="float: left; width: 100%; margin-bottom: 60px;">
+
+            <a ui-sref="tienda-cidade({id:0})">
+                <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                    <div id="bordaDiv5"><i class="fas fa-map-signs"></i></div>
+                    <div id="txtBordaDiv5">Tienda & Ciudad</div>
+                </div>
+            </a>
+
+            <a ui-sref="manutencao">
+                <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                    <div id="bordaDiv5"><i class="fas fa-wrench"></i></div>
+                    <div id="txtBordaDiv5">Mantenimiento</div>
+                </div>
+            </a>
+
+            <a ui-sref="precos-incriveis">
+                <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                    <div id="bordaDiv5"><i class="fas fa-funnel-dollar"></i></div>
+                    <div id="txtBordaDiv5">Precios increibles</div>
+                </div>
+            </a>
+
+            <a ui-sref="precos-recomendados">
+                <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                    <div id="bordaDiv5"><i class="fas fa-hand-holding-usd"></i></div>
+                    <div id="txtBordaDiv5">Precios recomendados</div>
+                </div>
+            </a>
+
+            <a ui-sref="orden-tiendas">
+                <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                    <div id="bordaDiv5"><i class="fas fa-sort-numeric-up"></i></div>
+                    <div id="txtBordaDiv5">Orden de Tiendas</div>
+                </div>
+            </a>
+
+            <a ui-sref="palavras-chaves">
+                <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                    <div id="bordaDiv5"><i class="fas fa-search-plus"></i></div>
+                    <div id="txtBordaDiv5">Palabras buscadas</div>
+                </div>
+            </a>
+
+            <a ui-sref="blacklist">
+                <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                    <div id="bordaDiv5"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div id="txtBordaDiv5">Blacklist</div>
+                </div>
+            </a>
+
+            <div style="float: left; width: 100%;">
+                <a ui-sref="pedidos-plans">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fas fa-clock"></i></div>
+                        <div id="txtBordaDiv5">Pedidos de Servicios</div>
+                    </div>
+                </a>
+
+                <a ui-sref="emails">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fas fa-envelope-open-text"></i></div>
+                        <div id="txtBordaDiv5">E-mails Tiendas</div>
+                    </div>
+                </a>
+
+                <a ui-sref="terminos-condiciones">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fas fa-clipboard-list"></i></div>
+                        <div id="txtBordaDiv5">Términos y Condiciones</div>
+                    </div>
+                </a>
+
+                <a ui-sref="videos-admin">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fab fa-youtube"></i></div>
+                        <div id="txtBordaDiv5">Videos Admin</div>
+                    </div>
+                </a>
+
+                <a ui-sref="restaurantes">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fas fa-utensils"></i></div>
+                        <div id="txtBordaDiv5">Restaurantes</div>
+                    </div>
+                </a>
+
+                <a ui-sref="riesgo">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fas fa-map-marker-alt"></i></div>
+                        <div id="txtBordaDiv5">Areas de riesgo</div>
+                    </div>
+                </a>
+
+                <a ui-sref="tallas">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fas fa-ruler"></i></div>
+                        <div id="txtBordaDiv5">Tallas</div>
+                    </div>
+                </a>
+            </div>
+
+            <div style="float: left; width: 100%;">
+                <a ui-sref="sem-coberturas">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fas fa-user-slash"></i></div>
+                        <div id="txtBordaDiv5">Usuários sin coberturas</div>
+                    </div>
+                </a>
+
+                <a ui-sref="shoppers">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fas fa-wallet"></i></div>
+                        <div id="txtBordaDiv5">Shoppers</div>
+                    </div>
+                </a>
+
+                <a ui-sref="challenges">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fas fa-dice"></i></div>
+                        <div id="txtBordaDiv5">Challenges</div>
+                    </div>
+                </a>
+
+                <a ui-sref="categorizacao">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fas fa-cogs"></i></div>
+                        <div id="txtBordaDiv5">Categorización</div>
+                    </div>
+                </a>
+
+                <a ui-sref="usuarios-test">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5"><i class="fas fa-user-clock"></i></div>
+                        <div id="txtBordaDiv5">Usuarios Test</div>
+                    </div>
+                </a>
+
+                <a ui-sref="lorob2b">
+                    <div id="ctnBordaDiv5" style="margin-top: 50px;">
+                        <div id="bordaDiv5" style="padding-bottom: 18px; padding-top: 20px;">B2B</div>
+                        <div id="txtBordaDiv5">Loro B2B</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

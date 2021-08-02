@@ -1,0 +1,174 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="palavras-chaves">
+            <i class="fas fa-chevron-right"></i> &nbsp; consolidado &nbsp; 
+        </a>
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">búsqueda</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+    <!--<div id="datas">
+        <input type="date" ng-model="ate" ng-change="seleData()">
+    </div>
+    <div id="busTxt">
+        Hasta
+    </div>
+    <div id="datas">
+        <input type="date" ng-model="de">
+    </div>
+    <div id="busTxt">
+        De
+    </div>-->
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+            <a ui-sref="palavras-chaves">
+                <i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+
+        <div ng-click="abrirExp()" style="float: right; font:13px Arial; margin-right: 15px; cursor: pointer; cursor: pointer;">
+            <i class="fas fa-file-excel"></i> exportar
+        </div>
+
+        <!--2-->
+        <div style="float: right; font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold;
+                    margin-right: 15px; cursor: pointer;"
+            ng-model="ordenn">
+                <i class="fas fa-sort-amount-down-alt"></i>
+                <span ng-click="orden()" ng-show="namePence2">{{namePence2}}</span> 
+                <span ng-click="orden()" ng-show="!namePence2">orden</span>
+            
+
+            <div style="position: absolute; width: 200px; right: 92px; margin-top: 5px; color: #333;
+                        border: 1px solid #00c198; background-color: #FFF; border-radius: 5px; padding: 5px;"
+                ng-show="ordenn">
+
+                <div ng-show="estato2s" style="margin-top: 5px; margin-bottom: 5px;" ng-repeat="estato2 in estato2s">
+                    <a ng-click="ordernnn(estato2.value, estato2.aparence)">{{estato2.aparence}}</a>
+                </div>
+            </div>
+        </div>
+
+        <!--1-->
+        <div style="float: right; font-family: Arial, Helvetica, sans-serif; font-size: 13px; 
+                    margin-right: 15px; cursor: pointer; font-weight: bold;"
+            ng-click="ordernarr()"
+            ng-model="ordernar">
+                <i class="fas fa-sort-numeric-up"></i> 
+                <span ng-show="namePence1">{{namePence1}}</span> 
+                <span ng-show="!namePence1">ordernar</span>
+
+            <div style="position: absolute; width: 200px; margin-left: -140px; margin-top: 5px; color: #333;
+                        border: 1px solid #00c198; background-color: #FFF; border-radius: 5px; padding: 5px;"
+                ng-show="ordernar">
+                <div style="margin-top: 5px; margin-bottom: 5px;" ng-repeat="estato in estatos">
+                    <a ng-click="ordernarrr(estato.value, estato.aparence)">{{estato.aparence}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="exports" style="position: absolute; right: 13px; padding: 10px; margin-top: 30px; width: 300px; height: auto; background-color: #FFF; border-radius: 5px; border: 1px solid #00c198; z-index: 100;">
+        <div style="float: left; width: 100%; border-bottom: 1px solid #CCC; padding-bottom: 20px;">
+            <div ng-click="expTodos()" style="float: left; width: 200px; padding-top: 10px; padding-bottom: 10px; text-align: center; background-color: #CCC; font-family: Arial, Helvetica, sans-serif; font-size: 15px; border-radius: 5px; cursor: pointer;">
+                Exportar sin filtros
+            </div>
+        </div>
+        <div style="float: left; width: 100%; margin-top: 20px;">
+            <div style="float: left;">
+                <input type="date" ng-model="de" style="width:150px; border:1px solid #CCC; padding:8px; height:23px;">
+            </div>
+            <div style="float:left; border:1px solid #CCC; width:60px; font-family: Arial, Helvetica, sans-serif; background-color: #DDD; text-align: center; font-size: 14px; padding-top: 11px; padding-bottom: 12px;">
+                De
+            </div>
+
+            <div style="float: left; margin-top: 20px;">
+                <input type="date" ng-model="ate"
+                       style="width:150px; border:1px solid #CCC; padding:8px; height:23px;">
+            </div>
+            <div style="float:left; margin-top: 20px; width:60px; font-family: Arial, Helvetica, sans-serif; background-color: #DDD; text-align: center; font-size: 14px; padding-top: 11px; padding-bottom: 12px; border:1px solid #CCC;">
+                Hasta
+            </div>            
+        </div>
+        <div style="float: left; width: 100%; margin-top: 20px; border-bottom: 1px solid #CCC; padding-bottom: 20px;">
+            <div ng-click="expFechas()" style="float: left; width: 200px; padding-top: 10px; padding-bottom: 10px; text-align: center; background-color: #CCC; font-family: Arial, Helvetica, sans-serif; font-size: 15px; border-radius: 5px; cursor: pointer;">
+                Exportar por fechas
+            </div>
+        </div>
+
+        <div style="float: left; width: 100%; margin-top: 20px;">
+            <div ng-click="expBusca()" style="float: left; width: 200px; padding-top: 10px; padding-bottom: 10px; text-align: center; background-color: #CCC; font-family: Arial, Helvetica, sans-serif; font-size: 15px; border-radius: 5px; cursor: pointer;">
+                Exportar con filtros
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contMais" ng-show="!tiendas">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+    
+    <div ng-repeat="tienda in tiendas">
+        <div id="contB">            
+            <div style="margin-left: 15px; margin-top: 5px; margin-bottom: 5px;">
+                <a ui-sref="perfil-palavras({id:tienda.id})">
+                    <div id="txtB" style="color: var(--blue-700); text-decoration: underline;">
+                        {{tienda.search}} total: {{tienda.total}}
+                    </div>
+                </a>
+                <div id="txtC" style="color: grey; font-size: 16px;"><b>Sesión:</b> {{tienda.type}}</div>
+                <div id="txtC" style="color: grey; font-size: 16px;"><b>Encontrado:</b> {{tienda.total_found}}</div>
+                <div id="txtC" style="color: grey; font-size: 16px;"><b>No encontrado:</b> {{tienda.total_not_found}}</div>
+                <div id="txtC" style="color: grey; font-size: 16px;"><b>Inicio:</b> {{tienda.created_at}}</div>
+                <div id="txtC" style="color: rgb(128, 128, 128); font-size: 16px;"><b>Fin:</b> {{tienda.updated_at}} </div>
+                <a ui-sref="chaves-usuarios({id:tienda.id})">
+                    <div id="txtC" style="color: var(--blue-700); font-size: 16px; text-decoration: underline;">
+                        <b>usuarios</b>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div ng-show="!tienda" ng-repeat="tienda in tiendas" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="tiendas && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

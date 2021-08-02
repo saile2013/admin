@@ -1,0 +1,49 @@
+﻿<div id="perfilPedidos">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+            
+            <div style="float: left; margin-left: 2.5%; width: 95%; margin-top:30px;">
+
+                <div id="inputA" style="float: left; width: 100%;">
+                    <label style="color: #333; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">
+                        Productos
+                    </label>
+                </div>
+
+                <div id="inputA" style="float: left; width: 100%; margin-top: 30px;">
+                    <div style="float: left; width: 100%; border-radius: 5px; padding: 10px; background-color: #FFF; border: 1px solid #CCC; height: 450px; overflow-x: hidden;">
+                        <div style="float: left; width: 100%; margin-top: 10px; margin-bottom: 20px;">
+                            <input type="text" ng-model="seProd2" placeholder="Buscar..." style="float: left; border: 1px solid #00c198; width: 250px; height: 33px; border-radius: 5px;">
+                            <button type="button" ng-click="buProd2()" style="float: left; margin-left: 10px; border: none; width: 50px;">ok</button>
+                        </div>
+
+                        <div id="contMais" ng-show="!loader2" style="margin-top: 0px; margin-bottom: 30px;">
+                            <div id="loaderMais"><img src="../img/loader.png"></div>
+                        </div>
+
+                        <div ng-repeat="produto2 in produtos2" ng-click="selProd2(produto2.id, produto2.name)" style="float: left; width: 100%; margin-bottom: 20px; cursor: pointer;">
+                            <div style="float: left; width: 50px; height: 50px; border-radius: 50%; border: 1px solid #333; 
+                                        background:url({{produto2.main_picture}}) center center no-repeat;
+                                        background-size:cover;"></div>
+                            <div style="float: left; margin-top: 18px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                                {{produto2.name}} &nbsp; <b>#{{produto2.id}}</b>
+                            </div>
+                        </div>
+                        <div style="float: left; margin-bottom: 20px; width: 100%; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                            <span ng-click="maisPag2()" style="padding: 10px; color: #00c198; border: 1px solid #00c198; border-radius: 5px; width: 150px; cursor: pointer;">más...</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,138 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="terminos-condiciones">
+            <i class="fas fa-chevron-right"></i> &nbsp; términos y condiciones
+        </a> &nbsp;
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">search</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="datas">
+        <input type="time" id="hra2" onchange="seleData()">
+    </div>
+    <div id="datas">
+        <input type="date" ng-model="ate">
+    </div>
+    <div id="busTxt">
+        Hasta
+    </div>
+    <div id="datas">
+        <input type="time" id="hra1">
+    </div>
+    <div id="datas">
+        <input type="date" ng-model="de">
+    </div>
+    <div id="busTxt">
+        De
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="adicionar-terminos-condiciones">
+            	<i class="fas fa-plus"></i> añadir
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB">
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 4%;">
+            ID
+        </div>
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 10%; text-align: left;">
+            Alias
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 15%;">
+            Url
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 15%;">
+            Fecha de inicio
+        </div>
+        <div id="tsPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 15%; text-align: left;">
+            Fecha de finalización
+        </div>
+        <div id="tpPagPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 9%;">
+            Activo
+        </div>
+        <div id="tpPagPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 8.5%;">
+            iD Tiendas
+        </div>
+        <div id="hsPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 5%;">
+            Editar
+        </div>
+    </div> 
+
+    <div id="contMais" ng-show="!pedidos">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-repeat="pedido in pedidos">
+        <div id="contB">
+            <div id="idPed" style="width: 4%;">
+                {{pedido.id}}
+            </div>
+            <div id="idPed" style="width: 10%; overflow-x: hidden;">
+                {{pedido.alias}}
+            </div>
+            <div id="nmCliPed" style="width: 15%;">
+                {{pedido.url}}
+            </div>
+            <div id="emCliPed" style="width: 15%;">
+                {{pedido.start_at}}
+            </div>
+            <div id="tsPed" style="width: 15%; text-align: left;">
+                {{pedido.finish_at}}
+            </div>
+            <div id="tpPagPed" style="width: 9%;">
+                <span ng-if="pedido.is_active=='1'">Si</span>
+                <span ng-if="pedido.is_active=='0'">No</span>
+            </div>
+            <div id="tsPed" style="width: 8.5%;">
+                <span ng-if="pedido.store_id">{{pedido.store_id}}</span>
+                <span ng-if="!pedido.store_id">No hay información</span>
+            </div>
+            <a ui-sref="editar-terminos-condiciones({id:pedido.id})">
+                <div id="hsPed" style="width: 5%;">
+                    <i class="far fa-edit"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div ng-show="!pedido" ng-repeat="pedido in pedidos" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="pedidos && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

@@ -1,0 +1,89 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="sliders">
+            <i class="fas fa-chevron-right"></i> &nbsp; sliders
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">búsqueda del sliders</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="sliders">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contMais" ng-show="!sliders">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+    
+    <div ng-repeat="slider in sliders">
+        <div id="contB">
+            <a ui-sref="">
+            <div id="contFto" style="margin-left: 20px;">
+                <div id="fto" 
+                     style="background:url({{slider.banner}}) center center no-repeat;
+                            background-size:contain;">
+                </div>
+            </div>
+            <div id="txtB">
+                {{slider.name}}
+                <span ng-if="slider.is_active" style="color: #00c198; font-size: 12px;">Activo</span>
+                <span ng-if="!slider.is_active" style="color: #B70609; font-size: 12px;">No activo</span>
+            </div>
+            <div id="txtC"><b>link:</b> {{slider.link}}</div>
+            <div id="txtD"><b>id:</b> {{slider.id}}</div>
+            </a>
+
+            <a ui-sref="editar-sliders({id:slider.id})">
+                <div id="ctnEdit" style="margin-top: -40px;">
+                    <i class="fas fa-edit"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div ng-show="!slider" ng-repeat="slider in sliders" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="sliders && !parou">
+    	<div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+    </div>
+    
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

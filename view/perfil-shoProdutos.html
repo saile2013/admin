@@ -1,0 +1,132 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="shoppers">
+            <i class="fas fa-chevron-right"></i> &nbsp; productos
+        </a>
+            &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">clientes</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+    <div id="tipos">
+        <select ng-model="genero" 
+                ng-change="seleGender()"
+                ng-options="genero as genero.aparence for genero in generos track by genero.value">
+        </select>
+    </div>
+    <div id="tipos">
+        <select ng-model="estato" 
+                ng-change="seleEstato()"
+                ng-options="estato as estato.aparence for estato in estatos track by estato.value">
+        </select>
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="shoppers">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contMais" ng-show="!clientes">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-show="!mostra">
+
+    </div>
+    
+    <div ng-repeat="cliente in clientes" ng-show="mostra">
+        <div id="contB">
+            <div id="contFto" style="margin-left: 20px; margin-top: 5px;">
+                <div id="fto" ng-if="cliente.new_profile_picture"
+                    style="background:url({{cliente.new_profile_picture}}) center center no-repeat;
+                            background-size:cover;">
+                </div>
+                <div id="fto" ng-if="!cliente.new_profile_picture"
+                    style="background:url({{cliente.social_profile_picture}}) center center no-repeat;
+                            background-size:cover;">
+                </div>
+            </div>
+            <div id="txtB">{{cliente.name}}</div>
+            <div id="txtC">
+                <b>Status:</b> 
+                <div style="display: inline;" ng-show="cliente.is_active">Activo</div> 
+                <div style="display: inline;" ng-show="!cliente.is_active">No activo</div>
+            </div>
+            <div id="txtD">
+                <div ng-if="cliente.phone"><b>Teléfono:</b> {{cliente.phone}}</div>
+                <div ng-if="!cliente.phone"><b>Teléfono:</b> No hay informacion</div>
+            </div>
+            <div id="txtD">
+                <div ng-if="cliente.email"><b>E-mail:</b> {{cliente.email}}</div>
+                <div ng-if="!cliente.email"><b>E-mail:</b> No hay informacion</div>
+            </div>
+
+            <div id="ctnEdit" style="margin-top: -40px;">
+                <div style="position: absolute; margin-top: -25px; margin-left: -12px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #333;">
+                    Salvar
+                </div>
+                <div id="bloqueoAt{{cliente.id}}" 
+                    ng-style="cliente.is_locked==1 && {'display':'block'}" 
+                    ng-click="atvStatus3(cliente.id, 0)" 
+                    style="display: none; cursor: pointer;"><i class="fas fa-check-circle"></i></div>
+
+                <div id="bloqueoDt{{cliente.id}}" 
+                    ng-style="cliente.is_locked==0 && {'display':'block'}" 
+                    ng-click="atvStatus3(cliente.id, 1)"
+                    style="display: none; cursor: pointer;"><i class="far fa-check-circle"></i></div>
+            </div>
+
+            <div style="float: right; margin-right: 80px; margin-top:-54px;">
+                <div id="status{{cliente.id}}" 
+                        style="float:right; width: 100px; margin-top: -10px; font-size: 12px; color: red; text-align: center;">                        
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div ng-show="!cliente" ng-repeat="cliente in clientes" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="clientes && !parou && mostra">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+        
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

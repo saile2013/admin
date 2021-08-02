@@ -1,0 +1,87 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="estatisticas({id:id})">
+            <i class="fas fa-chevron-right"></i> &nbsp; {{name}}
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">Ventas por ciudad</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="tipos">
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="estatisticas({id:id})">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contMais" ng-show="loader">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+    
+    <div ng-if="ages || ages2" style="float: left; margin-top: 20px; width: 100%;">
+        <div style="margin: 0 auto; width: 1300px;">
+            <div style="float: left; width: 100%;">
+                <div style="background:url({{profile_picture}}) center center no-repeat; background-size:cover;
+                            width:70px; height:70px; border-radius:50%; border: 1px solid #333; margin: 0 auto;">
+                </div>
+            </div>
+            <div style="float: left; width: 100%; margin-top: 10px; text-align: center; font:25px Arial; font-weight:bold; color:rgb(136, 128, 128);">
+                {{name}}
+            </div>
+
+            <div ng-if="ages" style="float: left; width: 100%; margin-top: 40px; font:25px Arial; font-weight:bold; color:#00c198;">
+                
+                <div ng-repeat="(key, value) in ages">
+                    <div id="contB">
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>Ciudad:</b> {{value.name}}
+                        </div>
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b style="float: left;">Por ciento:</b> 
+                            <div style="float: left; margin-left: 10px; margin-right: 10px; width: {{value.percent}}px; height: 20px; display: inline; background-color: #00c198; max-width: 800px;"></div> 
+                            {{value.percent}}
+                        </div>
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>Total:</b> {{value.total}}
+                        </div>
+                    </div>                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="nehnRes">
+    	{{mensagens}}
+    </div>        
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

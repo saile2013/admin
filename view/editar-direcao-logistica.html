@@ -1,0 +1,139 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home" style="text-transform: lowercase;">editar dirección de tiendas</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="direcao-logistica">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+        <div id="conTxtB">
+            <form name="personForm" novalidate>
+            <div id="txtH">Editar dirección de tiendas</div>
+
+            <div id="inputA" style="width: 45%; margin-bottom: 40px;">
+                <Label>Nombre *</Label>
+                <input type="text" style="width: 550px; height: 30px;" 
+                       ng-model="name" 
+                       placeholder="Ej: Carlos">
+            </div>
+
+            <div id="inputA" style="width: 45%; margin-bottom: 40px;">
+                <Label>E-mail *</Label>
+                <input type="text" style="width: 550px; height: 30px;" 
+                       ng-model="email" 
+                       placeholder="Ej: preueba@prueba.com">
+            </div>
+
+            <div id="inputA" style="width: 45%; margin-bottom: 40px;">
+                <Label>Teléfono *</Label>
+                <input type="text" style="width: 550px; height: 30px;" 
+                       ng-model="phone" 
+                       placeholder="Ej: 301742685">                       
+            </div>
+            
+            <div style="float: left; margin-top: 20px; margin-bottom: 40px; width: 100%;">
+
+                <div id="inputA" style="width: 45%; margin-bottom: 40px;">
+                    <Label>Dirección *</Label>
+                    <input name="pincode" type="text" style="width: 550px; height: 30px;" 
+                        ng-model="endereco" 
+                        id="pincode"
+                        placeholder="Ej: Calle #22"
+                        ng-minlength="2"
+                        maxlength="24" required>
+
+                    <div ng-show="endereco.length>2"
+                        style="float: left; font-family: Arial, Helvetica, sans-serif; font-size: 15px; margin-top: 10px;"> 
+                        Mínimo 2 y Máximo 24 caracteres requeridos. ({{endereco.length}})</div>
+                </div>
+
+                <div id="inputA" style="width: 45%; margin-bottom: 40px;">
+                    <Label>Indicaciones *</Label>
+                    <input name="pincode2"
+                        id="pincode2"
+                        type="text" style="width: 550px; height: 30px;" 
+                        ng-model="indicacoes" 
+                        ng-minlength="2"
+                        maxlength="24" required
+                        placeholder="Ej: Cerca del mercado">
+
+                    <div ng-show="indicacoes.length>2"
+                        style="float: left; font-family: Arial, Helvetica, sans-serif; font-size: 15px; margin-top: 10px;"> 
+                        Mínimo 2 y Máximo 24 caracteres requeridos. ({{indicacoes.length}})</div>
+                </div>
+
+            </div>
+
+            <div id="inputA" style="width: 45%; margin-bottom: 40px;">
+                <Label>Ciudad *</Label>
+                <input type="text" style="width: 550px; height: 30px; position: relative; z-index: 2;" 
+                       ng-model="cidade"
+                       ng-keyup="abreCida()"
+                       placeholder="Ej: Bogota">
+
+                <div id="funCida" ng-show="active" ng-click="fechaCida()"></div>
+
+                <div id="hasCida" ng-show="active">
+                    <span ng-repeat="cida in cidas" ng-click="seleCida(cida.ciudad, cida.departamento, cida.codigo_dane)">
+                        {{cida.ciudad}}, {{cida.codigo_dane}}, {{cida.departamento}}
+                    </span>
+                </div>
+            </div>
+
+            <div id="inputA" style="width: 45%; margin-bottom: 40px;">
+                <Label>Departamento *</Label>
+                <input type="text" style="width: 550px; height: 30px;" ng-model="estado" 
+                       placeholder="Ej: Bogota">
+            </div>
+
+            <div id="inputA" style="width: 45%; margin-bottom: 65px;">
+                <Label>Código Dane *</Label>
+                <input type="text" style="width: 550px; height: 30px;" ng-model="dane" 
+                       placeholder="Ej: 11001000">
+            </div>
+            
+            <div id="linhaB"></div>
+            
+            <div id="inputA" style="width:100%; ">
+                <button type="button" ng-click="salvar()">
+                    <span ng-show="botao">Salvar</span>
+                    <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                </button>
+            </div>
+            
+            <div id="status" style="text-align:left; padding-left:20px; margin-top:0px; margin-bottom:10px;"></div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

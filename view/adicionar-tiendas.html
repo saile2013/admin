@@ -1,0 +1,95 @@
+﻿<style>.usuarios { text-decoration:underline; }</style>
+
+<div ui-view="menu"></div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="categorias">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+        <div id="conTxtB">
+            <form name="contatoForm">
+            <div id="txtH">Agregar tiendas</div>
+            
+            <div id="inputA" style="width: 550px;">
+                <Label>Name</Label>
+                <input type="text" style="width: 550px;" ng-model="name" placeholder="Ej: Minísio">
+            </div>
+            
+            <div id="inputA" style="float:left; width: 100%; margin-bottom: 90px; margin-top: 20px;">
+                <label>Description</label>
+                <textarea ng-model="description" style="width: 550px; height: 90px;" placeholder="Description"></textarea>
+            </div>
+
+            <div style="float:left; width: 100%; margin-bottom: 50px;">
+                <div id="inputA" style="width: 20%; margin-bottom: 90px;">
+                    <label>Banner (WEB) (1920x400)</label>
+                    <div style="position: relative; float: left; width: 100px; height: 100px; background-image: url({{banner}}); 
+                                background-position: center center; background-repeat: no-repeat; background-size: cover; 
+                                border: 1px solid color #CCC; z-index: 1;"></div>
+                    
+                    <form>
+                        <input style="float: left; width: 100%;" type='file' ng-model='yourModel' base-sixty-four-input>
+                    </form>
+                </div>
+
+                <div id="inputA" style="width: 20%; margin-bottom: 90px;">
+                    <label>Banner (MOBILE)</label>
+                    <div style="position: relative; float: left; width: 100px; height: 100px; background-image: url({{}}); 
+                                background-position: center center; background-repeat: no-repeat; background-size: cover; 
+                                border: 1px solid color #CCC; z-index: 1;"></div>
+                    
+                    <form>
+                        <input style="float: left; width: 100%;" type='file' ng-model='yourMode3' base-sixty-four-input>
+                    </form>
+                </div>
+
+                <div id="inputA" style="width: 20%; margin-bottom: 90px;">
+                    <label>Logo (1024x1024)</label>
+                    <div style="position: relative; float: left; width: 100px; height: 100px; background-image: url({{profile_picture}}); 
+                                background-position: center center; background-repeat: no-repeat; background-size: cover; 
+                                border: 1px solid color #CCC; z-index: 1;"></div>
+                    
+                    <form>
+                        <input style="float: left; width: 100%;" type='file' ng-model='yourMode2' base-sixty-four-input>
+                    </form>
+                </div>
+            </div>
+
+            <div id="inputA" style="float: left; width: 100%; margin-top: 30px; margin-bottom: 70px;">
+                <label>Status</label>
+                <div style="float: left; margin-right: 20px; width: 60px; height: 60px; border-radius: 50%; 
+                            background-color: yellowgreen; margin-top: 10px; text-align: center; cursor: pointer;"
+                     ng-click="is_active()">
+                            <i ng-show="active==1" style="margin-top: 20px; margin-right: 0px; color: #FFF" class="fas fa-check"></i>
+                </div>
+                <div style="float: left; width: 60px; height: 60px; border-radius: 50%; background-color: tomato;
+                            margin-top: 10px; text-align: center; cursor: pointer;"
+                     ng-click="no_active()">
+                            <i ng-show="active==0" style="margin-top: 20px; margin-right: 0px; color: #FFF" class="fas fa-check"></i>            
+                </div>
+            </div>
+            
+            <div id="linhaB"></div>
+            
+            <div id="inputA" style="width:100%;">
+                <button type="button" ng-click="salvar(dados)">Salvar</button>
+            </div>
+            
+            <div id="status" style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

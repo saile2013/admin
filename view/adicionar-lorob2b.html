@@ -1,0 +1,75 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="lorob2b">
+            <i class="fas fa-chevron-right"></i> &nbsp; loro b2b
+        </a> &nbsp;         
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">añadir loro b2b</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="lorob2b">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+        <div id="conTxtB">
+            <form name="contatoForm">
+            <div id="txtH">Agregar Loro B2B</div>
+            
+            <div id="inputA">
+                <Label>Nombre</Label>
+                <input type="text" ng-model="name" placeholder="Ej: abc-empresa">
+            </div>
+            
+            <div id="inputA">
+                <label>Nombre Legal</label>
+                <input type="text" ng-model="name_legal" placeholder="Ej: abc empresa s.a.s">
+            </div>
+
+            <div id="inputA" style="float:left; width: 100%;">
+                <label>Nit</label>
+                <input type="text" ng-model="nit" placeholder="Ej: 700130563-4" max="11" maxlength="11">
+            </div>
+
+            <div id="linhaB" style="margin-top: 25px;"></div>
+            
+            <div id="inputA" style="width:100%;">
+                <button type="button" ng-click="salvar(dados)">                    
+                    <span ng-show="botao">Salvar</span>
+                    <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                </button>
+            </div>
+            
+            <div id="status" style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

@@ -1,0 +1,150 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">cupones</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>    
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="adicionar-cupons">
+            	<i class="fas fa-plus"></i> añadir
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="redimidos">
+            	<i class="fas fa-poll-h"></i> redimidos
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="no-redimidos">
+            	<i class="fas fa-poll-h"></i> no redimidos
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB">
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 4%;">
+            ID
+        </div>
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 10%; text-align: left;">
+            Título
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 12%;">
+            Descripción
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 13%; text-align: center;">
+            Código
+        </div>
+        <div id="tsPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 5%;">
+            Expiró a las
+        </div>
+        <div id="tsPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 5%;">
+            Valor
+        </div>
+        <div id="tpPagPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 5%;">
+            Límite inferior
+        </div>
+        <div id="tpPagPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 5%;">
+            Limite superior
+        </div>
+        <div id="tpPagPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 5%;">
+            Está activo
+        </div>
+        <div id="qtProPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 5%;">
+            Creado en
+        </div>
+        <div id="stPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 6%;">
+            Actualizado en
+        </div>        
+    </div> 
+
+    <div id="contMais" ng-show="!cupons">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-repeat="cupon in cupons">
+        <a ui-sref="cupons.perfil-cupons({id:cupon.id})">
+        <div id="contB">
+            <div id="idPed" style="width: 4%;">
+                {{cupon.id}}
+            </div>
+            <div id="idPed" style="width: 10%; text-align: left;">
+                {{cupon.title}}
+            </div>
+            <div id="nmCliPed" style="width: 12%;">
+                {{cupon.description}}
+            </div>
+            <div id="emCliPed" style="width: 13%; text-align: center;">
+                {{cupon.code}}
+            </div>
+            <div id="tsPed" style="width: 5%;">
+                {{cupon.expired_at}}
+            </div>
+            <div id="tpPagPed" style="width: 5%;">
+                {{cupon.value}}
+            </div>
+            <div id="tsPed" style="width: 5%;">
+                {{cupon.lower_limit}}
+            </div>
+            <div id="qtProPed" style="width: 5%;">
+                {{cupon.upper_limit}}
+            </div>
+            <div id="stPed" style="width: 5%;">
+                {{cupon.is_actived}}
+            </div>
+            <div id="vlPed" style="width: 5%;">
+                {{cupon.created_at}}
+            </div>
+            <div id="vlPed" style="width: 6%;">
+                <span ng-if="cupon.updated_at">{{cupon.updated_at}}</span>
+                <span ng-if="!cupon.updated_at">no hay informacion</span>
+            </div>
+        </div>
+        </a>
+    </div>
+    
+    <div ng-show="!cupon" ng-repeat="cupon in cupons" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="cupons && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

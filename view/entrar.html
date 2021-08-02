@@ -1,0 +1,24 @@
+﻿<div id="div1">
+    <div id="buttonA"></div>
+    <div id="buttonA"></div>
+</div>
+
+<div id="div3" ng-show="ipCerto">
+	<div id="logar">
+    <div id="logo"></div>
+    <form name="entrarForm">
+		<input type="email" id="email" name="email" ng-model="email" placeholder="E-mail / Login" required="true">
+        <input type="password" ng-model="senha" placeholder="Senha" required="true">
+        <button type="submit" ng-click="logar()">
+            <span ng-show="botao">Entrar</span>
+            <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+        </button>
+        <span ng-show="entrarForm.email.$invalid && entrarForm.email.$dirty">insira um E-MAIL corretamente!</span>
+    </form>
+    <div id="status"></div>
+    </div>
+</div>
+
+<div class="bottom">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

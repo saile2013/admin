@@ -1,0 +1,349 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="clientes">
+            <i class="fas fa-chevron-right"></i> &nbsp; clientes            
+        </a> &nbsp;
+        <span ng-if="full_name">
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">{{full_name}}</font>
+        </span>
+        <span ng-if="!full_name">
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">no hay resultados para este cliente</font>
+        </span>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+    <div id="tipos">
+        <select ng-model="estatu" 
+                ng-change="seleStatus()"
+                ng-options="stato as stato.aparence for stato in statos track by stato.value">
+        </select>
+    </div>
+    <div id="tipos">
+        <select ng-model="tienda" 
+                ng-change="seleTienda()">
+                <option value="">Selecciona una tienda</option>
+                <option ng-repeat="tienda in tiendas | orderBy:'value'" value="{{tienda.value}}">{{tienda.value}}</option>
+        </select>
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="clientes">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB" style="padding-bottom: 20px; background-color: #E9E9E9;">
+
+        <div style="float: left; width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #333;">
+            <span style="float: left; margin-left: 15px; margin-top: 10px; margin-bottom: 20px;">
+                Dados del cliente
+            </span>
+            <span ng-click="abreFicha()" style="float: right; margin-right: 20px; margin-top: 10px; cursor: pointer;">
+                <i class="fas fa-angle-down"></i>
+            </span>
+        </div>
+
+        <div ng-if="ficha && pedidos">
+
+        <div style="float: left; margin-left: 10px; width: 49%;">
+            <div id="idPed" style="background-color: #00c198; color: #FFF; text-align: left; padding-left: 2%; width: 23%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                ID
+            </div>
+            <div id="idPed" style="background-color: #FFF; color: #333; text-align: left; padding-left: 2%; width: 63%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                {{user_id}}
+            </div>
+            <div id="idPed" style="background-color: #00c198; color: #FFF; text-align: left; padding-left: 2%; width: 23%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                Nombre
+            </div>
+            <div id="idPed" style="background-color: #FFF; color: #333; text-align: left; padding-left: 2%; width: 63%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                {{full_name}}
+            </div>
+
+            <div id="idPed" style="background-color: #00c198; text-align: left; padding-left: 2%; color: #FFF; width: 23%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                E-mail
+            </div>
+            <div id="idPed" style="background-color: #FFF; color: #333; text-align: left; padding-left: 2%; width: 63%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                {{email}}
+            </div>
+            <div id="idPed" style="background-color: #00c198; color: #FFF; text-align: left; padding-left: 2%; width: 23%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                Teléfono
+            </div>
+            <div id="idPed" style="background-color: #FFF; color: #333; text-align: left; padding-left: 2%; width: 63%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                {{phone}}
+            </div>
+        </div>
+
+        <div style="float: left; margin-left: 10px; width: 49%;">
+            <div id="idPed" style="background-color: #00c198; color: #FFF; text-align: left; padding-left: 2%; width: 23%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                Calle uno
+            </div>
+            <div id="idPed" style="background-color: #FFF; color: #333; text-align: left; padding-left: 2%; width: 63%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                {{street_one}}
+            </div>
+            <div id="idPed" style="background-color: #00c198; color: #FFF; text-align: left; padding-left: 2%; width: 23%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                Calle dos
+            </div>
+            <div id="idPed" style="background-color: #FFF; color: #333; text-align: left; padding-left: 2%; width: 63%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                {{street_two}}
+            </div>
+
+            <div id="idPed" style="background-color: #00c198; color: #FFF; text-align: left; padding-left: 2%; width: 23%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                Ciudad
+            </div>
+            <div id="idPed" style="background-color: #FFF; color: #333; text-align: left; padding-left: 2%; width: 63%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                {{city}}
+            </div>
+            <div id="idPed" style="background-color: #00c198; color: #FFF; text-align: left; padding-left: 2%; width: 23%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                Departamento
+            </div>
+            <div id="idPed" style="background-color: #FFF; color: #333; text-align: left; padding-left: 2%; width: 63%; margin-bottom: 5px; padding-top: 6px; padding-bottom: 6px;">
+                {{c_state}}
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+
+    <div id="contB">
+        <div style="float: left; width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #333;">
+            <span style="float: left; margin-left: 15px; margin-top: 10px; margin-bottom: 20px;">
+                Pedidos del cliente
+            </span>
+        </div>
+
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 6%;">
+            órdenes ID
+        </div>
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 3.5%;">
+            Fuente
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 10%;">
+            Nombre
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 12%;">
+            E-mail
+        </div>
+        <div id="tsPed" style="background-color: #00c198; color: #FFF; font-weight: bold;">
+            Transacción
+        </div>
+        <div id="tpPagPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 8%;">
+            Tipo de pago
+        </div>
+        <div id="tpPagPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 7%;">
+            Fecha del pedido
+        </div>
+        <div id="qtProPed" style="background-color: #00c198; color: #FFF; font-weight: bold;">
+            Prod
+        </div>
+        <div id="stPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 9%;">
+            Estado
+        </div>
+        <div id="vlPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 5%;">
+            Valor
+        </div>
+        <div id="hsPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 4.5%;">
+            Histórico
+        </div>
+    </div> 
+
+    <div id="contMais" ng-show="!noCarrega && !siCarrega">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-repeat="pedido in pedidos">
+        <a ui-sref="perfil-clientes.perfil-pedidos({idPed:pedido.id})">
+        <div id="contB">
+            <div id="idPed" style="width: 6%;">
+                {{pedido.order_id}}
+            </div>
+            <div id="idPed" style="width: 3.5%; overflow-x: hidden;">
+                {{pedido.origin}}
+            </div>
+            <div id="nmCliPed" style="width: 10%;">
+                {{pedido.full_name}}
+            </div>
+            <div id="emCliPed" style="overflow-x: hidden; width: 12%;">
+                {{pedido.email}}
+            </div>
+            <div id="tsPed">
+                {{pedido.transaction_id}}
+            </div>
+            <div id="tpPagPed" style="width: 8%;">
+                <span ng-if="pedido.payment_type">{{pedido.payment_type}}</span>
+                <span ng-if="!pedido.payment_type">No hay información</span>
+            </div>
+            <div id="tsPed" style="width: 7%;">
+                {{pedido.created_at}}
+            </div>
+            
+            <div id="qtProPed">
+                {{pedido.items.length}}
+            </div>
+            </a>
+
+            <div id="stPed" style="width: 9%;">
+
+                <div ng-if="pedido.state=='canceled'">
+                    <div id="estatus2{{pedido.id}}" style="display: inline;">Cancelada</div>
+                    <div id="estatus{{pedido.id}}" style="display: inline;"></div>
+                    <div id="estatusL{{pedido.id}}" 
+                            style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
+                    <br>
+                    <button type="button"
+                            ng-click="payments(pedido.id)"
+                            style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
+                    <div id="alt">
+                        orden rechazada ya sea por fondos u otra razón.
+                    </div>
+                </div>
+                <div ng-if="pedido.state=='incomplete'">
+                    <div id="estatus2{{pedido.id}}" style="display: inline;">Incompleta</div>
+                    <div id="estatus{{pedido.id}}" style="display: inline;"></div>
+                    <div id="estatusL{{pedido.id}}" 
+                            style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
+                    <br>
+                    <button type="button"
+                            ng-click="payments(pedido.id)"
+                            style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
+                    <div id="alt">
+                        el cliente no terminó la compra.
+                    </div>
+                </div>
+                <div ng-if="pedido.state=='opened'">
+                    <div id="estatus2{{pedido.id}}" style="display: inline;">Pagada</div>
+                    <div id="estatus{{pedido.id}}" style="display: inline;"></div>
+                    <div id="estatusL{{pedido.id}}" 
+                            style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
+                    <br>
+                    <button type="button"
+                            ng-click="payments(pedido.id)"
+                            style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
+                    <div id="alt">
+                        Tel pago se válido de forma correcta.
+                    </div>
+                </div>
+                <div ng-if="pedido.state=='payment_pending'">
+                    <div id="estatus2{{pedido.id}}" style="display: inline;">Pendiente de Pago</div>
+                    <div id="estatus{{pedido.id}}" style="display: inline;"></div>
+                    <div id="estatusL{{pedido.id}}" 
+                            style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
+                    <br>
+                    <button type="button"
+                            ng-click="payments(pedido.id)"
+                            style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
+
+                    <div id="alt">
+                        aún se está validando el pago.
+                    </div>
+                </div>
+
+                <div ng-if="pedido.is_refund==1">
+                    <a ui-sref="perfil-clientes.perfil-strefunds({idPed:pedido.id})">
+                    <button type="button"
+                            style="margin:0 auto; width: 60px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none;"><i class="fas fa-money-bill-alt"></i></button>
+                    </a>
+                </div>
+
+            </div>
+
+            <div id="vlPed" style="width: 5%;">
+                $ {{pedido.total}}
+            </div>
+            <a ui-sref="perfil-clientes.historico-pedidos({idPed:pedido.transaction_id, order_id:pedido.order_id})">
+                <div id="hsPed" style="width: 4.5%;">
+                    <i class="fas fa-clock"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div ng-show="noCarrega" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="pedidos && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>    
+</div>
+
+<!-- perfil do pedidos para mostrar produtos -->
+<div id="perfilPedidos" ng-if="abreProds">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+            
+            <div id="tituPedidos">ID: {{id}}</div>
+            <div id="txtAPedidos" 
+                 style="background-color: #00c198; color: #FFF; margin-bottom: 20px;">
+                 Productos (cantidad {{produtos.length}})
+            </div>
+
+            <div id="lisProdutos" ng-repeat="produto in produtos">
+                <div id="txtAPedidos" ><b>Nombre del producto:</b> {{produto.product_name}}</div>
+                
+                <div id="txtAPedidos" 
+                     style="background-color: #F4F4F4;"><b>Estado:</b> {{produto.status}}</div>
+
+                <div id="txtAPedidos" ><b>Nombre de la tienda:</b> {{produto.store_name}}</div>
+
+                <div id="txtAPedidos" 
+                     style="background-color: #F4F4F4;"><b>Precio unitario:</b> $ {{produto.unit_price}}</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

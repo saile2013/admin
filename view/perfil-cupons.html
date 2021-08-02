@@ -1,0 +1,57 @@
+﻿<div id="perfilPedidos">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+            
+            <div id="tituPedidos">
+                    ID: {{id}} 
+                    <a ui-sref="editar-cupons({id: id})">
+                        <div style="float: right;"><i class="far fa-edit"></i></div> 
+                    </a>
+            </div>
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 10px;">Reglas</div>
+            
+            <div id="txtAPedidos"><b>id:</b> {{Ids}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Título:</b> {{title}}</div>
+            <div id="txtAPedidos"><b>Descripción:</b> {{description}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Expiró a las:</b> {{expired_at}}</div>
+            <div id="txtAPedidos"><b>Código:</b> {{code}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <b>Tipo de descuento:</b> {{discountType}}
+            </div>
+            <div id="txtAPedidos"><b>Límite inferior:</b> {{lower_limit}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <b>Tipo de descuento:</b> {{discountType}}
+            </div>
+            <div id="txtAPedidos"><b>Limite superior:</b> {{upper_limit}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <b>Cantidad:</b> {{quantity}}
+            </div>
+            <div id="txtAPedidos"><b>Valor:</b> {{value}}</div>
+
+            <div id="txtAPedidos"><b>Productos:</b> 
+                <div ng-repeat="product in products">
+                    {{product}}
+                </div>
+            </div>
+
+            <div id="txtAPedidos"><b>Tiendas:</b> 
+                <div ng-repeat="store in stores">
+                    {{stores}}
+                </div>
+            </div>
+
+            <div id="txtAPedidos"><b>Usuarios:</b> 
+                <div ng-repeat="user in users">
+                    {{users}}
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,305 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="lorob2b">
+            <i class="fas fa-chevron-right"></i> &nbsp; loro b2b            
+        </a> &nbsp;
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">{{name}}</font>
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="lorob2b">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+        <div style="float: right; margin-right: 20px;">            
+            <div id="txtA">
+                <a href="https://s3.amazonaws.com/prod.loro.com.co/loro/default/b2b/crear-usuarios.csv">
+                    <i class="fas fa-arrow-circle-down"></i> bajar modelo crear usuarios
+                </a>
+            </div>
+            <div id="txtA">
+                <a href="https://s3.amazonaws.com/prod.loro.com.co/loro/default/b2b/distribuir-creditos-entre-usuarios.csv">
+                    <i class="fas fa-arrow-circle-down"></i> bajar modelo distribuir creditos entre usuarios
+                </a>
+            </div>
+            <div id="txtA">
+                <a href="https://s3.amazonaws.com/prod.loro.com.co/loro/default/b2b/activar-usuarios-de-la-landingpage.csv">
+                    <i class="fas fa-arrow-circle-down"></i> bajar modelo activar usuarios de la landing page
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+
+    <div id="contC">
+        <div style="float: left; width: 40%;">
+            <div id="conTxtB">
+                <form name="contatoForm">
+                <div id="txtH">{{name}}</div>
+                
+                <div id="inputA">
+                    <Label>Nombre</Label>
+                    <input type="text" ng-model="name" placeholder="Ej: abc-empresa">
+                </div>
+                
+                <div id="inputA">
+                    <label>Nombre Legal</label>
+                    <input type="text" ng-model="legal_name" placeholder="Ej: abc empresa s.a.s">
+                </div>
+    
+                <div id="inputA">
+                    <label>Nit</label>
+                    <input type="text" ng-model="nit" placeholder="Ej: 700130563-4" max="11" maxlength="11">
+                </div>
+    
+                <div id="inputA" style="float: left; width: 30%; margin-top: 30px; margin-bottom: 90px;">
+                    <label>Status</label>
+                    <div style="float: left; margin-right: 20px; width: 60px; height: 60px; border-radius: 50%; 
+                                background-color: yellowgreen; margin-top: 10px; text-align: center; cursor: pointer;"
+                         ng-click="is_active()">
+                                <i ng-show="active==1" style="margin-top: 20px; margin-right: 0px; color: #FFF" class="fas fa-check"></i>
+                    </div>
+                    <div style="float: left; width: 60px; height: 60px; border-radius: 50%; background-color: tomato;
+                                margin-top: 10px; text-align: center; cursor: pointer;"
+                         ng-click="no_active()">
+                                <i ng-show="active==0" style="margin-top: 20px; margin-right: 0px; color: #FFF" class="fas fa-check"></i>            
+                    </div>
+                </div>
+                
+                <div id="inputA" style="width:100%; margin-top: 0px;">
+                    <button type="button" style="width: 490px;" ng-click="salvar()">                    
+                        <span ng-show="botao">Actualizar</span>
+                        <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                    </button>
+                </div>
+                
+                <div id="status" style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+    
+                </form>
+
+            </div>
+        </div>
+
+        <div style="float: right; width: 60%; margin-top: 10px;">
+            <div style="float: left; margin-right: 2.5%; width: 97.5%; border: 1px solid #CCC; border-radius: 5px;
+                        background-color: #FFF; height: 360px; overflow-x: hidden;">
+
+                <div style="float: left; width: 100%; margin-top: 15px; margin-bottom: 10px;">
+                    <div style="float: left; font-weight: normal; margin-left: 10px; width: 100px; padding: 20px; border: 1px solid #CCC; border-radius: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                        Usuarios en <br/> base de datos <br/>
+                        <b style="float: left; font-size: 18px; margin-top: 10px;"><i class="fas fa-file-alt"></i> {{registered_users}}</b>
+                    </div>
+                    <div style="float: left; font-weight: normal; margin-left: 10px; width: 100px; padding: 20px; border: 1px solid #CCC; border-radius: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                        Usuarios <br /> registrados <br/>
+                        <b style="float: left; font-size: 18px; margin-top: 10px;"><i class="far fa-user"></i> {{active_users}}</b>
+                    </div>
+                    <div style="float: left; font-weight: normal; margin-left: 10px; width: 120px; padding: 20px; border: 1px solid #CCC; border-radius: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                        Redenciones de <br/> los usuarios <br/>
+                        <b style="float: left; font-size: 18px; margin-top: 10px;"><i class="far fa-user"></i> {{redemption}}</b>
+                    </div>
+                    <div style="float: left; font-weight: normal; margin-left: 10px; width: 130px; padding: 20px; border: 1px solid #CCC; border-radius: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                        Total órdenes <br/> de compra <br/>
+                        <b style="float: left; font-size: 18px; margin-top: 10px;"><i class="fas fa-wallet"></i> {{total_charge_charged | currency:'$':0}}</b>
+                    </div>
+                    <div style="float: left; font-weight: normal; margin-left: 10px; width: 135px; padding: 20px; border: 1px solid #CCC; border-radius: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                        Saldo pendiente por <br/> cargar a usuarios <br/>
+                        <b style="float: left; font-size: 18px; margin-top: 10px;"><i class="fas fa-box"></i> {{available_charge | currency:'$':0}}</b>
+                    </div>
+                </div>
+                
+                <div style="float: left; width: 100%; margin-top: 5px;">
+                    <div style="float: left; width: 30%; padding-top: 10px; padding-bottom: 10px; border-radius: 5px;
+                                text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #333;
+                                background-color: #F4F4F4; margin-left: 1%;">
+                        Saldo disponible
+                    </div>
+                    <div style="float: left; width: 30%; padding-top: 10px; padding-bottom: 10px; border-radius: 5px;
+                                text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #333;
+                                background-color: #F4F4F4; margin-left: 1%;">
+                        Saldo cargado
+                    </div>
+                    <div style="float: left; width: 26%; padding-top: 10px; padding-bottom: 10px; border-radius: 5px;
+                                text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #333;
+                                background-color: #F4F4F4; margin-left: 1%;">
+                        Fecha
+                    </div>
+                    <div style="float: left; width: 9%; padding-top: 10px; padding-bottom: 10px; border-radius: 5px;
+                                text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #333;
+                                background-color: #F4F4F4; margin-left: 1%;">
+                        Editar
+                    </div>
+                </div>
+
+                <div style="float: left; width: 100%; margin-top: 5px;"
+                    ng-repeat="metrica in metricas">
+                    <div style="float: left; width: 30%; padding-top: 10px; padding-bottom: 10px; border-radius: 5px;
+                                text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #333;
+                                margin-left: 1%; font-weight: normal;">
+                        {{metrica.available_balance | currency:'$':0}}
+                    </div>
+                    <div style="float: left; width: 30%; padding-top: 10px; padding-bottom: 10px; border-radius: 5px;
+                                text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #333;
+                                margin-left: 1%; font-weight: normal;">
+                        {{metrica.loaded_balance | currency:'$':0}}
+                    </div>
+                    <div style="float: left; width: 26%; padding-top: 10px; padding-bottom: 10px; border-radius: 5px;
+                                text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #333;
+                                margin-left: 1%; font-weight: normal;">
+                        {{metrica.created_at}}
+                    </div>
+                    <div style="float: left; width: 9%; padding-top: 10px; padding-bottom: 10px; border-radius: 5px;
+                                text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #333;
+                                margin-left: 1%; font-weight: normal;">
+                        <a ui-sref="perfil-lorob2b.editar-credito({id:id, idCharge:metrica.id})">
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> 
+
+</div>
+
+<div id="div5">
+
+    <div id="contB">
+
+        <div id="div2Bus" style="margin-top: -9px;">
+            <div id="buttOn">
+                <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+            </div>
+            <div id="busca">
+                <input type="search" style="background-color: #F0F2F1;" ng-model="buscando" ng-keyup="buscar()" placeholder="Buscar...">        
+            </div>    
+        </div>
+
+        <div id="div4" style="margin-bottom: 10px;">
+            <div id="conTxt">
+
+                <div id="txtA">
+                    <a ui-sref="perfil-lorob2b.criar-usuarios({id:id})">
+                        <i class="fas fa-plus"></i> crear usuarios
+                    </a>
+                </div>
+        
+                <div id="txtA">
+                    <a ui-sref="perfil-lorob2b.subir-credito({id:id})">
+                        <i class="fas fa-ticket-alt"></i> subir credito a la empresa
+                    </a>
+                </div>
+        
+                <div id="txtA">
+                    <a ui-sref="perfil-lorob2b.distribuir-credito({id:id})">
+                        <i class="fas fa-coins"></i> distribuir creditos entre usuarios
+                    </a>
+                </div>
+        
+                <div style="float: right; margin-right: 15px;">
+                    <div id="txtA">
+                        <a ui-sref="#" ng-click="expoUser()">
+                            <i class="fas fa-file-csv"></i> exportar usuarios de la landing page
+                        </a>
+                    </div>
+        
+                    <div id="txtA">
+                        <a ui-sref="perfil-lorob2b.ativar-landpage({id:id})">
+                            <i class="fas fa-user-plus"></i> activar usuarios de la Landing page
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 5%;">
+            ID
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 19%;">
+            Nombre 
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 14%;">
+            Email
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 10%; text-align: center;">
+            Teléfono
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 12%; text-align: center;">
+            Saldo cargado
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 12%; text-align: center;">
+            Saldo disponible
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 12%; text-align: center;">
+            % Redención
+        </div>        
+    </div> 
+
+    <div id="contMais" ng-show="!tiendas">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-repeat="tienda in tiendas">
+        <div id="contB">
+            <div id="idPed" style="width: 5%;">
+                {{tienda.id}}
+            </div>
+            <div id="nmCliPed" style="width: 19%;">
+                {{tienda.name}} {{tienda.last_name}}
+            </div>
+            
+            <div id="emCliPed" style="width: 14%;">
+                {{tienda.email}}
+            </div>
+            <div id="emCliPed" style="width: 10%; text-align: center;">
+                {{tienda.phone}}
+            </div>
+            <div id="nmCliPed" style="width: 12%; text-align: center;">
+                {{tienda.loro_corp_total_balance_loaded | currency:'$':0}}
+            </div>
+            <div id="nmCliPed" style="width: 12%; text-align: center;">
+                {{tienda.loro_corp_amount | currency:'$':0}}
+            </div>
+            <div id="nmCliPed" style="width: 12%; text-align: center;">
+                {{tienda.loro_corp_redeemed | currency:'$':0}}
+            </div>
+        </div>
+    </div>
+    
+    <div ng-show="!tiendas" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="tiendas && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div> 
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

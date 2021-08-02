@@ -1,0 +1,348 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">enviar ordenes</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+            <a ui-sref="cotacao-logistica">
+                <i class="fas fa-folder"></i> hacer cotizaciones
+            </a>   
+        </div>
+        <div id="txtA" style="text-decoration: underline;">
+            <a ui-sref="encomendas-logistica">
+                <i class="fas fa-folder-open"></i> enviar ordenes
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="status-logistica">
+            	<i class="fas fa-folder"></i> status de las ordenes
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="direcao-logistica">
+            	<i class="fas fa-folder"></i> editar dirección de tiendas
+            </a>
+        </div>
+        <div id="txtA" style="float:right; margin-right: 20px;">
+        	<a ui-sref="reportar-vendas({id:2})">
+            	<i class="fas fa-folder"></i> reporte ventas
+            </a>
+        </div>
+        <div id="txtA" style="float:right;">
+        	<a ui-sref="exportar-logistica">
+            	<i class="fas fa-file-csv"></i> exportar guías
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div4" style="background-color: #F4F4F4; padding-top: 20px;">
+    <div style="margin: 0 auto; width: 1200px;">
+        <div style="margin: 0 auto; width: 500px;">
+            <div style="float: left; margin-top: 20px; margin-bottom: 20px; width: 200px;">
+                <label style="float: left; width: 100%; font-family: Arial, Helvetica, sans-serif; 
+                            text-align: center; margin-bottom: 10px;">Tienda</label>
+
+                <select style="float: left; width: 100%; border: 1px solid #CCC; padding-top: 12px; padding-bottom: 12px;" 
+                        ng-model="tienda" 
+                        ng-change="verre()">
+                        <option value="">Selecciona una tienda</option>
+                        <option ng-repeat="tienda in tiendas | orderBy:'value'" value="{{tienda.key}}">{{tienda.value}}</option>
+                </select>
+            </div>
+
+            <div style="float: left; margin-left: 10px; margin-top: 20px; margin-bottom: 20px; width: 200px;">
+                <label style="float: left; width: 100%; font-family: Arial, Helvetica, sans-serif; 
+                            text-align: center; margin-bottom: 10px;">Transportadora</label>
+
+                <select style="float: left; width: 100%; border: 1px solid #CCC; padding-top: 12px; padding-bottom: 12px;" 
+                        ng-model="transportadora"
+                        ng-change="trans()"
+                        ng-options="transportadora.id as transportadora.value for transportadora in transportadoras">
+                </select>
+            </div>
+        </div>
+
+        <div style="float: left; margin-top: 0px; margin-bottom: 40px; width: 1200px;">
+            <div style="margin: 0 auto; width: 950px;">
+                <label style="float: left; width: 100%; font-family: Arial, Helvetica, sans-serif; 
+                            text-align: center; margin-bottom: 10px;">&nbsp;</label>
+
+                <div style="float:left; margin-left: 10px; width:60px; font-family: Arial, Helvetica, sans-serif; 
+                            background-color: #DDD; text-align: center; font-size: 14px; padding-top: 12px; 
+                            padding-bottom: 13px;">De</div>
+                
+                <input type="date" 
+                    ng-model="data1"
+                    style="width:150px; border-left:1px solid #CCC; border-bottom:none; border-top:none; 
+                            border-right:none; padding:8px; height:25px; float: left;">
+
+                <div style="float:left; margin-left: 10px; width:60px; font-family: Arial, Helvetica, sans-serif; 
+                            background-color: #DDD; text-align: center; font-size: 14px; padding-top: 12px; 
+                            padding-bottom: 13px;">Hrs</div>
+
+                <input type="time" id="hra1"
+                    style="float: left; margin-left: 10px; padding-left: 10px; width: 95px; border: none; padding-top: 13px; padding-bottom: 13px;">    
+
+                <div style="float:left; margin-left: 10px; width:60px; font-family: Arial, Helvetica, sans-serif; 
+                            background-color: #DDD; text-align: center; font-size: 14px; padding-top: 12px; 
+                            padding-bottom: 13px;">Hasta</div>
+
+                <input type="date"
+                    ng-model="data2"
+                    style="width:150px; border-left:1px solid #CCC; border-bottom:none; border-top:none; 
+                            border-right:none; padding:8px; height:25px; float: left;">
+            
+                <div style="float:left; margin-left: 10px; width:60px; font-family: Arial, Helvetica, sans-serif; 
+                            background-color: #DDD; text-align: center; font-size: 14px; padding-top: 12px; 
+                            padding-bottom: 13px;">Hrs</div>
+
+                <input type="time" id="hra2"
+                    style="float: left; margin-left: 10px; padding-left: 10px; width: 95px; border: none; padding-top: 13px; padding-bottom: 13px;">
+
+                <button ng-click="verDatas()"
+                        style="float:left; background:#CCC; border-radius:5px; padding-left: 20px; padding-right: 20px;
+                                    border:none; color:#333; font-weight:bold; cursor:pointer; padding-top: 12px; margin-left: 10px;
+                                    padding-bottom: 12px; font-family: Arial, Helvetica, sans-serif;">Ir</button> 
+            </div>
+        </div>
+
+        <div style="float: left; margin-top: 0px; width: 100%; margin-bottom: 40px;">
+            <div style="margin:0 auto; width: 200px;">
+                <button type="button"
+                        ng-click="enviar()"
+                        style="float:left; background:#00c198; border-radius:5px; padding-left: 20px; padding-right: 20px;
+                            border:none; color:#FFF; font-weight:bold; cursor:pointer; padding-top: 12px; 
+                            padding-bottom: 12px;">
+                            <span ng-show="botao">Enviar</span>
+                            <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="status" style="text-align:left; padding-left:0px; margin-top:-10px; margin-bottom:30px;"></div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB" ng-show="mess">
+        <div id="nehnRes">
+            <div ng-repeat="message in messages1">
+                <span style="float: left; padding-left: 1%; width: 99%; padding-top: 8px; padding-bottom: 8px; background-color: #F4F4F4;">
+                    {{message.msg}}
+                </span>
+                <div style="float: left; margin-left: 30px; font:15px Arial; color:#B70609;" 
+                    ng-repeat="erro in message.erros">
+                    {{erro}}
+                </div>
+            </div>
+            <div ng-repeat="message in messages2">
+                <span style="float: left; padding-left: 1%; width: 99%; padding-top: 8px; padding-bottom: 8px; background-color: #F4F4F4;">
+                    {{message.msg}}
+                </span>
+                <div style="float: left; margin-left: 30px; font:15px Arial; color:#B70609;" 
+                    ng-repeat="erro in message.erros">
+                    {{erro}}
+                </div>
+            </div>
+            <div ng-repeat="message in messages3">
+                <span style="float: left; padding-left: 1%; width: 99%; padding-top: 8px; padding-bottom: 8px; background-color: #F4F4F4;">
+                    {{message.msg}}
+                </span>
+                <div style="float: left; margin-left: 30px; font:15px Arial; color:#B70609;" 
+                    ng-repeat="erro in message.erros">
+                    {{erro}}
+                </div>
+            </div>
+            <div ng-repeat="message in messages4">
+                <span style="float: left; padding-left: 1%; width: 99%; padding-top: 8px; padding-bottom: 8px; background-color: #F4F4F4;">
+                    {{message.msg}}
+                </span>
+                <div style="float: left; margin-left: 30px; font:15px Arial; color:#B70609;" 
+                    ng-repeat="erro in message.erros">
+                    {{erro}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="float: left; width: 100%; background-color: #F4F4F4; padding-bottom: 20px;">
+        <div style="float:right; font-family: Arial, Helvetica, sans-serif; margin-right: 20px; 
+                    font-weight: bold;">
+            {{contar}} Seleccionados de {{logisticas.length}}
+        </div>
+    </div>
+
+    <div id="contB">
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 2%;">
+            <input type="checkbox" ng-model="selectedAll" ng-click="selectAll()">
+        </div>
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 6%;">
+            órdenes ID
+        </div>
+        <div id="nmCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 9%;">
+            Tienda
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 10%;">
+            Cliente
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 9%;">
+            Ciudad
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 9%;">
+            Departamento
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 9%;">
+            Transportadora
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 9%;">
+            Fecha de cotización
+        </div>
+        <div id="fnCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 7%;">
+            Productos
+        </div> 
+        <div id="fnCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 7%;">
+            Cotizaciones
+        </div>      
+    </div> 
+
+    <div id="contMais" ng-show="!logisticas">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-show="logisticas" ng-repeat="logistica in logisticas">
+        <div id="contB">
+            <div id="idPed" style="width: 2%;">
+                <input type="checkbox" ng-model="logistica.Selected" data-val="true" 
+                       ng-click="checkboxClick($event, logistica)" ng-selected="selectAll">
+            </div>
+            <div id="nmCliPed" style="width: 6%; text-align: center;">
+                {{logistica.order_id}}
+            </div>
+            <div id="emCliPed" style="width: 9%; text-align: center;">
+                {{logistica.store.name}}
+            </div>
+            <div id="fnCliPed" style="width: 10%;">
+                {{logistica.full_name}}
+            </div>
+            <div id="fnCliPed" style="width: 9%;">
+                {{logistica.city}}
+            </div>
+            <div id="fnCliPed" style="width: 9%;">
+                {{logistica.c_state}}
+            </div>
+            <div id="fnCliPed" style="width: 9%;">
+                {{logistica.carrier.carrier}}
+            </div>
+            <div id="fnCliPed" style="width: 9%;">
+                <span ng-show="logistica.transaction_date">{{logistica.transaction_date}}</span>
+                <span ng-show="!logistica.transaction_date">Sin información</span>
+            </div>
+            <div id="tsPed" style="float:left; width: 7%;">
+                <div style="float: left; width: 100%;" ng-click="abrePerfil(logistica.id, logistica.order_id)">
+                    <span ng-if="logistica.new_order_items.length">{{logistica.new_order_items.length}}</span>
+                    <span ng-if="!logistica.new_order_items.length">1</span> <br>
+                    <button type="button"
+                            style="margin:0 auto; width: 60px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                background: none;">mirar</button>
+                </div>
+            </div>
+            <div id="tsPed" style="float:left; width: 7%;">
+                $ {{logistica.quote.rate_value}}
+            </div>            
+        </div>
+    </div>
+
+    <div ng-show="!logistica" ng-repeat="logistica in logisticas" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="logisticas && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<div id="perfilPedidos" ng-if="abreProds">
+    
+    <div id="fndPedidos" ng-click="back2()"></div>
+    <div id="cntPedidos">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+            
+            <div id="tituPedidos">ID: {{id}}</div>
+            <div id="txtAPedidos" 
+                 style="background-color: #00c198; color: #FFF; margin-bottom: 20px;">
+                 Productos (cantidad {{produtos.length}})
+            </div>
+
+            <div id="lisProdutos" ng-repeat="produto in produtos">
+                <div id="txtAPedidos" ><b>Nombre del producto:</b> {{produto.product_name}}</div>
+                
+                <div id="txtAPedidos" 
+                     style="background-color: #F4F4F4;"><b>Estado:</b> {{produto.status}}</div>
+
+                <div id="txtAPedidos" ><b>Nombre de la tienda:</b> {{produto.store_name}}</div>
+
+                <div id="txtAPedidos" 
+                     style="background-color: #F4F4F4;"><b>Precio unitario:</b> $ {{produto.unit_price}}</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

@@ -1,0 +1,72 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="tienda-cidade({id:0})">
+            <i class="fas fa-chevron-right"></i> &nbsp; tienda & ciudad
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">cargue .CSV</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="busca">
+        
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+            <a ui-sref="tienda-cidade({id:0})">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="cntFormDiv5">
+        <div id="ctnInput5" style="float: left; top: 0px; position: relative; left: -500px; margin-left: 50%; width: 900px;">
+            
+            <div style="float: left; width: 100%; text-align: center;">
+                <form>
+                    <input style="position: relative; z-index: 2;" type='file' ng-change="carrega1()" ng-model='yourModel1' base-sixty-four-input>
+                </form>
+            </div>
+
+            <div style="float: left; margin-top: 40px; width: 100%; text-align: center;">
+                <button ng-click="irSearch()" style="width: 250px; position: relative; left: -125px; margin-left: 50%;">Upload</button>
+            </div>
+
+            <div style="float: left; margin-top: -30px; width: 100%; text-align: center;">
+                <div id="status" class="status"></div>
+            </div>
+
+            <div id="contMais" ng-show="!carregou" style="margin-top: -20px;">
+                <div id="loaderMais"><img src="../img/loader.png"></div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="footer" style=" position: fixed; bottom: 10px;">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

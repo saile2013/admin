@@ -1,0 +1,73 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home" style="text-transform: lowercase;">crear tiendas tematicas</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="tiendas-tematicas">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+        <div id="conTxtB">
+            <form name="contatoForm">
+            <div id="txtH">Crear tiendas tematicas</div>
+            
+            <div id="inputA" style="width: 550px;">
+                <Label>Name</Label>
+                <input type="text" style="width: 550px;" ng-model="name" placeholder="Ej: Minísio">
+            </div>
+            
+            <div id="inputA" style="float: left; width: 100%; margin-top: 20px;">
+                <label>Icon</label>
+                <form>
+                    <input type='file' ng-model='yourModel' base-sixty-four-input>
+                </form>
+            </div>
+
+            <div id="inputA" style="float: left; width: 100%; margin-top: 20px; margin-bottom: 50px;">
+                <label>Banner</label>
+                <form>
+                    <input type='file' ng-model='yourModel' base-sixty-four-input>
+                </form>
+            </div>
+
+            <div id="linhaB"></div>
+            
+            <div id="inputA" style="width:100%;">
+                <button type="button" ng-click="salvar(dados)">Salvar</button>
+            </div>
+            
+            <div id="status" style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

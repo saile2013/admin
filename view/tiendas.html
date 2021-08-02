@@ -1,0 +1,96 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">tiendas</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+    <div id="tipos">
+        <select ng-model="estato" 
+                ng-change="seleEstato()"
+                ng-options="estato as estato.aparence for estato in estatos track by estato.value">
+        </select>
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<!--<a ui-sref="adicionar-tiendas">
+            	<i class="fas fa-plus"></i> añadir
+            </a>-->
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contMais" ng-show="!tiendas">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+    
+    <div ng-repeat="tienda in tiendas">
+        <div id="contB">
+            <a ui-sref="perfil-tiendas({id:tienda.id})">
+            <div id="contFto" style="margin-left: 20px;">
+                <div id="fto" 
+                     style="background:url({{tienda.profile_picture}}) center center no-repeat;
+                            background-size:contain;">
+                </div>
+            </div>
+            <div id="txtB">{{tienda.name}} - {{tienda.name.substr(0, 13)}}</div>
+            <div id="txtC">{{tienda.address}}</div>
+            <div id="txtD">{{tienda.date_out_service}}</div>
+            </a>
+            
+            <div ng-if="tienda.name.substr(0, 13) != 'Loro Shoppers'" id="ctnEdit" style="margin-top: -35px;">
+                <a ui-sref="editar-tiendas({id:tienda.id})">
+                    <i class="fas fa-edit"></i>
+                </a>
+            </div>
+
+            <div id="ctnEdit" ng-click="abrirLink(tienda.alias)" style="margin-right: 100px; margin-top: -35px;">
+                <i style="color: #00c198; cursor: pointer;" class="far fa-copy"></i>
+                <div id="copy{{tienda.alias}}" 
+                    style="position: absolute; margin-left: -60px; margin-top: -19px; font-size: 11px; color: red;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div ng-show="!tienda" ng-repeat="tienda in tiendas" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="tiendas && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

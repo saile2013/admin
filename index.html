@@ -1,0 +1,266 @@
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Loro Colombia - Administrador</title>
+        
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="js/lib/select/multiple-select.css" rel="stylesheet" type="text/css">
+        <link href="css/tagger.css" rel="stylesheet" type="text/css">
+
+        
+        <link rel="icon" href="img/favicon.ico" sizes="32x32">
+
+        <script src="js/lib/angular/angular.min.js" defer></script>
+        <script src="js/lib/ui-router/angular-ui-router.min.js" defer></script>
+        <script src="js/lib/angular/angular-cookies.min.js" defer></script>
+        <script src="js/lib/angular/i18n/angular-locale_pt-br.js" defer></script>
+        <script src="js/lib/angular/angular-base64-upload.js" defer></script>
+        <script src="js/lib/upload/ng-file-upload.min.js" defer></script>
+        <script src="js/lib/select/multiple-select.js" defer></script>
+        <script src="js/lib/mask/mask.js" defer></script>
+        <script src="js/lib/mask/fcsa-number.js" defer></script>
+        <script src="js/lib/tinymce/js/tinymce/tinymce.min.js" defer></script>
+        <script src="js/lib/angular-ui-tinymce/dist/tinymce.min.js" defer></script>
+
+        <script src="js/app.js" defer></script>
+        <script src="js/config/routeConfig.js" defer></script>
+        
+        <script src="js/services/baseAPI.js" defer></script>
+        <script src="js/services/servicosAPI.js" defer></script>
+
+        <script src="js/directive/excel.js" defer></script>
+        
+        <script src="js/controllers/entrarCtrl.js" defer></script>
+        <script src="js/controllers/homeCtrl.js" defer></script>
+        
+        <script src="js/controllers/clientesCtrl.js" defer></script>
+        <script src="js/controllers/perfilClientesCtrl.js" defer></script>
+        <script src="js/controllers/searchClientesCtrl.js" defer></script>
+        <script src="js/controllers/searchPerfilClientesCtrl.js" defer></script>
+        <script src="js/controllers/relatoriosCtrl.js" defer></script>
+
+        <script src="js/controllers/pedidosCtrl.js" defer></script>
+        <script src="js/controllers/perfilPedidosCtrl.js" defer></script>
+        <script src="js/controllers/perfilStrefundsCtrl.js" defer></script>
+        <script src="js/controllers/exportarPedidosCtrl.js" defer></script>
+        <script src="js/controllers/searchPedidosCtrl.js" defer></script>
+        <script src="js/controllers/paymentsPedidosCtrl.js" defer></script>
+        <script src="js/controllers/historicoPedidosCtrl.js" defer></script>
+                
+        <script src="js/controllers/refundsCtrl.js" defer></script>
+        <script src="js/controllers/perfilRefundsCtrl.js" defer></script>
+        <script src="js/controllers/searchRefundsCtrl.js" defer></script>
+        <script src="js/controllers/exportarRefundsCtrl.js" defer></script>
+        
+        <script src="js/controllers/reportarVendasCtrl.js" defer></script>
+
+        <script src="js/controllers/categoriasCtrl.js" defer></script>
+        <script src="js/controllers/adicionarCategoriasCtrl.js" defer></script>
+        <script src="js/controllers/editarCategoriasCtrl.js" defer></script>
+        <script src="js/controllers/publicidadeCategoriasCtrl.js" defer></script>
+        <script src="js/controllers/searchCategoriasCtrl.js" defer></script>
+        <script src="js/controllers/dicionarioCategoriasCtrl.js" defer></script>        
+        
+        <script src="js/controllers/productosCtrl.js" defer></script>
+        <script src="js/controllers/editarProductosCtrl.js" defer></script>
+        <script src="js/controllers/searchProductosCtrl.js" defer></script>
+
+        <script src="js/controllers/tiendasCtrl.js" defer></script>
+        <script src="js/controllers/adicionarTiendasCtrl.js" defer></script>
+        <script src="js/controllers/editarTiendasCtrl.js" defer></script>
+        <script src="js/controllers/descuentosTiendasCtrl.js" defer></script>
+        <script src="js/controllers/searchTiendasCtrl.js" defer></script>
+        <script src="js/controllers/perfilTiendasCtrl.js" defer></script>
+
+        <script src="js/controllers/adicionarPasillosCtrl.js" defer></script>
+        <script src="js/controllers/editarPasillosCtrl.js" defer></script>
+        <script src="js/controllers/searchPasillosCtrl.js" defer></script>
+        <script src="js/controllers/dicionarioPasillosCtrl.js" defer></script>        
+
+        <script src="js/controllers/cotacaoLogisticaCtrl.js" defer></script>
+        <script src="js/controllers/encomendasLogisticaCtrl.js" defer></script>
+        <script src="js/controllers/statusLogisticaCtrl.js" defer></script>
+        <script src="js/controllers/direcaoLogisticaCtrl.js" defer></script>
+        <script src="js/controllers/searchDirecaoLogisticaCtrl.js" defer></script>
+        <script src="js/controllers/editarDirecaoLogisticaCtrl.js" defer></script>
+        <script src="js/controllers/perfilCotacaoCtrl.js" defer></script>
+        <script src="js/controllers/searchCotacaoLogisticaCtrl.js" defer></script>
+        <script src="js/controllers/searchStatusLogisticaCtrl.js" defer></script>
+        <script src="js/controllers/searchEncomendasLogisticaCtrl.js" defer></script>
+
+        <script src="js/controllers/utilizacionCtrl.js" defer></script>
+
+        <script src="js/controllers/tiendasTematicasCtrl.js" defer></script>
+        <script src="js/controllers/perfilTiendasTematicasCtrl.js" defer></script>
+        <script src="js/controllers/adicionarTiendasTematicasCtrl.js" defer></script>
+        <script src="js/controllers/adicionarKitCtrl.js" defer></script>
+
+        <script src="js/controllers/slidersCtrl.js" defer></script>
+        <script src="js/controllers/editarSlidersCtrl.js" defer></script>
+        <script src="js/controllers/searchSlidersCtrl.js" defer></script>
+        <script src="js/controllers/adicionarSlidersCtrl.js" defer></script>
+
+        <script src="js/controllers/pushsCtrl.js" defer></script>
+        <script src="js/controllers/pushCsvCtrl.js" defer></script>
+
+        <script src="js/controllers/tiendasEstatisticasCtrl.js" defer></script>
+        <script src="js/controllers/searchTiendasEstatisticasCtrl.js" defer></script>
+        <script src="js/controllers/estatisticasCtrl.js" defer></script>
+        <script src="js/controllers/seguidoresEstatisticasCtrl.js" defer></script>
+        <script src="js/controllers/likesEstatisticasCtrl.js" defer></script>
+        <script src="js/controllers/vendidosEstatisticasCtrl.js" defer></script>
+        <script src="js/controllers/gustadosEstatisticasCtrl.js" defer></script>
+        <script src="js/controllers/diasEstatisticasCtrl.js" defer></script>
+        <script src="js/controllers/demograficosEstatisticasCtrl.js" defer></script>
+        <script src="js/controllers/porcidadeEstatisticasCtrl.js" defer></script>
+
+        <script src="js/controllers/cuponsCtrl.js" defer></script>
+        <script src="js/controllers/perfilCuponsCtrl.js" defer></script>
+        <script src="js/controllers/searchCuponsCtrl.js" defer></script>
+        <script src="js/controllers/adicionarCuponsCtrl.js" defer></script>
+        <script src="js/controllers/editarCuponsCtrl.js" defer></script>
+
+        <script src="js/controllers/sinivaCtrl.js" defer></script>
+        <script src="js/controllers/searchSinivaCtrl.js" defer></script>
+        <script src="js/controllers/sinivaExcelCtrl.js" defer></script>
+        <script src="js/controllers/ativosSinivaCtrl.js" defer></script>
+        <script src="js/controllers/searchAtivosSinivaCtrl.js" defer></script>
+
+        <script src="js/controllers/manutencaoCtrl.js" defer></script>
+        <script src="js/controllers/tiendaCidadeCtrl.js" defer></script>
+
+        <script src="js/controllers/precosIncriveisCtrl.js" defer></script>
+        <script src="js/controllers/adicionarIncriveisCtrl.js" defer></script>
+        <script src="js/controllers/searchIncriveisCtrl.js" defer></script>
+
+        <script src="js/controllers/precosRecomendadosCtrl.js" defer></script>
+        <script src="js/controllers/adicionarRecomendadosCtrl.js" defer></script>
+        <script src="js/controllers/searchRecomendadosCtrl.js" defer></script>
+
+        <script src="js/controllers/ordenTiendasCtrl.js" defer></script>
+        <script src="js/controllers/searchOrdenTiendasCtrl.js" defer></script>
+
+        <script src="js/controllers/palavrasChavesCtrl.js" defer></script>
+        <script src="js/controllers/perfilPalavrasCtrl.js" defer></script>
+        <script src="js/controllers/chavesUsuariosCtrl.js" defer></script>
+        <script src="js/controllers/searchChavesUsuariosCtrl.js" defer></script>
+        <script src="js/controllers/searchPalavrasChavesCtrl.js" defer></script>
+        <script src="js/controllers/searchPerfilPalavrasCtrl.js" defer></script>
+
+        <script src="js/controllers/detalhesBuscaCtrl.js" defer></script>
+        <script src="js/controllers/searchDetalhesBuscaCtrl.js" defer></script>
+
+        <script src="js/controllers/blacklistCtrl.js" defer></script>
+        <script src="js/controllers/searchBlacklistCtrl.js" defer></script>
+        <script src="js/controllers/adicionarBlacklistCtrl.js" defer></script>
+
+        <script src="js/controllers/homePublicidadeCtrl.js" defer></script>
+        <script src="js/controllers/publicidadeCategoriasCtrl.js" defer></script>
+        <script src="js/controllers/searchPublicidadeCategoriasCtrl.js" defer></script>
+        <script src="js/controllers/adicionarPublicidadeCategoriasAppCtrl.js" defer></script>
+        <script src="js/controllers/adicionarPublicidadeCategoriasWebCtrl.js" defer></script>
+
+        <script src="js/controllers/publicidadeTiendasCtrl.js" defer></script>
+        <script src="js/controllers/searchPublicidadeTiendasCtrl.js" defer></script>
+        <script src="js/controllers/adicionarPublicidadeTiendasAppCtrl.js" defer></script>
+
+        <script src="js/controllers/home48horasCtrl.js" defer></script>
+
+        <script src="js/controllers/pedidosPlansCtrl.js" defer></script>
+        <script src="js/controllers/searchPedidosPlansCtrl.js" defer></script>
+        <script src="js/controllers/perfilPedidosPlansCtrl.js" defer></script>
+        <script src="js/controllers/perfilStrefundsPlansCtrl.js" defer></script>
+        <script src="js/controllers/historicoPedidosPlansCtrl.js" defer></script>
+        <script src="js/controllers/exportarPedidosPlansCtrl.js" defer></script>
+
+        <script src="js/controllers/emailsCtrl.js" defer></script>
+        <script src="js/controllers/terminosCondicionesCtrl.js" defer></script>
+        <script src="js/controllers/adicionarTerminosCondicionesCtrl.js" defer></script>
+        <script src="js/controllers/editarTerminosCondicionesCtrl.js" defer></script>
+        <script src="js/controllers/searchTerminosCondicionesCtrl.js" defer></script>
+
+        <script src="js/controllers/videosAdminCtrl.js" defer></script>
+
+        <script src="js/controllers/cargueTiendaCidadCtrl.js" defer></script>
+        <script src="js/controllers/restaurantesCtrl.js" defer></script>
+        <script src="js/controllers/restaurantesOrdenesCtrl.js" defer></script>
+        <script src="js/controllers/searchRestaurantesOrdenesCtrl.js" defer></script>
+        <script src="js/controllers/restaurantesCategoriasCtrl.js" defer></script>
+        <script src="js/controllers/searchRestaurantesCategoriasCtrl.js" defer></script>
+        <script src="js/controllers/listadoMarcasCtrl.js" defer></script>
+        <script src="js/controllers/searchListadoMarcasCtrl.js" defer></script>
+        <script src="js/controllers/listadoRestaurantesCtrl.js" defer></script>
+        <script src="js/controllers/searchListadoRestaurantesCtrl.js" defer></script>
+        <script src="js/controllers/refundsRestaurantesCtrl.js" defer></script>
+        <script src="js/controllers/searchRefundsRestaurantesCtrl.js" defer></script>
+        <script src="js/controllers/perfilRestaurantesOrdenesCtrl.js" defer></script>
+        <script src="js/controllers/perfilRestaurantesHistoricoCtrl.js" defer></script>
+
+        <script src="js/controllers/redimidosCtrl.js" defer></script>
+        <script src="js/controllers/searchRedimidosCtrl.js" defer></script>
+        <script src="js/controllers/noRedimidosCtrl.js" defer></script>
+        <script src="js/controllers/searchNoRedimidosCtrl.js" defer></script>
+
+        <script src="js/controllers/riesgoCtrl.js" defer></script>
+        <script src="js/controllers/adicionarRiesgoCtrl.js" defer></script>
+        <script src="js/controllers/editarRiesgoCtrl.js" defer></script>
+
+        <script src="js/controllers/exportarLogisticaCtrl.js" defer></script>
+        
+        <script src="js/controllers/tallasCtrl.js" defer></script>
+        <script src="js/controllers/adicionarTallasCtrl.js" defer></script>
+        <script src="js/controllers/editarTallasCtrl.js" defer></script>
+
+        <script src="js/controllers/semCoberturasCtrl.js" defer></script>
+
+        <script src="js/controllers/errorLoginCtrl.js" defer></script>
+        <script src="js/controllers/shoppersCtrl.js" defer></script>
+        <script src="js/controllers/desativarCidadesCtrl.js" defer></script>
+        <script src="js/controllers/searchDesativarCidadesCtrl.js" defer></script>
+        <script src="js/controllers/searchShoppersCtrl.js" defer></script>
+        <script src="js/controllers/adicionarShoProdutosCtrl.js" defer></script>
+        <script src="js/controllers/perfilShoProdutosCtrl.js" defer></script>
+        <script src="js/controllers/searchPerfilShoProdutosCtrl.js" defer></script>
+
+        <script src="js/controllers/challengesCtrl.js" defer></script>
+        <script src="js/controllers/searchChallengesCtrl.js" defer></script>
+        <script src="js/controllers/perfilChallengesCtrl.js" defer></script>
+        <script src="js/controllers/adicionarChallengesCtrl.js" defer></script>
+        <script src="js/controllers/editarChallengesCtrl.js" defer></script>
+
+        <script src="js/controllers/categorizacaoCtrl.js" defer></script>
+        <script src="js/controllers/categorizacaoPacaCtrl.js" defer></script>
+
+        <script src="js/controllers/usuariosTestCtrl.js" defer></script>
+        <script src="js/controllers/searchTodosUsuariosTestCtrl.js" defer></script>
+        <script src="js/controllers/todosUsuariosTestCtrl.js" defer></script>
+        <script src="js/controllers/searchUsuariosTestCtrl.js" defer></script>
+        <script src="js/controllers/moduloUserTestCtrl.js" defer></script>
+
+        <script src="js/controllers/lorob2bCtrl.js" defer></script>
+        <script src="js/controllers/adicionarLorob2bCtrl.js" defer></script>
+        <script src="js/controllers/searchLorob2bCtrl.js" defer></script>
+        <script src="js/controllers/perfilLorob2bCtrl.js" defer></script>
+        <script src="js/controllers/criarUsuariosCtrl.js" defer></script>
+        <script src="js/controllers/subirCreditoCtrl.js" defer></script>
+        <script src="js/controllers/editarCreditoCtrl.js" defer></script>
+        <script src="js/controllers/distribuirCreditoCtrl.js" defer></script>
+        <script src="js/controllers/ativarLandpageCtrl.js" defer></script>
+
+        <script src="https://geo.loro.com.co/loro/hash2.js?hkyzA1z" defer></script>
+        <script src="js/lib/tagger/tagger.js"></script>
+
+    </head>
+    
+    <body>
+        
+        <div ng-app="sop">
+            <ui-view></ui-view>
+        </div>
+        
+    </body>
+</html>

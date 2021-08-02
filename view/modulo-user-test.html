@@ -1,0 +1,46 @@
+﻿<div style="float: left; width: 100%;">
+    <div ng-click="voltar()" 
+        style="position: fixed; top: 0px; width: 100%; height: 100%; background-color: #333; opacity: 0.5;">
+    </div>
+
+    <div style="position: fixed; left: 50%; margin-left: -150px; top: 50%; margin-top: -150px; width: 300px;
+                background-color: #FFF; border: 1px solid #00c198; border-radius: 10px;">
+
+        <div style="float: left; width: 100%; margin-top: 20px; margin-bottom: 20px;">
+            <div style="float: left; margin-left: 20px; font-family: Arial, Helvetica, sans-serif;
+                        font-size: 16px; font-weight: bold; margin-bottom: 10px;">
+                Módulos
+            </div>
+            <div style="float: left; width: 100%; margin-top: 10px;"
+                ng-repeat="modulo in modulos">
+                <div style="float: left; margin-left: 20px; font-family: Arial, Helvetica, sans-serif;
+                            font-size: 14px;">
+                    {{modulo.name}}
+                </div>
+                <div style="float: left; margin-left: 20px;">
+                    <i class="fas fa-check-circle"
+                        style="cursor: pointer;"
+                        ng-click="ativaModulo(modulo.id)">
+                    </i>
+                </div>
+            </div>
+
+            <div style="float: left; margin-left: 20px; font-family: Arial, Helvetica, sans-serif;
+                        font-size: 16px; font-weight: bold; margin-bottom: 10px; margin-top: 20px;">
+                Módulos activos
+            </div>
+            <div style="float: left; width: 100%; margin-top: 10px;"
+                ng-repeat="modulo2 in modulos2">
+                <div style="float: left; margin-left: 20px; font-family: Arial, Helvetica, sans-serif;
+                            font-size: 14px;">
+                    {{modulo2.name}}
+                </div>
+                <div style="float: left; margin-left: 20px;">
+                    <i class="fas fa-check-circle" 
+                        style="cursor: pointer; color: #00c198;">
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>>

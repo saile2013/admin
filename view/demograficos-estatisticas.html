@@ -1,0 +1,217 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="estatisticas({id:id})">
+            <i class="fas fa-chevron-right"></i> &nbsp; {{name}}
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">demograficos</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="tipos">
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="estatisticas({id:id})">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contMais" ng-show="loader">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+    
+    <div ng-if="ages || ages2" style="float: left; margin-top: 20px; width: 100%;">
+        <div style="margin: 0 auto; width: 1300px;">
+            <div style="float: left; width: 100%;">
+                <div style="background:url({{profile_picture}}) center center no-repeat; background-size:cover;
+                            width:70px; height:70px; border-radius:50%; border: 1px solid #333; margin: 0 auto;">
+                </div>
+            </div>
+            <div style="float: left; width: 100%; margin-top: 10px; text-align: center; font:25px Arial; font-weight:bold; color:rgb(136, 128, 128);">
+                {{name}}
+            </div>
+
+            <div ng-if="ages" style="float: left; width: 100%; margin-top: 40px; font:25px Arial; font-weight:bold; color:#00c198;">
+                <div style="float: left; width: 100%; font:16px Arial; font-weight:bold; color:#FFF; background-color: #BBB; padding-top: 10px; padding-bottom: 10px; margin-bottom: 30px;">
+                    <span style="margin-left: 10px;">Seguidores de tiendas por segmentos (Rangos de edad, Genero).</span>
+                </div>
+                <div ng-repeat="(key, value) in ages" style="float: left; width: 50%;">                    
+                    <div id="contB" ng-if="key=='under_15'">
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>Menores de 15 años:</b> ({{value}})
+                            <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                        </div>
+                    </div>
+                    <div id="contB" ng-if="key=='15_20'">
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>15 a 20 años:</b> ({{value}})
+                            <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                        </div>
+                    </div>
+                    <div id="contB" ng-if="key=='20_25'">
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>20 a 25 años:</b> ({{value}})
+                            <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                        </div>
+                    </div>
+                    <div id="contB" ng-if="key=='25_30'">
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>25 a 30 años:</b> ({{value}})
+                            <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                        </div>
+                    </div>
+                    <div id="contB" ng-if="key=='30_40'">
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>30 a 40 años:</b> ({{value}})
+                            <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                        </div>
+                    </div>
+                    <div id="contB" ng-if="key=='40_50'">
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>40 a 50 años:</b> ({{value}})
+                            <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                        </div>
+                    </div>
+                    <div id="contB" ng-if="key=='over_50'">
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>Más de 50 años:</b> ({{value}})
+                            <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="float: left; width: 100%; margin-top: 40px; font:25px Arial; font-weight:bold; color:#00c198;"></div>    
+                <div ng-repeat="(key, value) in genders" style="float: left; width: 50%;">                    
+                    <div id="contB" ng-if="key=='F'">
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>Femenino:</b> ({{value}})
+                            <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                        </div>
+                    </div>
+                    <div id="contB" ng-if="key=='M'">
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>Masculino:</b> ({{value}})
+                            <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                        </div>
+                    </div>
+                    <div id="contB" ng-if="key=='N'">
+                        <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                            <b>N:</b> ({{value}})
+                            <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!---->
+                <div ng-if="ages2" style="float: left; width: 100%; margin-top: 40px; font:25px Arial; font-weight:bold; color:#00c198;">
+                    <div style="float: left; width: 100%; font:16px Arial; font-weight:bold; color:#FFF; background-color: #BBB; padding-top: 10px; padding-bottom: 10px; margin-bottom: 30px;">
+                        <span style="margin-left: 10px;">Likes de productos por segmentso demograficos (Rangos de edad, Género).</span>
+                    </div>
+                    <div ng-repeat="(key, value) in ages2" style="float: left; width: 50%;">                    
+                        <div id="contB" ng-if="key=='under_15'">
+                            <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                                <b>Menores de 15 años:</b> ({{value}})
+                                <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                            </div>
+                        </div>
+                        <div id="contB" ng-if="key=='15_20'">
+                            <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                                <b>15 a 20 años:</b> ({{value}})
+                                <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                            </div>
+                        </div>
+                        <div id="contB" ng-if="key=='20_25'">
+                            <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                                <b>20 a 25 años:</b> ({{value}})
+                                <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                            </div>
+                        </div>
+                        <div id="contB" ng-if="key=='25_30'">
+                            <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                                <b>25 a 30 años:</b> ({{value}})
+                                <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                            </div>
+                        </div>
+                        <div id="contB" ng-if="key=='30_40'">
+                            <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                                <b>30 a 40 años:</b> ({{value}})
+                                <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                            </div>
+                        </div>
+                        <div id="contB" ng-if="key=='40_50'">
+                            <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                                <b>40 a 50 años:</b> ({{value}})
+                                <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                            </div>
+                        </div>
+                        <div id="contB" ng-if="key=='over_50'">
+                            <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                                <b>Más de 50 años:</b> ({{value}})
+                                <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="float: left; width: 100%; margin-top: 40px; font:25px Arial; font-weight:bold; color:#00c198;"></div>    
+                    <div ng-repeat="(key, value) in genders2" style="float: left; width: 50%;">                    
+                        <div id="contB" ng-if="key=='F'">
+                            <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                                <b>Femenino:</b> ({{value}})
+                                <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                            </div>
+                        </div>
+                        <div id="contB" ng-if="key=='M'">
+                            <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                                <b>Masculino:</b> ({{value}})
+                                <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                            </div>
+                        </div>
+                        <div id="contB" ng-if="key=='N'">
+                            <div id="txtD" style="font-size: 18px; margin-left: 20px;">
+                                <b>N:</b> ({{value}})
+                                <div style="width: {{value}}px; height: 20px; background-color: #00c198; max-width: 400px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="nehnRes">
+    	{{mensagens}}
+    </div>        
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

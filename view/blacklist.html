@@ -1,0 +1,89 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">blacklist</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>    
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="home">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="adicionar-blacklist">
+            	<i class="fas fa-plus"></i> añadir
+            </a>
+        </div>
+        <!--<div id="txtA">
+        	<a ui-sref="relatorios">
+            	<i class="fas fa-address-card"></i> reporte
+            </a>
+        </div>-->
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contMais" ng-show="!noCarrega && !siCarrega">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+    
+    <div ng-repeat="cliente in clientes">
+        <div id="contB" style="padding-bottom: 15px;">
+            <div style="margin-left: 15px;" >
+                <div id="txtB">
+                    <div ng-show="cliente.type=='phone'"><b>Teléfono</b></div>
+                    <div ng-show="cliente.type=='dni_number'"><b>Número Dani</b></div>
+                    <div ng-show="cliente.type=='address'"><b>Direcciones:</b></div>
+                </div>
+                <div id="txtC">
+                    <b>Creado:</b> {{cliente.created_at}}
+                </div>
+                <div id="txtC">
+                    <b>Actualizado a:</b> {{cliente.updated_at}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="noCarrega" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="clientes && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+        
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

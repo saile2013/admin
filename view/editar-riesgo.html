@@ -1,0 +1,78 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp;
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">notificaciones push</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="riesgo">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB" style="padding-top: 40px; padding-bottom: 40px;">
+        
+        <div style="float: left; margin-left: 15px; margin-top: 20px;">
+            <input type="text" ng-model="latitude"
+                    placeholder="Latitude" 
+                    style="padding: 8px; border-radius: 5px; border: none; width: 200px;">
+        </div>
+
+        <div style="float: left; margin-left: 15px; margin-top: 20px;">
+            <input type="text" ng-model="longitude"
+                    placeholder="Longitude" 
+                    style="padding: 8px; border-radius: 5px; border: none; width: 200px;">
+        </div>
+
+        <div style="float: left; margin-left: 15px; margin-top: 20px;">
+            <input type="text" ng-model="radio"
+                    placeholder="Radio" 
+                    style="padding: 8px; border-radius: 5px; border: none; width: 200px;">
+        </div>
+
+        <div style="float:left; margin-top:40px; width:100%; height:1px; background:#FFF;"></div>
+
+        <div style="float: left; margin-top: 20px; width: 100%;">
+            <button type="button" ng-click="buscar()"
+                    style="float: left; margin-left: 15px; width:300px; background:#00c198; border-radius:5px; border:none; color:#FFF; 
+                           font-weight:bold; cursor:pointer; padding-top: 12px; padding-bottom: 12px; margin-top: 30px; margin-bottom: 10px;">                
+                    <span ng-show="botao">Salvar</span>
+                    <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+            </button>
+        </div>
+
+        <div id="status" style="text-align:left; padding-left:20px; margin-top:10px; margin-bottom:10px;"></div>
+
+    </div>
+
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

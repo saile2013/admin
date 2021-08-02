@@ -1,0 +1,114 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="palavras-chaves">
+            <i class="fas fa-chevron-right"></i> &nbsp; loro b2b
+        </a>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>    
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="home">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="adicionar-lorob2b">
+            	<i class="fas fa-plus"></i> añadir
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB">
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 5%;">
+            ID
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 20%;">
+            Nombre 
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 20%;">
+            Nombre Legal
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 20%;">
+            Nit
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 11%; text-align: center;">
+            Status
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 10%; text-align: center;">
+            Ver
+        </div> 
+    </div> 
+
+    <div id="contMais" ng-show="!tiendas">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-repeat="tienda in tiendas">
+        <div id="contB">
+            <div id="idPed" style="width: 5%;">
+                {{tienda.id}}
+            </div>
+            <div id="nmCliPed" style="width: 20%;">
+                {{tienda.name}}
+            </div>
+            <div id="nmCliPed" style="width: 20%;">
+                {{tienda.legal_name}}
+            </div>
+            <div id="emCliPed" style="width: 20%;">
+                {{tienda.nit}}
+            </div>
+            <div id="emCliPed" style="width: 11%; text-align: center;">
+                <span ng-show="tienda.status==1">Activo</span>
+                <span ng-show="tienda.status==0">Inactivo</span>
+            </div>
+            <div id="emCliPed" style="width: 10%; text-align: center;">
+                <a ui-sref="perfil-lorob2b({id:tienda.id})">
+                    <i class="far fa-eye"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div ng-show="!tiendas" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="tiendas && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>    
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

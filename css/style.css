@@ -1,0 +1,466 @@
+@charset "utf-8";
+/* CSS Document */
+* { padding:0px; margin:0px; }
+a { text-decoration:none; color:inherit; }
+body { overflow-x:hidden; }
+#status { float:left; margin-top:10px; width:100%; font:12px Arial; color:#B70609; text-align:center; }
+.status { float:left; margin-top:10px; width:100%; font:12px Arial; color:#B70609; }
+#nehnRes { float:left; padding-top:20px; margin-left:15px; margin-top:10px; width:100%; font:18px Arial; color:#333; }
+
+.funCida { position: absolute; top:0px; left: 0px; width: 100%; height: 100%; z-index: 1; }
+.hasCida {
+	float: left; margin-top: 0px; width: auto; position: absolute; background: #FFF; height: 200px; overflow-x: hidden;
+	z-index: 2; border: 1px solid #333;
+}
+.hasCida span { 
+	float: left; cursor: pointer; width: 100%; font-family: Arial, Helvetica, sans-serif; 
+	font-size: 15px; color: #333; padding-top: 10px; padding-bottom: 10px; padding-left: 20px;
+}
+.hasCida span:hover { background-color: #F4F4F4; }
+
+#contPagina { float:left; margin-left:5%; margin-top:10px; margin-bottom:20px; width:90%; }
+#contPagina #pagina { float:left; width:100%; }
+#contPagina #pagina .ng-isolate-scope { float:left; width:100%; margin-top:20px; }
+#contPagina #pagina .ng-isolate-scope ul li { list-style:none; padding-top:5px; padding-bottom:5px; float:left; margin-right:10px; border-radius:50%; width:30px; background:#0F809B; font:18px Arial; color:#FFF; font-weight:bold; text-align:center; }
+#contPagina #pagina .ng-isolate-scope ul li.active { color:#FFF; text-decoration:underline; }
+
+#div1 { float:left; width:100%; background:#FFF; }
+#div1 #nmUser { float:left; padding-top:20px; padding-bottom:20px; padding-left:15px; padding-right:15px; font:14px Arial; color:#333; font-weight:bold; }
+#div1 #buttonA { float:right; padding-top:20px; padding-bottom:20px; padding-left:15px; padding-right:15px; font:14px Arial; color:#333; }
+#div1 #buttonA i { font-size:1em; }
+#div1 #logo {
+	float: left; padding-left: 20px; padding-right: 20px; padding-top: 15px; padding-bottom: 14px; background-color: #FFF;
+}
+#div1 #logo img { width: 90px; }
+
+#div2 { float:left; width:100%; background:#00c198 }
+#div2 #itenA { float:left; margin-left:15px; padding-top:15px; padding-bottom:15px; font:14px Arial; color:#FFF; }
+#div2 #itenA i { font-size:1em; }
+
+#div2Bus { float:left; margin-top:0px; width:100%; height:40px; border-bottom:1px solid #CCC; }
+
+#div2Bus #conTxt { float:left; width:100%; }
+#div2Bus #conTxt #txtA { float:left; margin-left:15px; font:15px Arial; font-weight:bold; color:#49CCED; }
+
+#div2Bus #busca { float:right; width:250px; }
+#div2Bus #busca input {
+	width:250px; border-left:1px solid #CCC; border-bottom:none; border-top:none; border-right:none; padding:8px; height:40px;
+}
+
+#div2Bus #tipos { float:right; width:250px; }
+#div2Bus #tipos select {
+	width:250px; border-left:1px solid #CCC; border-bottom:none; border-top:none; border-right:none; padding:8px; height:40px;
+}
+
+#div2Bus #buttOn { float:right; width:60px; }
+#div2Bus #buttOn button {
+	width:60px; border:none; padding:8px; height:40px; background: none; cursor: pointer;
+}
+
+#div2Bus #busTxt {
+	float:right; width:60px; font-family: Arial, Helvetica, sans-serif; background-color: #DDD; text-align: center; font-size: 14px;
+	padding-top: 11px; padding-bottom: 13px;
+}
+
+#div2Bus #datas { float:right; margin-right: 30px; width:150px; }
+#div2Bus #datas input {
+	width:150px; border-left:1px solid #CCC; border-bottom:none; border-top:none; border-right:none; padding:8px; height:23px;
+}	
+
+#div3 { float:left; width:100%; }
+#div3 h1 { float:left; width:100%; text-align:center; font:20px Arial; }
+#div3 #mapa { float:left; margin-top:20px; width:100%; text-align:center; }
+#div3 #mapa img { width:805px; }
+
+#div3 #logar { position:relative; top:150px; left:50%; margin-left:-135px; padding-bottom:100px; width:100%; max-width:250px; height:50px; }
+#div3 #logar #logo { float: left; background-image: url(../img/logoLoro.svg); width: 100%; height: 100px; background-position: center center; background-repeat: no-repeat; }
+#div3 #logar input { float:left; width:100%; height:20px; padding:8px; margin-top:5px; }
+#div3 #logar button { float:left; width:269px; height:40px; padding:8px; margin-top:5px; background:#00c198; border:none; cursor:pointer; color:#FFF; }
+#div3 #logar button span { color: #FFF; text-align: center; width: 100%; font-weight:bold; font-size: 15px; }
+#div3 #logar span { width:100%; font:12px Arial; color:#B70609; }
+
+#div4 { float:left; margin-top:20px; width:100%; }
+#div4 #conTxt { float:left; width:100%; }
+#div4 #conTxt #txtA { float:left; margin-left:15px; margin-bottom:10px; font:13px Arial; font-weight:bold; color:#333; cursor:pointer; }
+
+#div4 #conTxt #txtA #listPais { position:absolute; margin-top:5px; float:left; width:150px; font:15px Arial; color:#333; border:1px solid #CCC; background:#FFF; padding-bottom:10px; }
+#div4 #conTxt #txtA #listPais #funPais { position:fixed; left:0px; top:0px; width:100%; height:100%; z-index:9; }
+#div4 #conTxt #txtA #listPais #txtPais { position:relative; float:left; padding-left:5%; width:90%; margin-top:10px; font:15px Arial; color:#333; cursor:pointer; z-index:10; }
+
+#div4 #conTxt #txtA #listEstado { position:absolute; margin-top:5px; float:left; width:150px; font:15px Arial; color:#333; border:1px solid #CCC; background:#FFF; padding-bottom:10px; }
+#div4 #conTxt #txtA #listEstado #funEstado { position:fixed; left:0px; top:0px; width:100%; height:100%; z-index:9; }
+#div4 #conTxt #txtA #listEstado #txtEstado { position:relative; float:left; padding-left:5%; width:90%; margin-top:10px; font:15px Arial; color:#333; cursor:pointer; z-index:10; }
+
+#div4 #conTxt #txtA #listCidade { position:absolute; margin-top:5px; float:left; width:150px; font:15px Arial; color:#333; border:1px solid #CCC; background:#FFF; padding-bottom:10px; }
+#div4 #conTxt #txtA #listCidade #funCidade { position:fixed; left:0px; top:0px; width:100%; height:100%; z-index:9; }
+#div4 #conTxt #txtA #listCidade #txtCidade { position:relative; float:left; padding-left:5%; width:90%; margin-top:10px; font:15px Arial; color:#333; cursor:pointer; z-index:10; }
+
+#div4 #conTxt #txtA #listBairro { position:absolute; margin-top:5px; float:left; width:150px; font:15px Arial; color:#333; border:1px solid #CCC; background:#FFF; padding-bottom:10px; }
+#div4 #conTxt #txtA #listBairro #funBairro { position:fixed; left:0px; top:0px; width:100%; height:100%; z-index:9; }
+#div4 #conTxt #txtA #listBairro #txtBairro { position:relative; float:left; padding-left:5%; width:90%; margin-top:10px; font:15px Arial; color:#333; cursor:pointer; z-index:10; }
+
+#div4 #conTxt #txtA #listRua { position:absolute; margin-top:5px; float:left; width:150px; font:15px Arial; color:#333; border:1px solid #CCC; background:#FFF; padding-bottom:10px; }
+#div4 #conTxt #txtA #listRua #funRua { position:fixed; left:0px; top:0px; width:100%; height:100%; z-index:9; }
+#div4 #conTxt #txtA #listRua #txtRua { position:relative; float:left; padding-left:5%; padding-right:5%; margin-top:10px; font:15px Arial; color:#333; cursor:pointer; z-index:10; }
+
+
+#div5 { float:left; width:100%; }
+
+#div5 #cntFormDiv5 { margin: 0 auto; width: 600px; }
+#div5 #cntFormDiv5 #ctnInput5 { float:left; width:100%; margin-top: 80px; margin-bottom: 50px; }
+#div5 #cntFormDiv5 #ctnInput5 #input5 { float:left; margin-left: 40px; margin-top:10px; width:200px; }
+#div5 #cntFormDiv5 #ctnInput5 #input5 label {
+	float:left; padding:8px; width:100%; margin-bottom:10px; font:15px Arial; color: #00c198; font-weight: bold; text-align: center;
+}
+#div5 #cntFormDiv5 #ctnInput5 #input5 input {
+	float:left; width:200px; padding:8px; border-radius:5px; border:1px solid #CCC; font:12px Arial; border-radius: 5px;
+}
+#div5 #cntFormDiv5 #ctnInput5 button {
+	float:left; width:300px; background:#00c198; margin-left:115px; border-radius:5px; border:none; color:#FFF; 
+	font-weight:bold; cursor:pointer; padding-top: 12px; padding-bottom: 12px; margin-top: 30px; margin-bottom: 50px;
+}
+#div5 #cntFormDiv5 #ctnInput5 #icons { margin: 0 auto; width: 100px; font-size: 2em; color: #CCC; }
+#div5 #cntFormDiv5 #ctnInput5 #icons i { font-size: 2em; color: #CCC; }
+
+#div5 #cntFormDiv5 #ctnInput5 #input5A { float:left; width:250px; height:40px; margin-left:50px; margin-bottom:20px; padding-bottom:10px; }
+#div5 #cntFormDiv5 #ctnInput5 #input5A span { float:left; margin-top:0px; font:15px Arial; color:#333; }
+#div5 #cntFormDiv5 #ctnInput5 #input5A label { float:left; padding:8px; width:100%; font:15px Arial; font-weight:bold; color:#00c198; }
+#div5 #cntFormDiv5 #ctnInput5 #input5A .label { float:left; padding:0px; margin-left:10px; width:100%; margin-bottom:10px; font:12px Arial; color:#0F809B; }
+#div5 #cntFormDiv5 #ctnInput5 #input5A i { font-size: 1em; margin-right: 5px; color: #333; cursor: pointer; }
+
+
+#div5 #contIniDiv5 { margin: 0 auto; width: 1280px; margin-top: 120px; }
+#div5 #contIniDiv5 #ctnBordaDiv5 { float: left; width: 150px; margin-left: 15px; margin-right: 15px; }
+#div5 #contIniDiv5 #ctnBordaDiv5 #bordaDiv5 {
+	float: left; width: 150px; box-sizing: border-box; text-align: center; padding: 10px; border-radius: 10px;
+	box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;
+}
+#div5 #contIniDiv5 #ctnBordaDiv5 #bordaDiv5 i { font-size: 50px; color: #00c198; }
+#div5 #contIniDiv5 #ctnBordaDiv5 #bordaDiv5 { font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 30px; color: #00c198; }
+#div5 #contIniDiv5 #ctnBordaDiv5 #txtBordaDiv5 {
+	float: left; width: 150px; text-align: center; font: 15px Arial; color: #333; margin-top: 10px; font-weight: bold;
+}
+
+#div5 #txtInval { float:left; margin-left:20px; margin-top:10px; width:100%; font:10px Arial; color:#D00B0E; }
+
+#div5 #contBA {
+	float:left; padding-top:10px; padding-bottom:10px; width:100%; font:20px Arial; font-weight:bold; color:#0F809B;
+}
+
+#div5 #contB {
+	float:left; margin-top:10px; padding-top:10px; padding-bottom:10px; background:#F0F2F1; width:100%; font:20px Arial; 
+	font-weight:bold; color:#0F809B;
+}
+
+#div5 #contB:hover {
+	background:#f8f8f8;
+}
+
+#div5 #contB #icons { float: left; width: 100%; font-size: 2em; color: #CCC; }
+#div5 #contB #icons i { font-size: 2em; color: #CCC; }
+
+#div5 #contB #idPed {
+	float: left; margin-left: 1%; padding: 0.6%; border-radius: 5px; font: 15px Arial; color: #333; background-color: #FFF;
+	width: 5%; text-align: center; font-weight: bold;;
+}
+#div5 #contB #nmCliPed {
+	float: left; margin-left: 1%; padding: 0.6%; border-radius: 5px; font: 15px Arial; color: #333; background-color: #FFF;
+	width: 15%;
+}
+#div5 #contB #emCliPed {
+	float: left; margin-left: 1%; padding: 0.6%; border-radius: 5px; font: 15px Arial; color: #333; background-color: #FFF;
+	width: 14%;
+}
+#div5 #contB #fnCliPed {
+	float: left; margin-left: 1%; padding: 0.6%; border-radius: 5px; font: 15px Arial; color: #333; background-color: #FFF;
+	width: 10%; text-align: center;
+}
+#div5 #contB #fnCliPed button {
+	float:left; width:100%; background:#00c198; margin-right:50px; border-radius:5px; border:none; color:#FFF; 
+	cursor:pointer; padding-top: 10px; padding-bottom: 10px;
+}
+#div5 #contB #tsPed {
+	float: left; margin-left: 1%; padding: 0.6%; border-radius: 5px; font: 15px Arial; color: #333; background-color: #FFF;
+	width: 7%; text-align: center;
+}
+#div5 #contB #tpPagPed {
+	float: left; margin-left: 1%; padding: 0.6%; border-radius: 5px; font: 15px Arial; color: #333; background-color: #FFF;
+	width: 12%; text-align: center;
+}
+#div5 #contB #qtProPed {
+	float: left; margin-left: 1%; padding: 0.6%; border-radius: 5px; font: 15px Arial; color: #333; background-color: #FFF;
+	width: 3%; text-align: center;
+}
+#div5 #contB #stPed {
+	float: left; margin-left: 1%; padding: 0.6%; border-radius: 5px; font: 15px Arial; color: #333; background-color: #FFF;
+	width: 11%; text-align: center;
+}
+#div5 #contB #stPed i { color: #00c198; font-size: 1.1em; }
+
+#div5 #contB #stPed:hover #alt { display: block; }
+#div5 #contB #stPed #alt {
+	float: left; width: 150px; padding-top: 8px; padding-bottom: 8px; background-color: #F4F4F4; border: 1px solid #333;
+	font-family: Arial, Helvetica, sans-serif; text-align: center; font-size: 13px; position: absolute; box-shadow: 5px 10px;
+	padding-left: 8px; padding-right: 8px; display: none; margin-left: -170px; margin-top: -50px; border-radius: 5px;
+}
+
+
+#div5 #contB #vlPed {
+	float: left; margin-left: 1%; padding: 0.6%; border-radius: 5px; font: 15px Arial; color: #333; background-color: #FFF;
+	width: 7%; text-align: center;
+}
+#div5 #contB #vlPed i { color: #00c198; font-size: 1.1em; }
+
+#div5 #contB #hsPed {
+	float: left; margin-left: 1%; padding: 0.6%; border-radius: 5px; font: 15px Arial; color: #333; background-color: #FFF;
+	width: 5%; text-align: center;
+}
+#div5 #contB #hsPed i { color: #00c198; font-size: 1.1em; }
+
+
+#div5 #contB #icon { float:left; width:70px; text-align:center; }
+#div5 #contB #icon i { color:#0F809B; font-size:2em; }
+
+#div5 #contB #check { float:left; margin-left:2.5%; margin-right:2.5%; padding-top:20px; padding-bottom:20px; }
+#div5 #contB #check i { font-size:0.8em; color:#999; }
+
+#div5 #contB #like { float:left; margin-top:20px; margin-right:20px; cursor:pointer; }
+#div5 #contB #like i { color:#333; }
+
+#div5 #contB #edit { float:left; margin-right:20px; padding-top:20px; padding-bottom:20px; }
+#div5 #contB #edit i { font-size:0.8em; color:#999; }
+
+#div5 #contB #contFto { float:left; margin-right:20px; width:70px; height:70px; }
+#div5 #contB #contFto #fto {
+	position:relative; float:left; width:70px; height:70px; border-radius:50%; border: 1px solid #333; 
+}
+#div5 #contB #contFto #fto i { color:#FFF; font-size:1.5em; }
+
+#div5 #contB #contFto2 {
+	float:left; margin-right:20px; width:50px; height:50px; border-radius:50%; background:#00c198; text-align:center;
+}
+#div5 #contB #contFto2 img { position:relative; top:-11px; margin-top:50%; width:25px; }
+
+#div5 #contB #contFto3 {
+	float:left; margin-right:20px; width:70px; height:70px; border-radius:50%; background:#00c198; text-align:center;
+}
+#div5 #contB #contFto3 img { position:relative; top:-11px; margin-top:50%; width:25px; }
+
+#div5 #contB #txtB { margin-top:2px; font:25px Arial; font-weight:bold; color:rgb(136, 128, 128); }
+#div5 #contB #txtB i { margin-left:5px; font-size:0.7em; color:#EFD20F; }
+#div5 #contB #txtC { margin-top:1px; font:12px Arial; font-weight:bold; color:#333; }
+#div5 #contB #txtD { margin-top:3px; font:12px Arial; color:#333; }
+#div5 #contB #txtD span {
+	float:right; margin-right:20px; font:14px Arial; color:#0F809B; cursor:pointer; font-weight:bold;
+}
+#div5 #contB #txtD .span1 { float:right; margin-right:20px; font:14px Arial; color:#CC0003; cursor:default; font-weight:bold; }
+#div5 #contB #txtD .span2 { float:right; margin-right:20px; font:14px Arial; color:#04BF31; font-weight:bold; }
+
+#div5 #contB #ctnEdit { float:right; margin-right:40px; margin-top: -30px; }
+#div5 #contB #ctnEdit i { color: #333; }
+
+
+#contMais { float:left; margin-top:30px; width:100%; }
+#contMais #borderMais {
+	margin:0 auto; width:300px; text-align:center; padding-top:10px; padding-bottom:10px; border:1px solid #CCC;
+	font:15px Arial; color:#00c198; cursor:pointer;
+}
+#contMais #loaderMais { 
+	margin:0 auto; width:300px; text-align:center; padding-top:10px; padding-bottom:10px; color:#0C7F99;
+	
+}
+#contMais #loaderMais img { width:30px; }
+
+#popup { float:left; width:100%; }
+#popup #fundo { position:fixed; background:#333; left:0px; top:0px; width:100%; height:100%; z-index:1000; opacity:0.3; filter:alpha(opacity=30); }
+#popup #contd { position:fixed; left:50%; margin-left:-125px; top:50%; margin-top:-60px; background:#F4F4F4; width:100%; max-width:250px; height:120px; border:1px solid #333; z-index:2000; }
+#popup #contd #txtA { float:left; margin-top:20px; width:100%; text-align:center; font:14px Arial; font-weight:bold; color:#333; }
+#popup #contd #button { float:left; margin-top:20px; width:100%; text-align:center; }
+#popup #contd #button button { padding:8px; cursor:pointer; }
+
+#div6 { float:left; width:100%; }
+
+#div6 #contMais { float:left; margin-top:30px; width:100%; }
+#div6 #contMais #borderMais {
+	margin:0 auto; width:300px; text-align:center; padding-top:10px; padding-bottom:10px; border:1px solid #CCC;
+	font:15px Arial; color:#0C7F99; cursor:pointer;
+}
+#div6 #contMais #loaderMais { 
+	margin:0 auto; width:300px; text-align:center; padding-top:10px; padding-bottom:10px; color:#0C7F99;
+}
+#div6 #contMais #loaderMais img { width:30px; }
+
+#div6 #nenHm { float:left; margin-left:15px; font:18px Arial; color:#333; }
+#div6 #contC { 
+	float:left; padding-top:10px; margin-bottom:10px; background:#F0F2F1; width:100%; font:20px Arial; font-weight:bold; 
+	color:#0F809B; 
+}
+#div6 #contC #valCont { float:left; width:100%; margin-top:20px; margin-bottom:20px; }
+#div6 #contC #valCont #qtdCont { 
+	float:left; margin-left:15px; font:12px Arial; color:#CCC; font-weight:bold;
+}
+
+#div6 #contC #txtB { margin-top:2px; font:25px Arial; font-weight:bold; color:#0F809B; }
+#div6 #contC #txtB i { margin-left:5px; font-size:0.7em; color:#EFD20F; }
+#div6 #contC #txtC { margin-top:1px; font:12px Arial; font-weight:bold; color:#333; }
+#div6 #contC #txtD { margin-top:3px; font:12px Arial; color:#333; }
+
+#div6 #contC #conTxtB { float:left; margin-top:10px; width:100%; }
+
+#div6 #contC #conTxtB #inputCpf { float:left; margin-top:10px; width:100%; }
+#div6 #contC #conTxtB #inputCpf span { 
+	float:left; width:100%; text-align:center; font:15px Arial; font-weight:bold; color:#333; 
+}
+#div6 #contC #conTxtB #inputCpf .inputCPF { 
+	position:relative; left:50%; margin-left:-130px; margin-top:10px; width:250px; padding:8px; border-radius:5px; 
+	border:none; float:left; 
+}
+
+#div6 #contC #conTxtB #buttonCpf { float:left; margin-top:20px; margin-bottom:20px; width:100%; }
+#div6 #contC #conTxtB #buttonCpf .buttonCPF { position:relative; left:50%; margin-left:-40px; width:80px; padding:8px; border-radius:5px; background-color:transparent; font:15px Arial; color:#333; cursor:pointer; }
+
+
+#div6 #contC #conTxtB #txtE { float:left; width:100%; margin-left:20px; margin-top:20px; font:25px Arial; font-weight:bold; color:#333; }
+#div6 #contC #conTxtB #txtE .refe { float:left; padding:0px; margin-left:0px; width:100%; margin-bottom:10px; font:12px Arial; color:#0F809B; }
+#div6 #contC #conTxtB #txtF { float:left; width:250px; margin-left:20px; margin-top:20px; font:12px Arial; font-weight:bold; color:#333; }
+#div6 #contC #conTxtB #txtF .refe { float:left; padding:0px; margin-left:0px; width:100%; margin-bottom:10px; font:12px Arial; color:#0F809B; }
+
+#div6 #contC #conTxtB #linhaA { float:left; margin-top:30px; margin-bottom:30px; width:100%; height:1px; background:#FFF; }
+#div6 #contC #conTxtB #txtG { float:left; width:250px; margin-left:20px; margin-bottom:20px; font:12px Arial; font-weight:bold; color:#333; }
+#div6 #contC #conTxtB #txtG .refe { float:left; padding:0px; margin-left:0px; width:100%; margin-bottom:10px; font:12px Arial; color:#0F809B; }
+
+#div6 #contC #conTxtB #txtH { float:left; width:100%; margin-left:20px; margin-top:10px; margin-bottom:30px; font:25px Arial; font-weight:bold; color:#333; }
+#div6 #contC #conTxtB #linhaB { float:left; margin-top:0px; margin-bottom:40px; width:100%; height:1px; background:#FFF; }
+
+#div6 #contC #conTxtB #inputA { float:left; width:250px; height:40px; margin-left:20px; margin-bottom:20px; padding-bottom:10px; }
+#div6 #contC #conTxtB #inputA span { float:left; margin-top:0px; font:15px Arial; color:#333; }
+#div6 #contC #conTxtB #inputA label { float:left; padding:8px; width:100%; font:15px Arial; font-weight:bold; color:#00c198; }
+
+#div6 #contC #conTxtB #inputA .label { float:left; padding:0px; margin-left:10px; width:100%; margin-bottom:10px; font:12px Arial; color:#0F809B; }
+
+#div6 #contC #conTxtB #inputA input, select {
+	float:left; width:200px; margin-right:50px; padding:8px; border-radius:5px; border:none; font:12px Arial;
+}
+#div6 #contC #conTxtB #inputA textarea { float:left; width:300px; margin-right:50px; padding:8px; border-radius:5px; border:none; font:12px Arial; }
+
+#div6 #contC #conTxtB #inputA i { font-size: 1em; margin-right: 5px; color: #333; cursor: pointer; }
+
+#div6 #contC #conTxtB .inputA { float:left; margin-left: 20px; width:800px; margin-bottom:20px; padding-bottom:10px; }
+#div6 #contC #conTxtB .inputA textarea { float:left; width:800px; height: 400px; margin-left:20px; padding:8px; border-radius:5px; border:none; font:12px Arial; }
+#div6 #contC #conTxtB .inputA label { float:left; padding:8px; width:100%; font:15px Arial; font-weight:bold; color:#00c198; }
+
+#div6 #contC #conTxtB #inputA #funCida { position: absolute; width: 100%; height: 100%; z-index: 1; }
+#div6 #contC #conTxtB #inputA #hasCida {
+	float: left; margin-top: 85px; width: 567px; position: absolute; background: #FFF; height: 200px; overflow-x: hidden;
+	z-index: 2;
+}
+#div6 #contC #conTxtB #inputA #hasCida span { 
+	float: left; cursor: pointer; width: 100%; font-family: Arial, Helvetica, sans-serif; 
+	font-size: 15px; color: #333; padding-top: 10px; padding-bottom: 10px; padding-left: 20px;
+}
+#div6 #contC #conTxtB #inputA #hasCida span:hover { background-color: #F4F4F4; } 
+
+#div6 #contC #conTxtB #inputA button {
+	float:left; width:300px; background:#00c198; margin-right:50px; border-radius:5px; border:none; color:#FFF; 
+	cursor:pointer; padding-top: 10px; padding-bottom: 10px;
+}
+#div6 #contC #conTxtB #inputA button span { color: #FFF; text-align: center; width: 100%; font-weight:bold; font-size: 15px; }
+
+
+#div6 #contC #conTxtB #input { float:left; width:100%; margin-left:20px; padding-bottom:10px; }
+#div6 #contC #conTxtB #input .span { float:left; margin-top:0px; font:10px Arial; color:#AC0507; }
+#div6 #contC #conTxtB #input .label { float:left; padding:0px; width:100%; margin-bottom:10px; font:15px Arial; color:#0F809B; }
+#div6 #contC #conTxtB #input .input { float:left; width:250px; margin-right:50px; padding:15px; border-radius:5px; border:none; font:12px Arial; margin-bottom:10px; border:1px solid #CCC; }
+#div6 #contC #conTxtB #input .select { float:left; width:200px; margin-right:50px; padding:8px; border-radius:5px; border:none; font:12px Arial; }
+#div6 #contC #conTxtB #input textarea { float:left; }
+#div6 #contC #conTxtB #input .button { float:left; width:250px; background:#49CCED; margin-right:50px; padding:15px; border-radius:5px; border:none; color:#FFF; font-weight:bold; cursor:pointer; }
+
+#div6 #contC #conTxtB #inputB {
+	float:left; width:100%; max-width:700px; margin-left:20px; margin-bottom:10px; padding-bottom:10px;
+}
+#div6 #contC #conTxtB #inputB input {
+	float:left; width:150px; margin-bottom:10px; margin-right:50px; padding:8px; border-radius:5px; border:none; 
+	font:12px Arial;
+}
+#div6 #contC #conTxtB #inputB textarea {
+	float:left; width:300px; margin-right:50px; padding:8px; border-radius:5px; border:none; font:12px Arial;
+}
+#div6 #contC #conTxtB #inputB button {
+	float:left; width:300px; background:#49CCED; margin-right:50px; padding:8px; border-radius:5px; border:none; color:#FFF; 
+	font-weight:bold; cursor:pointer;
+}
+
+
+#div6 #contD { float:left; margin-top:10px; padding-top:10px; padding-bottom:10px; background:#F0F2F1; width:100%; font:20px Arial; font-weight:bold; color:#0F809B; }
+#div6 #contD #check { float:left; margin-top:20px; margin-left:20px; }
+#div6 #contD #ftEx { float:left; width:20px; height:70px; }
+#div6 #contD #fto { float:left; margin-left:20px; margin-right:10px; width:70px; height:70px; background:url(../img/mapa.jpg) center no-repeat; background-size:cover; }
+#div6 #contD #txtB { margin-top:2px; font:25px Arial; font-weight:bold; color:#0F809B; }
+#div6 #contD #txtC { margin-top:1px; font:12px Arial; font-weight:bold; color:#333; }
+#div6 #contD #txtD { margin-top:1px; font:12px Arial; color:#333; }
+
+#div7 { float:left; margin-bottom:40px; margin-left:10.5%; width:90%; }
+#div7 #contTexto { float:left; width:100%; }
+#div7 #contTexto #txt1 { float:left; margin-top:20px; font:14px Arial; color:#333; font-weight:bold; }
+#div7 #contForm { float:left; margin-top:10px; width:100%; }
+#div7 #contForm textarea {
+	float:left; margin-bottom:10px; padding:10px; width:100%; padding-top:10px; padding-bottom:10px; border:1px solid #CCC; 
+	border-radius:5px; height:30px; font:15px Arial; color:#333; max-width:450px;
+}
+#div7 #contForm button {
+	float:left; width:150px; padding-bottom:10px; padding-top:10px; background:#0F809B; border:none; border-radius:5px;
+	color:#FFF; cursor:pointer;
+}
+
+#div8 { float:left; width:100%; }
+#div8 #iconDiv8 { float:left; width:2.5%; }
+#div8 #iconDiv8 img { width:20px; }
+#div8 #contDiv8 { float:left; width:97.5%; }
+#div8 #contDiv8 #txt1Div8 { float:left; width:100%; margin-left:15px; font:18px Arial; color:#333; }
+#div8 #contDiv8 #txt1Div8 span { font:15px Aller; color:#CCC; }
+#div8 #contDiv8 #txt2Div8 {
+	float:left; width:100%; margin-left:15px; margin-top:8px; font:16px Arial; color:#999; font-weight:bold;
+}
+#div8 #contDiv8 #txt3Div8 { float:left; width:100%; margin-left:15px; margin-top:5px; font:12px Arial; color:#CCC; }
+#div8 #contDiv8 #txt3Div8 .span1 {
+	float:right; margin-right:20px; font:15px Arial; color:#CC0003; cursor:pointer; font-weight:bold;
+}
+#div8 #contDiv8 #txt3Div8 .span2 {
+	float:right; margin-right:20px; font:15px Arial; color:#08C306; font-weight:bold;
+}
+
+#perfilPedidos { float:left; width:100%; }
+#perfilPedidos #fndPedidos {
+	position:fixed; background:#333; left:0px; top:0px; width:100%; height:100%; z-index:1000; opacity:0.3; filter:alpha(opacity=30);
+}
+#perfilPedidos #cntPedidos {
+	position:fixed; left:50%; margin-left:-450px; top:50%; margin-top:-300px; background:#FFF; width:100%; max-width:900px; 
+	height:600px; border:1px solid #333; z-index:2000; border-radius: 10px; overflow-x: hidden;
+}
+#perfilPedidos #cntPedidos #lisPedidos { float: left; margin-left: 2.5%; width: 95%; margin-top: 20px; }
+#perfilPedidos #cntPedidos #lisPedidos #tituPedidos {
+	float: left; width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: bold; margin-bottom: 10px;
+}
+#perfilPedidos #cntPedidos #lisPedidos #txtAPedidos {
+	float: left; width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 15px; padding-top: 10px; padding-bottom: 10px;
+}
+#perfilPedidos #cntPedidos #lisPedidos #inputA button {
+	float:left; width:300px; background:#00c198; margin-right:50px; border-radius:5px; border:none; color:#FFF; 
+	font-weight:bold; cursor:pointer; padding-top: 10px; padding-bottom: 10px;
+}
+
+#perfilPedidos #cntPedidos #lisProdutos { float: left; width: 100%; margin-bottom: 20px; }
+#perfilPedidos #cntPedidos #lisProdutos #ftoProdutos {
+	float: left; width: 90px; height: 90px; border-radius: 5px; border: 1px solid #333; margin-right: 10px;
+}
+#perfilPedidos #cntPedidos #lisProdutos #txtAProdutos { 
+	width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 15px; margin-top: 5px;
+}
+
+
+
+#footer { float:left; margin-top:50px; width:100%; padding-bottom:10px; padding-top:10px; border-top:1px solid #CCC; }
+#footer #txtFoo { float:left; margin-left:20px; font:12px Arial; color:#333; }
+
+.bottom { position:absolute; bottom:1px; width:100%; padding-bottom:10px; padding-top:10px; border-top:1px solid #CCC; }
+.bottom #txtFoo { float:left; margin-left:20px; font:12px Arial; color:#333; }

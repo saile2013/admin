@@ -1,0 +1,451 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">tienda & ciudad</font>
+    </div>    
+</div>
+
+<div id="div2Bus">
+    <div id="busca"></div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+            <a ui-sref="home">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+    <div style="float: right; margin-right: 20px; margin-top: -25px;">
+        <div id="conTxt">
+            <div id="txtA">
+                <a ui-sref="cargue-tienda-cidad">
+                    <i class="fas fa-file-csv"></i> cargue del archivo
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+        <div id="conTxtB" style="margin-left: -5px; padding-bottom: 60px;">
+            
+            <div id="inputA" style="width: 100%; margin-top: 10px;">
+                <label>Tiendas</label>
+                <select style="float: left; width: 250px; border: 1px solid #CCC; padding-top: 12px; 
+                            padding-bottom: 12px;" 
+                        ng-model="tienda" 
+                        ng-change="verre(tienda)">
+                        <option value="">Selecciona una tienda</option>
+                        <option ng-repeat="tienda in tiendas | orderBy:'value'" value="{{tienda.key}}">{{tienda.value}}</option>
+                </select>
+            </div>
+
+            <div id="inputA" style="width: 100%; margin-top: 40px;">
+                <label style="float: left; width: 60px;">Radio</label>
+                <input type="radio" style="float:left; width: 20px; margin-top: 11px;"
+                    ng-model="sele.radio" value="radio1">
+            </div>
+            
+            <div ng-show="sele.radio=='radio1'">
+                <div style="float: left; width: 100%;">
+                    <div style="float: left; width: 100%;">
+                        <div style="float: left; margin-left: 22px; margin-bottom: 15px; color: #333; font-style: italic;">
+                            Añadir nuevo
+                        </div>
+                    </div>
+                    <!--<div id="inputA">
+                        <label>Tiempo de entrega</label>
+                        <input type="text" ng-model="tiempo1">
+                    </div>-->
+
+                    <div id="inputA">
+                        <label>Radio</label>
+                        <input type="text" ng-model="radio1_1">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Costo</label>
+                        <input type="text" ng-model="costo1">
+                    </div>
+                </div>
+
+                <div style="float: left; width: 100%; margin-top: 20px;">
+                    <div id="inputA">
+                        <label>No asistir dias</label>
+                        <input type="text" ng-model="not_attend_days" placeholder="Ej: 1,2,3,4,5,6,7">
+                    </div>
+                </div>
+
+                <div style="float: left; width: 100%; margin-top: 20px;">
+                    <div style="float: left; width: 100%;">
+                        <div style="float: left; margin-left: 22px; margin-bottom: 15px; color: #333; font-style: italic;">
+                           Lunes
+                        </div>
+                    </div>
+
+                    <div id="inputA">
+                        <label>hora de inicio</label>
+                        <input type="text" ng-model="monday_start_hour" placeholder="Ej: 14">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora límite</label>
+                        <input type="text" ng-model="monday_limit_hour" placeholder="Ej: 18">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Antes de la hora límite</label>
+                        <input type="text" ng-model="monday_before_limit_hour" placeholder="Ej: 14">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Después de la hora límite</label>
+                        <input type="text" ng-model="monday_after_limit_hour" placeholder="Ej: 6">
+                    </div>
+                </div>
+
+                <div style="float: left; width: 100%; margin-top: 20px;">
+                    <div style="float: left; width: 100%;">
+                        <div style="float: left; margin-left: 22px; margin-bottom: 15px; color: #333; font-style: italic;">
+                           Martes
+                        </div>
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora de inicio</label>
+                        <input type="text" ng-model="tuesday_start_hour" placeholder="Ej: 10">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora límite</label>
+                        <input type="text" ng-model="tuesday_limit_hour" placeholder="Ej: 10">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Antes de la hora límite</label>
+                        <input type="text" ng-model="tuesday_before_limit_hour" placeholder="Ej: 16">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Después de la hora límite</label>
+                        <input type="text" ng-model="tuesday_after_limit_hour" placeholder="Ej: 10">
+                    </div>
+                </div>
+
+                <div style="float: left; width: 100%; margin-top: 20px;">
+                    <div style="float: left; width: 100%;">
+                        <div style="float: left; margin-left: 22px; margin-bottom: 15px; color: #333; font-style: italic;">
+                            Miércoles
+                        </div>
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora de inicio</label>
+                        <input type="text" ng-model="wednesday_start_hour" placeholder="Ej: 0">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora límite</label>
+                        <input type="text" ng-model="wednesday_limit_hour" placeholder="Ej: 16">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Antes de la hora límite</label>
+                        <input type="text" ng-model="wednesday_before_limit_hour" placeholder="Ej: 14">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Después de la hora límite</label>
+                        <input type="text" ng-model="wednesday_after_limit_hour" placeholder="Ej: 12">
+                    </div>
+                </div>
+
+                <div style="float: left; width: 100%; margin-top: 20px;">
+                    <div style="float: left; width: 100%;">
+                        <div style="float: left; margin-left: 22px; margin-bottom: 15px; color: #333; font-style: italic;">
+                            Jueves
+                        </div>
+                    </div>
+                    
+                    <div id="inputA">
+                        <label>Hora de inicio</label>
+                        <input type="text" ng-model="thursday_start_hour" placeholder="Ej: 10">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora límite</label>
+                        <input type="text" ng-model="thursday_limit_hour" placeholder="Ej: 16">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Antes de la hora límite</label>
+                        <input type="text" ng-model="thursday_before_limit_hour" placeholder="Ej: 12">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Después de la hora límite</label>
+                        <input type="text" ng-model="thursday_after_limit_hour" placeholder="Ej: 16">
+                    </div>
+                </div>
+
+                <div style="float: left; width: 100%; margin-top: 20px;">
+                    <div style="float: left; width: 100%;">
+                        <div style="float: left; margin-left: 22px; margin-bottom: 15px; color: #333; font-style: italic;">
+                            Viernes
+                        </div>
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora de inicio</label>
+                        <input type="text" ng-model="friday_start_hour" placeholder="Ej: 10">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora límite</label>
+                        <input type="text" ng-model="friday_limit_hour" placeholder="Ej: 16">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Antes de la hora límite</label>
+                        <input type="text" ng-model="friday_before_limit_hour" placeholder="Ej: 12">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Después de la hora límite</label>
+                        <input type="text" ng-model="friday_after_limit_hour" placeholder="Ej: 16">
+                    </div>
+                </div>
+
+                <div style="float: left; width: 100%; margin-top: 20px;">
+                    <div style="float: left; width: 100%;">
+                        <div style="float: left; margin-left: 22px; margin-bottom: 15px; color: #333; font-style: italic;">
+                            Sábado
+                        </div>
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora de inicio</label>
+                        <input type="text" ng-model="saturday_start_hour" placeholder="Ej: 11">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora límite</label>
+                        <input type="text" ng-model="saturday_limit_hour" placeholder="Ej: 21">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Antes de la hora límite</label>
+                        <input type="text" ng-model="saturday_before_limit_hour" placeholder="Ej: 12">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Después de la hora límite</label>
+                        <input type="text" ng-model="saturday_after_limit_hour" placeholder="Ej: 12">
+                    </div>
+                </div>
+
+                <div style="float: left; width: 100%; margin-top: 20px;">
+                    <div style="float: left; width: 100%;">
+                        <div style="float: left; margin-left: 22px; margin-bottom: 15px; color: #333; font-style: italic;">
+                            Domingo
+                        </div>
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora de inicio</label>
+                        <input type="text" ng-model="sunday_start_hour" placeholder="Ej: 12">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Hora límite</label>
+                        <input type="text" ng-model="sunday_limit_hour" placeholder="Ej: 21">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Antes de la hora límite</label>
+                        <input type="text" ng-model="sunday_before_limit_hour" placeholder="Ej: 12">
+                    </div>
+
+                    <div id="inputA">
+                        <label>Después de la hora límite</label>
+                        <input type="text" ng-model="sunday_after_limit_hour" placeholder="Ej: 21">
+                    </div>
+                </div>
+
+                <div id="inputA">
+                    <button style="width: 100px; margin-top: 29px;" type="button" ng-click="salvar1()">
+                        <span ng-show="botao">Salvar</span>
+                        <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                    </button>
+                </div>
+
+                <div id="status" 
+                    style="text-align:left; padding-left:20px; margin-top:10px; margin-bottom:10px;">
+                </div>
+            
+                <div id="linhaB" style="margin-top: 20px;"></div>
+            </div>
+
+            <div id="inputA" style="width: 100%;">
+                <label style="float: left; width: 60px;">Ciudad</label>
+                <input type="radio" style="float:left; width: 20px; margin-top: 11px;" 
+                    ng-model="sele.radio" value="radio2">
+            </div>
+
+            <div ng-show="sele.radio=='radio2'">
+
+                <div style="float: left; margin-left: 25px; margin-bottom: 40px; width: 1000px; padding: 10px; 
+                            border: 1px solid #CCC; background-color: #FFF; border-radius: 5px; overflow-x: hidden; height: 500px;">
+
+                    <div style="float: left; width: 100%; margin-bottom: 10px; padding-top: 10px; padding-bottom: 10px; background-color: #F4F4F4; border-radius: 5px;">
+                        <div style="float: left; margin-left: 15px; width: 90%; margin-top: 10px; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #00c198; font-weight: bold;">
+                            Actualizar Tiempo y Costo en Masa.
+                        </div>
+                        <div id="inputA">
+                            <label>Tiempo de entrega</label>
+                            <input type="text" ng-model="tiempo22" style="border: 1px solid #CCC;">
+                        </div>
+        
+                        <div id="inputA">
+                            <label>Costo</label>
+                            <input type="text" ng-model="costo22" style="border: 1px solid #CCC;">
+                        </div>
+
+                        <div id="inputA">
+                            <button style="width: 100px; margin-top: 29px;" type="button" ng-click="salvar2()">
+                                <span ng-show="botao">Salvar</span>
+                                <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                            </button>
+                        </div>
+
+                        <div id="status2" class="status" style="margin-left: 20px;"></div>
+                    </div>
+
+                    <div style="float: left; margin-bottom: 5px; margin-top: 5px; margin-left: 2px; 
+                                border-radius: 5px; border: 1px solid #00c198; padding: 10px; 
+                                font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #00c198;
+                                width: 97.5%; font-weight: normal;" 
+                        ng-repeat="city in citys" ng-if="city.is_active==1">
+                        {{city.name_city}}, {{city.dane_city}} &nbsp;
+
+                        
+                        <b>tiempo de de entrega:</b> {{city.shipping_time}}, <b>costo:</b> ${{city.shipping_cost}} 
+
+                        <a href="javascript:" style="float: right; margin-top: 5px;"
+                            ng-click="remCity(city.id)"><i class="fas fa-trash-alt"></i></a>
+
+                        <a href="javascript:" style="float: right; margin-right: 20px; margin-top: 5px;"
+                            ng-click="abreCity(city.id)"><i class="far fa-edit"></i></a>
+
+                        <div style="float: left; width: 100%;">
+                            <div id="ediEnd{{city.id}}" 
+                                style="float:left; padding-top:10px; padding-bottom:10px; background:#FFF; 
+                                        width:100%; font:20px Arial; font-weight:bold; color:#0F809B; display: none;">
+
+                                <div style="float: left; margin-left: 20px; width: 300px;">
+                                    <label style="font-size: 12px; color: #00c198;">Ciudad</label>
+                                    <input type="text" placeholder="Dirección" id="ciudad{{city.id}}" 
+                                        ng-value="city.name_city"
+                                        required style="border-radius: 5px; padding: 8px; width: 300px;">
+                                </div>
+                                
+                                <div style="float: left; margin-left: 30px; width: 200px;">
+                                    <label style="font-size: 12px; color: #00c198;">Tiempo de entrega</label>
+                                    <input type="text" id="tiempo{{city.id}}" ng-value="city.shipping_time"
+                                        style="border-radius: 5px; padding: 8px; width: 200px;">                                    
+                                </div>
+
+                                <div style="float: left; margin-left: 30px; width: 200px;">
+                                    <label style="font-size: 12px; color: #00c198;">Costo</label>
+                                    <input type="text" id="costo{{city.id}}" ng-value="city.shipping_cost"
+                                        style="border-radius: 5px; padding: 8px; width: 200px;">
+                                </div>
+
+                                <div ng-click="putEnde(city.id)" id="btn{{city.id}}"
+                                    style="float: right; margin-right: 130px; margin-top: 25px; cursor: pointer;">
+                                    <i style="color: #00c198; font-size: 1.5em;" class="fas fa-check-square"></i>
+                                </div>
+
+                                <div id="status{{city.id}}" 
+                                    style="float: right; margin-right: 10px; margin-top: 8px; font-size: 12px; color:#B70609;
+                                            font-family: Arial, Helvetica, sans-serif;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="float: left; margin-top: 20px; margin-bottom: 20px; width: 100%; text-align: left; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                        <span ng-click="maisCliente()" style="padding: 10px; color: #00c198; border: 1px solid #00c198; border-radius: 5px; width: 150px; cursor: pointer;">más...</span>
+                    </div>
+                </div>
+
+                <div id="linhaB"></div>
+
+                <div style="float: left; width: 100%;">
+                    <div style="float: left; margin-left: 22px; margin-bottom: 15px; color: #333; font-style: italic;">
+                        Añadir nuevo
+                    </div>
+                </div>
+
+                <div id="inputA">
+                    <label>Ciudad</label>
+                    <input type="text" style="position: relative; z-index: 2;" 
+                        ng-model="cidade" ng-keyup="abreCida()">
+
+                    <div id="funCida" ng-show="active" ng-click="fechaCida()"></div>
+
+                    <div id="hasCida" ng-show="active" style="height: 150px;">
+                        <span ng-repeat="cida in cidas" ng-click="seleCida(cida.ciudad, cida.departamento)">
+                            {{cida.ciudad}}, {{cida.codigo_dane}}, {{cida.departamento}}
+                        </span>
+                    </div>
+                </div>
+
+                <div id="inputA">
+                    <label>Tiempo de entrega</label>
+                    <input type="text" ng-model="tiempo2">
+                </div>
+
+                <div id="inputA">
+                    <label>Costo</label>
+                    <input type="text" ng-model="costo2">
+                </div>
+                
+                <div id="inputA">
+                    <button style="width: 100px; margin-top: 29px;" type="button" ng-click="salvar()">
+                        <span ng-show="botao">Salvar</span>
+                        <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="status" 
+                style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

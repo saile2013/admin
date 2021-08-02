@@ -1,0 +1,83 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="pedidos">
+            <i class="fas fa-chevron-right"></i> &nbsp; órdenes
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">órdenes .CSV</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="busca">
+        
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+            <a ui-sref="pedidos">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="cntFormDiv5">
+        <div id="ctnInput5" style="float: left; top: 0px; position: relative; left: -430px; margin-left: 50%; width: 900px;">
+            <div id="input5">
+                <label>De</label>
+                <input type="date" ng-model="data1"> 
+            </div>
+            <div id="input5">
+                <label>Hasta</label>
+                <input type="date" ng-model="data2">
+            </div>
+            <div id="input5" style="float: left; width: 200px;">
+                <label>Tiendas</label>
+                <select ng-model="tienda">
+                    <option value="">Selecciona una tienda</option>
+                    <option ng-repeat="tienda in tiendas | orderBy:'value'" value="{{tienda.key}}">{{tienda.value}}</option>
+                </select>
+            </div>
+            
+            <div style="float: left; margin-top: 20px; width: 100%;">
+                <button ng-click="irSearch()" style="margin-left: 230px;">Buscar</button>
+            </div>
+
+            <div id="contMais" ng-show="!carregou" style="margin-left: -65px;">
+                <div id="loaderMais"><img src="../img/loader.png"></div>
+            </div>
+
+            <div id="icons" ng-if="baixar">
+                <a href="{{baixar}}" style="margin-left: -40px;">
+                    <i class="fas fa-file-csv"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="footer" style=" position: fixed; bottom: 10px;">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

@@ -1,0 +1,127 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="home-publicidade">
+            <i class="fas fa-chevron-right"></i> &nbsp; publicidad
+        </a> &nbsp;
+        <a ui-sref="publicidade-categorias">
+            <i class="fas fa-chevron-right"></i> &nbsp; categorías
+        </a> &nbsp;         
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">{{name}}</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="publicidade-categorias">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+        <div id="conTxtB">
+            <form name="contatoForm">
+            <div id="txtH">Publicidad categorías en APP</div>
+            
+            <div style="float: left; width: 100%; margin-bottom: 30px;">
+                <!--<div id="inputA" style="float: left; width: 30%; margin-top: 20px; margin-bottom: 60px;">
+                    <label>Thumbnail (375x375)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="thumbnail" src="{{thumbnail}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+                    <form>
+                        <input style="float: left; width: 100%;" type='file' ng-change="carrega1()" id="yourMode1" ng-model='yourMode1' base-sixty-four-input>
+                    </form>
+                </div>
+
+                <div id="inputA" style="float: left; width: 30%; margin-top: 20px; margin-bottom: 60px;">
+                    <label>Small (512x512)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="small" src="{{small}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+                    <form>
+                        <input style="float: left; width: 100%;" type='file' ng-change="carrega2()" id="yourMode2" ng-model='yourMode2' base-sixty-four-input>
+                    </form>
+                </div>
+
+                <div id="inputA" style="float: left; width: 30%; margin-top: 20px; margin-bottom: 60px;">
+                    <label>Medium (720x720)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="medium" src="{{medium}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+                    <form>
+                        <input style="float: left; width: 100%;" type='file' ng-change="carrega3()" id="yourMode3" ng-model='yourMode3' base-sixty-four-input>
+                    </form>
+                </div>-->
+
+                <div id="inputA" style="float: left; width: 100%; margin-top: 0px; margin-bottom: 60px;">
+                    <label>Large (1280x1280)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="large" src="{{large}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+                    <form>
+                        <input style="float: left; width: 100%;" type='file' ng-change="carrega4()" id="yourMode4" ng-model='yourMode4' base-sixty-four-input>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="inputA" style="float: left; width: 100%; margin-top: 70px; margin-bottom: 30px;">
+                <label>Status</label>
+                <div style="float: left; margin-right: 20px; width: 60px; height: 60px; border-radius: 50%; 
+                            background-color: yellowgreen; margin-top: 10px; text-align: center; cursor: pointer;"
+                     ng-click="is_active()">
+                            <i ng-show="active==1" style="margin-top: 20px; margin-right: 0px; color: #FFF;" class="fas fa-check"></i>
+                </div>
+                <div style="float: left; width: 60px; height: 60px; border-radius: 50%; background-color: tomato;
+                            margin-top: 10px; text-align: center; cursor: pointer;"
+                     ng-click="no_active()">
+                            <i ng-show="active==0" style="margin-top: 20px; margin-right: 0px; color: #FFF" class="fas fa-check"></i>            
+                </div>
+            </div>
+            
+            <div id="linhaB" style="margin-top: 65px;"></div>
+            
+            <div id="inputA" style="width:100%;">
+                <button type="button" ng-click="salvar(dados)">
+                    <span ng-show="botao">Salvar</span>
+                    <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                </button>
+            </div>
+            
+            <div id="status" style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

@@ -1,0 +1,113 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp;
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">usuarios sin coberturas</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <!--<div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>-->
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="home">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB">
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 5%;">
+            ID
+        </div>
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 14%; text-align: left;">
+            país
+        </div>
+        <div id="tsPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 14%; text-align: left;">
+            ciudad
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 14%; text-align: left;">
+            calle uno
+        </div>
+        <div id="tsPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 14%; text-align: left;">
+            calle dos
+        </div>
+        <div id="tsPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 12.5%; text-align: center;">
+            ID Usuario
+        </div>
+        <div id="tpPagPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 10%;">
+            Creado en
+        </div>              
+    </div> 
+
+    <div id="contMais" ng-show="!cupons">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-repeat="cupon in cupons">
+        <div id="contB">
+            <div id="idPed" style="width: 5%;">
+                {{cupon.id}}
+            </div>
+            <div id="idPed" style="width: 14%; text-align: left;">
+                {{cupon.country}}
+            </div>
+            <div id="nmCliPed" style="width: 14%; text-align: left;">
+                {{cupon.city}}
+            </div>
+            <div id="emCliPed" style="width: 14%; text-align: left;">
+                {{cupon.street_one}}
+            </div>
+            <div id="tsPed" style="width: 14%; text-align: left;">
+                {{cupon.street_two}}
+            </div>
+            <div id="tsPed" style="width: 12.5%; text-align: center;">
+                {{cupon.user_id}}
+            </div>
+            <div id="tpPagPed" style="width: 10%;">
+                {{cupon.created_at}}
+            </div>
+        </div>
+    </div>
+    
+    <div ng-show="!cupon" ng-repeat="cupon in cupons" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="cupons && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

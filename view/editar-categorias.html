@@ -1,0 +1,125 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="categorias">
+            <i class="fas fa-chevron-right"></i> &nbsp; categorías
+        </a> &nbsp;         
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">editar categorías</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="categorias">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="dicionario-categorias({id:idCat})">
+            	<i class="fas fa-file-csv"></i> cargar el archivo diccionaro de categorias
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+        <div id="conTxtB">
+            <form name="contatoForm">
+            <div id="txtH">Editar categoría</div>
+            
+            <div id="inputA">
+                <Label>Name</Label>
+                <input type="text" ng-model="name" placeholder="Ej: Tecnología">
+            </div>
+            
+            <div id="inputA">
+                <label>Ordenar</label>
+                <input type="numer" ng-model="sort" placeholder="Ej: 5">
+            </div>
+
+            <div id="inputA">
+                <label>Color primario</label>
+                <input type="text" ng-model="primary_color" placeholder="Ej: #F4F4F4">
+            </div>
+
+            <div id="inputA">
+                <label>Color secundario</label>
+                <input type="text" ng-model="secondary_color" placeholder="Ej: #0F809B">
+            </div>
+
+            <div style="float: left; width: 100%; margin-bottom: 30px;">
+                <div id="inputA" style="float: left; width: 30%; margin-top: 20px; margin-bottom: 60px;">
+                    <label>Banner (APP) (1920x400)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="bannerWeb" src="{{img_category}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+                    <form>
+                        <input style="float: left; width: 100%;" type='file' ng-change="carrega1()" id="yourModel" ng-model='yourModel' base-sixty-four-input>
+                    </form>
+                </div>
+
+                <div id="inputA" style="float: left; width: 30%; margin-top: 20px; margin-bottom: 60px;">
+                    <label>Banner (WEB) (1920x400)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="bannerMob" src="{{banner_mobile}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+                    <form>
+                        <input style="float: left; width: 100%;" type='file' ng-change="carrega2()" id="yourMode1" ng-model='yourMode2' base-sixty-four-input>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="inputA" style="float: left; width: 100%; margin-top: 30px; margin-bottom: 90px;">
+                <label>Status</label>
+                <div style="float: left; margin-right: 20px; width: 60px; height: 60px; border-radius: 50%; 
+                            background-color: yellowgreen; margin-top: 10px; text-align: center; cursor: pointer;"
+                     ng-click="is_active()">
+                            <i ng-show="active==1" style="margin-top: 20px; margin-right: 0px; color: #FFF;" class="fas fa-check"></i>
+                </div>
+                <div style="float: left; width: 60px; height: 60px; border-radius: 50%; background-color: tomato;
+                            margin-top: 10px; text-align: center; cursor: pointer;"
+                     ng-click="no_active()">
+                            <i ng-show="active==0" style="margin-top: 20px; margin-right: 0px; color: #FFF" class="fas fa-check"></i>            
+                </div>
+            </div>
+            
+            <div id="linhaB"></div>
+            
+            <div id="inputA" style="width:100%;">
+                <button type="button" ng-click="salvar(dados)">
+                    <span ng-show="botao">Salvar</span>
+                    <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                </button>
+            </div>
+            
+            <div id="status" style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

@@ -1,0 +1,143 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">refunds</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+    <div id="datas">
+        <input type="date" ng-model="ate" ng-change="busData()">
+    </div>
+    <div id="busTxt">
+        Hasta
+    </div>
+    <div id="datas">
+        <input type="date" ng-model="de">
+    </div>
+    <div id="busTxt">
+        De
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="home">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="exportar-refunds">
+            	<i class="fas fa-file-csv"></i> exportar
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB">
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 6%;">
+            órdenes ID
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold;">
+            Nombre
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold;">
+            E-mail
+        </div>
+        <div id="fnCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 10%;">
+            Teléfono
+        </div>
+        <div id="tsPed" style="background-color: #00c198; color: #FFF; font-weight: bold;">
+            Transacción
+        </div>
+        <div id="tpPagPed" style="background-color: #00c198; color: #FFF; font-weight: bold;">
+            Tipo de pago
+        </div>
+        <div id="qtProPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 2.5%;">
+            Prod
+        </div>
+        <div id="stPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 9%;">
+            Estado
+        </div>
+        <div id="vlPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 3.8%;">
+            Refund
+        </div>
+    </div> 
+
+    <div id="contMais" ng-show="!pedidos">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-repeat="pedido in pedidos">
+        <div id="contB">
+            <div id="idPed" style="width: 6%;">
+                {{pedido.order_id}}
+            </div>
+            <div id="nmCliPed">
+                {{pedido.full_name}}
+            </div>
+            <div id="emCliPed" style="overflow-x: hidden;;">
+                {{pedido.user.email}}
+            </div>
+            <div id="fnCliPed" style="width: 10%;">
+                {{pedido.user.phone}}
+            </div>
+            <div id="tsPed">
+                {{pedido.transaction_id}}
+            </div>
+            <div id="tpPagPed" ng-if="pedido.payment_type">{{pedido.payment_type}}</div>
+            <div id="tpPagPed" ng-if="!pedido.payment_type">No hay información</div>
+            <div id="qtProPed" style="width: 2.5%;">
+                {{pedido.product_items.length}}
+            </div>
+            <div id="stPed" style="width: 9%;">
+                {{pedido.state}}
+            </div>
+            <a ui-sref="refunds.perfil-refunds({idRef:pedido.id, idOrd:pedido.order_id})">
+                <div id="vlPed" style="width: 3.8%;">
+                    <i class="fas fa-money-bill-alt"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div ng-show="!pedido" ng-repeat="pedido in pedidos" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="pedidos && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

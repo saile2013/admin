@@ -1,0 +1,265 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="challenges">
+            <i class="fas fa-chevron-right"></i> &nbsp; challenges
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">{{nombre}}</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+    <div id="tipos">
+        <select ng-model="estatu" 
+                ng-change="seleStatus()"
+                ng-options="stato as stato.aparence for stato in statos track by stato.value">
+        </select>
+    </div>
+</div>
+
+<div style="float: left; width: 100%; position: relative; z-index: 1;">
+
+    <div id="div5" style="float: left; background-color: #F4F4F4; width: 100%;">
+
+        <div style="float: left; width: 100%;">
+            
+            <div style="float:left; width: 100%; max-width: 1300px; position: relative; left: 50%; 
+                        margin-left: -670px; background-color: white; height:auto; padding: 20px; border-radius: 5px; 
+                        margin-top: 40px; margin-bottom: 40px;">
+
+                <div ng-show="thumbnail" style="float: left; width: 100px; height: 100px; background-image: url({{thumbnail}}); border-radius: 5px;
+                            background-position: center center; background-repeat: no-repeat; background-size: cover;">
+                    <i class="fas fa-play" style="color: white; font-size: 2em; margin-left: 40px; margin-top: 35px;"></i>
+                </div>
+
+                <div ng-show="!thumbnail" style="float: left; width: 100px; height: 100px; background-color: #CCC; 
+                                                 border-radius: 5px; ">
+                    <i class="fas fa-play" style="color: white; font-size: 2em; margin-left: 40px; margin-top: 35px;"></i>
+                </div>
+
+                <div style="float: right; color: #00c198; font-family: Arial, Helvetica, sans-serif; 
+                            font-size: 14px; height: 30px;">
+                    
+                    <div style="width: 20px; height: 20px; border-radius: 50%; float: left; margin-right: 10px;">
+                        <i class="far fa-edit"></i>
+                    </div>
+                    <a ui-sref="editar-challenges({alias: alias})">
+                        Editar challenge
+                    </a>                            
+                </div>
+
+                <div style="color: #333; font-family: Arial, Helvetica, sans-serif; width: 350px;
+                            font-size: 16px; font-weight: bold; position: relative; left: 20px; top: 10px; height: 30px;">
+                    {{nombre}}
+                </div>
+
+                <div style="color: #333; font-family: Arial, Helvetica, sans-serif; width: 350px;
+                            font-size: 14px; position: relative; left: 20px; top: 10px; height: 30px;">
+                    
+                    <div ng-show="banner" 
+                        style="background-image: url({{banner}}); background-position: center center; background-repeat: no-repeat; 
+                                background-size: cover; width: 20px; height: 20px; border-radius: 50%; 
+                                float: left; margin-right: 10px; border: 1px solid #333;"> 
+                    </div>
+
+                    <div ng-show="!banner" 
+                        style="background-color: #CCC; width: 20px; height: 20px; border: 1px solid #333;
+                                border-radius: 50%; float: left; margin-right: 10px;">
+                    </div>
+
+                    {{author}}
+                </div>
+
+                <div style="float:left; margin-left: 20px; margin-top: 15px; width:1000px;">
+
+                    <div style="float: left; color: #333; font-family: Arial, Helvetica, sans-serif; width: 400px;
+                                font-size: 14px; height: 30px;">
+                        
+                        <div style="width: 20px; height: 20px; border-radius: 50%; float: left; margin-right: 10px;">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        {{description}}
+                    </div>
+
+                    <div style="float: left; color: #333; font-family: Arial, Helvetica, sans-serif; width: 300px;
+                                font-size: 14px; height: 30px;">
+                        
+                        <div style="width: 20px; height: 20px; border-radius: 50%; float: left; margin-right: 10px;">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        {{finished_at}}
+                    </div>
+
+                    <div style="float: left; color: #333; text-decoration: underline; 
+                                font-family: Arial, Helvetica, sans-serif; width: 200px; font-size: 14px; height: 30px;">
+                        
+                        <div style="width: 20px; height: 20px; border-radius: 50%; float: left; margin-right: 10px;">
+                            <i class="far fa-sticky-note"></i>
+                        </div>
+                        <a href="{{terms}}" target="_blank">
+                            Términos & Condiciones
+                        </a>                            
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div style="float: left; width: 100%;">
+            <div style="float:left; width: 100%; max-width: 1300px; position: relative; left: 50%; margin-left: -670px; 
+                        background-color: white; height:auto; padding: 20px; border-radius: 5px; margin-top: 0px; 
+                        margin-bottom: 40px;">
+                <div id="contB" style="border-bottom: 1px solid #CCC; background-color: white; margin-top: -10px;">
+                    <div id="nmCliPed" style="color: #333; font-weight: bold; width: 16%; text-align: center;">
+                        Participantes
+                    </div>
+                    <div id="nmCliPed" style="color: #333; font-weight: bold; width: 9%; text-align: center;">
+                        Likes
+                    </div>
+                    <div id="nmCliPed" style="color: #333; font-weight: bold; width: 9%; text-align: center;">
+                        Comentarios
+                    </div>
+                    <div id="nmCliPed" style="color: #333; font-weight: bold; width: 9%; text-align: center;">
+                        Compartir
+                    </div>
+                    <div id="nmCliPed" style="color: #333; font-weight: bold; width: 9%; text-align: center;">
+                        Reportes
+                    </div>
+                    <div id="nmCliPed" style="color: #333; font-weight: bold; width: 16%; text-align: center;">
+                        Link del challenge
+                    </div>
+                    <div id="nmCliPed" style="color: #333; font-weight: bold; width: 16%; text-align: center;">
+                        Revisión
+                    </div>        
+                </div> 
+            
+                <div id="contMais" ng-show="!participantes">
+                    <div id="loaderMais"><img src="../img/loader.png"></div>
+                </div>
+            
+                <div ng-repeat="participante in participantes">
+                    <div id="contB" ng-style="participante.cores=='#FFFFFF' && {'background-color':'#FFFFFF'}" style="margin-top: 0px;">
+                        <div id="nmCliPed" style="width: 16%; text-align: center; background-color:transparent;">
+                            <div style="float: left;">
+                                <div ng-show="participante.pedidos.author.profile_picture && !participante.pedidos.author.social_profile_picture" 
+                                    style="float: left; margin-right: 10px; width: 25px; height: 25px; 
+                                           background-image: url({{participante.pedidos.author.profile_picture.thumbnail}}); 
+                                           background-position: center center; background-repeat: no-repeat; 
+                                           background-size: cover; border-radius: 50%;"></div>
+
+                                <div ng-show="participante.pedidos.author.profile_picture && participante.pedidos.author.social_profile_picture" 
+                                    style="float: left; margin-right: 10px; width: 25px; height: 25px; 
+                                           background-image: url({{participante.pedidos.author.profile_picture.thumbnail}}); border:1px solid #333;
+                                           background-position: center center; background-repeat: no-repeat; 
+                                           background-size: cover; border-radius: 50%;"></div>
+
+                                <div ng-show="!participante.pedidos.author.profile_picture && participante.pedidos.author.social_profile_picture" 
+                                    style="float: left; margin-right: 10px; width: 25px; height: 25px; 
+                                           background-image: url({{participante.pedidos.author.social_profile_picture}}); border:1px solid #333;
+                                           background-position: center center; background-repeat: no-repeat; 
+                                           background-size: cover; border-radius: 50%;"></div>
+                                
+                                <div ng-show="!participante.pedidos.author.social_profile_picture && !participante.pedidos.author.profile_picture" 
+                                    style="float: left; margin-right: 10px; width: 25px; height: 25px; 
+                                           background-color: #FFF; border:1px solid #333;
+                                           background-position: center center; background-repeat: no-repeat; 
+                                           background-size: cover; border-radius: 50%;"></div>
+
+                                <div style="float: left; margin-top: 5px;">{{participante.pedidos.author.full_name}}</div>
+                            </div>
+                        </div>
+                        <div id="nmCliPed" style="width: 9%; text-align: center; background-color:transparent;">
+                            {{participante.pedidos.like_count}}
+                        </div>
+
+                        <div id="nmCliPed" style="width: 9%; text-align: center; background-color:transparent;">
+                            {{participante.pedidos.comment_count}}
+
+                            <i ng-show="participante.pedidos.report_comment_counter>0" class="fas fa-info-circle" 
+                                style="color: #ed423d; font-size: 1.2em; cursor: pointer; margin-left: 5px;"></i>
+                        </div>
+                        
+                        <div id="nmCliPed" style="width: 9%; text-align: center; background-color:transparent;">
+                            {{participante.pedidos.share_count}}
+                        </div>
+                        <div id="nmCliPed" style="width: 9%; text-align: center; background-color:transparent;">
+                            {{participante.pedidos.report_count}}
+
+                            <i ng-show="participante.pedidos.report_count>0" class="fas fa-info-circle" 
+                                style="color: #ed423d; font-size: 1.2em; cursor: pointer; margin-left: 5px;"></i>
+                        </div>
+                        <div id="nmCliPed" ng-click="abrirLink(alias, participante.pedidos.alias, description, nombre)"
+                            style="width: 16%; text-align: center; background-color:transparent; color: #00c198; cursor: pointer;">
+                            <i class="far fa-copy"></i>
+                            <div id="copy{{participante.pedidos.alias}}"></div>
+                        </div>   
+                        <div id="nmCliPed" style="width: 16%; text-align: center; background-color:transparent;">
+
+                            <div ng-show="participante.pedidos.status=='reported'">
+                                <i ng-click="valida('canceled', participante.pedidos.alias)" class="fas fa-info-circle" 
+                                    style="color: #ed423d; font-size: 1.2em; cursor: pointer; margin-right: 5px;"></i>
+                            
+                                <i ng-click="valida('validated', participante.pedidos.alias)" class="far fa-check-circle" 
+                                    style="color: #00c198; font-size: 1.2em; cursor: pointer;"></i>
+                            </div>
+
+                            <div ng-show="participante.pedidos.status!='reported'">
+
+                                <i ng-click="valida('canceled', participante.pedidos.alias)" class="fas fa-info-circle" 
+                                    style="color: #CCC; font-size: 1.2em; cursor: pointer; margin-right: 5px;"></i>
+                            
+                                <i ng-click="valida('validated', participante.pedidos.alias)" class="far fa-check-circle" 
+                                    style="color: #CCC; font-size: 1.2em; cursor: pointer;"></i>
+
+                            </div>
+
+                            <div id="statusVer{{participante.pedidos.alias}}" 
+                                style="float: left; width: 100%; text-align: center; margin-top: 10px; font-size: 13px;">
+                                {{participante.pedidos.status}}
+                            </div>
+
+                        </div>              
+                    </div>
+                </div>
+                
+                <div ng-show="!participante" ng-repeat="participante in participantes" id="nehnRes">
+                    ¡No hay resultados!
+                </div>
+                
+                <div id="contMais" ng-show="participantes && !parou">
+                    <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+                    <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

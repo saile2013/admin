@@ -1,0 +1,323 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="cupons">
+            <i class="fas fa-chevron-right"></i> &nbsp; cupones 
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">añadir cupons</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="cupons">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+        <div id="conTxtB">
+
+            <form name="contatoForm">
+
+            <div id="txtH" style="margin-top: -20px;">Añadir cupons</div>
+            
+            <div id="inputA">
+                <Label>Code</Label>
+                <input type="text" ng-model="code" placeholder="Ej: Código del cupón">
+            </div>
+
+            <div id="inputA">
+                <Label>Title</Label>
+                <input type="text" ng-model="title" placeholder="Ej: Título del cupón">
+            </div>
+
+            <div id="inputA">
+                <Label>Activar</Label>
+                <select ng-model="is_actived" 
+                        ng-options="estato3 as estato3.aparence for estato3 in estatos3 track by estato3.value">
+                </select>
+            </div>
+
+            <div id="inputA" style="float:left; width: 100%; margin-top: 10px; margin-bottom: 130px;">
+                <label>Description</label>
+                <textarea style="width: 750px; height: 100px;" ng-model="description" placeholder="Ej: Descripción del cupón"></textarea>
+            </div>
+
+            <div style="float:left; width: 100%; margin-bottom: 30px;">
+
+                <div id="inputA">
+                    <label>Fecha de expiración</label>
+                    <input type="date" ng-model="dataExpired" style="float: left;">
+                </div>
+
+                <div id="inputA">
+                    <label>Hora de expiración</label>
+                    <input type="time" id="timeExpired" style="float: left; width: 90px;">
+                </div>
+
+                <div id="inputA">
+                    <Label>Quantity</Label>
+                    <input type="number" ng-model="quantity" placeholder="Ej: Cantidad de cupones">
+                </div>
+
+            </div>
+
+            <div style="float: left; width: 100%; margin-bottom: 30px;">
+
+                <div id="inputA">
+                    <Label>Límite inferior</Label>
+                    <input type="text" ng-model="lower_limit" placeholder="Ej: Valor mínimo de compra">
+                </div>
+
+                <div id="inputA">
+                    <Label>Límite superior</Label>
+                    <input type="text" ng-model="upper_limit" placeholder="Ej: Valor máximo de compra">
+                </div>
+
+                <div id="inputA">
+                    <Label>Tipo de descuento</Label>
+                    <select ng-model="discountType" 
+                            ng-options="discountType as discountType.aparence for discountType in discountTypes track by discountType.value">
+                    </select>
+                </div>
+
+                <div id="inputA">
+                    <Label>Valor del cupón</Label>
+                    <input type="text" ng-model="value" style="width: 160px;" placeholder="Ej: Debe ser de 0 a 100">
+                </div>
+
+            </div>
+
+            <div style="width: 100%; margin-bottom: 30px;">
+            
+                <div id="inputA">
+                    <Label>Descuento envío</Label>
+                    <select ng-model="discountShipping" 
+                            ng-options="estato as estato.aparence for estato in estatos track by estato.value">
+                    </select>
+                </div>
+
+                <div id="inputA">
+                    <Label>Descuento de envío porcentaje</Label>
+                    <select ng-model="discountShippingType" ng-disabled="discountShipping.value==0 || discountShipping.value==''"
+                           ng-options="discountShippingType as discountShippingType.aparence for discountShippingType in discountShippingTypes track by discountShippingType.value">
+                   </select>
+                </div>
+
+                <div id="inputA">
+                    <Label>Descuento valor</Label>
+                    <input type="text" ng-disabled="discountShipping.value==0 || discountShipping.value==''" 
+                           ng-model="discountShippingValue" placeholder="Ej: $ 3000">
+                </div>
+
+            </div>
+                
+            <div style="float: left; width: 100%;">
+
+                <div id="inputA" style="float: left; width: 50%; margin-top: 30px;">
+                    <label>Producto no en</label>
+                </div>
+
+                <div id="inputA" style="float: left; width: 80%; margin-top: -30px;">
+                    <div style="float: left; width: 100%; height: 100px; overflow-x: hidden; border-radius: 5px; padding: 10px; background-color: #FFF; border: 1px solid #CCC;">
+                        <div ng-repeat="selProduto in selProdutos" style="float: left; margin-bottom: 5px; margin-top: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #00c198; padding: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #00c198;">
+                            <b>{{selProduto.id}}</b> {{selProduto.name}} &nbsp; 
+                            <a href="javascript:" ng-click="remProd(selProduto.id)">x</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="inputA" style="float: left; width: 80%; margin-top: 90px;">
+                    <div style="float: left; width: 100%; border-radius: 5px; padding: 10px; background-color: #FFF; border: 1px solid #CCC; height: 300px; overflow-x: hidden;">
+                        <div style="float: left; width: 100%; margin-top: 10px; margin-bottom: 20px;">
+                            <input type="text" ng-model="seProd" placeholder="Buscar..." style="border: 1px solid #00c198; width: 250px; height: 18px;">
+                            <button type="button" ng-click="buProd()" style="float: left; margin-left: -35px; border: none; width: 50px;">ok</button>
+                        </div>
+                        <div ng-repeat="produto in produtos" ng-click="selProd(produto.id, produto.name)" style="float: left; width: 100%; margin-bottom: 20px; cursor: pointer;">
+                            <div style="float: left; width: 50px; height: 50px; border-radius: 50%; border: 1px solid #333; 
+                                        background:url({{produto.main_picture}}) center center no-repeat;
+                                        background-size:cover;"></div>
+                            <div style="float: left; margin-top: 18px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                                {{produto.name}} &nbsp; <b>#{{produto.id}}</b>
+                            </div>
+                        </div>
+                        <div style="float: left; margin-bottom: 20px; width: 100%; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                            <span ng-click="maisPag()" style="padding: 10px; color: #00c198; border: 1px solid #00c198; border-radius: 5px; width: 150px; cursor: pointer;">más...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div style="float: left; margin-top: 270px; width: 100%;">
+
+                <div id="inputA" style="float: left; width: 100%; margin-top: 30px;">
+                    <label>Aplicable a</label>
+                </div>
+
+                <div style="float: left; width: 37.5%; margin-top: -30px;">
+
+                    <div id="inputA" style="float: left; color: #333; width: 100%;">
+                        <label style="color: #333;">Tiendas</label>
+                    </div>
+
+                    <div id="inputA" style="float: left; width: 100%; margin-top: -20px;">
+                        <div style="float: left; width: 100%; height: 100px; overflow-x: hidden; border-radius: 5px; padding: 10px; background-color: #FFF; border: 1px solid #CCC;">
+                            <div ng-repeat="selTienda in selTiendas" style="float: left; margin-bottom: 5px; margin-top: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #00c198; padding: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #00c198;">
+                                <b>{{selTienda.id}}</b> {{selTienda.name}} &nbsp; 
+                                <a href="javascript:" ng-click="remTienda(selTienda.id)">x</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="inputA" style="float: left; width: 100%; margin-top: 90px;">
+                        <div style="float: left; width: 100%; border-radius: 5px; padding: 10px; background-color: #FFF; border: 1px solid #CCC; height: 300px; overflow-x: hidden;">
+                            <div style="float: left; width: 100%; margin-top: 10px; margin-bottom: 20px;">
+                                <input type="text" ng-model="seTienda" placeholder="Buscar..." style="border: 1px solid #00c198; width: 250px; height: 18px;">
+                                <button type="button" ng-click="buTienda()" style="float: left; margin-left: -35px; border: none; width: 50px;">ok</button>
+                            </div>
+                            <div ng-repeat="tienda in tiendas" ng-click="selTienda(tienda.id, tienda.name)" style="float: left; width: 100%; margin-bottom: 20px; cursor: pointer;">
+                                <div style="float: left; width: 50px; height: 50px; border-radius: 50%; border: 1px solid #333; 
+                                            background:url({{tienda.profile_picture}}) center center no-repeat;
+                                            background-size:cover;"></div>
+                                <div style="float: left; margin-top: 18px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                                    {{tienda.name}} &nbsp; <b>#{{tienda.id}}</b>
+                                </div>
+                            </div>
+                            <div style="float: left; margin-bottom: 20px; width: 100%; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                                <span ng-click="maisTienda()" style="padding: 10px; color: #00c198; border: 1px solid #00c198; border-radius: 5px; width: 150px; cursor: pointer;">más...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+                <div style="float: left; margin-left: 5%; width: 37.5%; margin-top: -30px;">
+
+                    <div id="inputA" style="float: left; width: 100%;">
+                        <label style="color: #333;">Productos</label>
+                    </div>
+
+                    <div id="inputA" style="float: left; width: 100%; margin-top: -20px;">
+                        <div style="float: left; width: 100%; height: 100px; overflow-x: hidden; border-radius: 5px; padding: 10px; background-color: #FFF; border: 1px solid #CCC;">
+                            <div ng-repeat="selProduto2 in selProdutos2" style="float: left; margin-bottom: 5px; margin-top: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #00c198; padding: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #00c198;">
+                                <b>{{selProduto2.id}}</b> {{selProduto2.name}} &nbsp; 
+                                <a href="javascript:" ng-click="remProd2(selProduto2.id)">x</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="inputA" style="float: left; width: 100%; margin-top: 90px;">
+                        <div style="float: left; width: 100%; border-radius: 5px; padding: 10px; background-color: #FFF; border: 1px solid #CCC; height: 300px; overflow-x: hidden;">
+                            <div style="float: left; width: 100%; margin-top: 10px; margin-bottom: 20px;">
+                                <input type="text" ng-model="seProd2" placeholder="Buscar..." style="border: 1px solid #00c198; width: 250px; height: 18px;">
+                                <button type="button" ng-click="buProd2()" style="float: left; margin-left: -35px; border: none; width: 50px;">ok</button>
+                            </div>
+                            <div ng-repeat="produto2 in produtos2" ng-click="selProd2(produto2.id, produto2.name)" style="float: left; width: 100%; margin-bottom: 20px; cursor: pointer;">
+                                <div style="float: left; width: 50px; height: 50px; border-radius: 50%; border: 1px solid #333; 
+                                            background:url({{produto2.main_picture}}) center center no-repeat;
+                                            background-size:cover;"></div>
+                                <div style="float: left; margin-top: 18px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                                    {{produto2.name}} &nbsp; <b>#{{produto2.id}}</b>
+                                </div>
+                            </div>
+                            <div style="float: left; margin-bottom: 20px; width: 100%; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                                <span ng-click="maisPag2()" style="padding: 10px; color: #00c198; border: 1px solid #00c198; border-radius: 5px; width: 150px; cursor: pointer;">más...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div style="float: left; width: 80%; margin-top: 300px;">
+
+                    <div id="inputA" style="float: left; width: 100%;">
+                        <label>Clientes</label>
+                    </div>
+
+                    <div id="inputA" style="float: left; width: 100%; margin-top: -20px;">
+                        <div style="float: left; width: 100%; height: 100px; overflow-x: hidden; border-radius: 5px; padding: 10px; background-color: #FFF; border: 1px solid #CCC;">
+                            <div ng-repeat="selCliente in selClientes" style="float: left; margin-bottom: 5px; margin-top: 5px; margin-right: 10px; border-radius: 5px; border: 1px solid #00c198; padding: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #00c198;">
+                                <b>{{selCliente.id}}</b> {{selCliente.name}} &nbsp; 
+                                <a href="javascript:" ng-click="remCliente(selCliente.id)">x</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="inputA" style="float: left; width: 100%; margin-top: 90px;">
+                        <div style="float: left; width: 100%; border-radius: 5px; padding: 10px; background-color: #FFF; border: 1px solid #CCC; height: 300px; overflow-x: hidden;">
+                            <div style="float: left; width: 100%; margin-top: 10px; margin-bottom: 20px;">
+                                <input type="text" ng-model="seCliente" placeholder="Buscar..." style="border: 1px solid #00c198; width: 250px; height: 18px;">
+                                <button type="button" ng-click="buCliente()" style="float: left; margin-left: -35px; border: none; width: 50px;">ok</button>
+                            </div>
+                            <div ng-repeat="cliente in clientes" ng-click="selCliente(cliente.id, cliente.name)" style="float: left; width: 100%; margin-bottom: 20px; cursor: pointer;">
+                                
+                                <div ng-if="cliente.new_profile_picture" style="float: left; width: 50px; height: 50px; border-radius: 50%; border: 1px solid #333; 
+                                            background:url({{cliente.new_profile_picture}}) center center no-repeat;
+                                            background-size:cover;"></div>
+                                
+                                <div ng-if="!cliente.new_profile_picture" style="float: left; width: 50px; height: 50px; border-radius: 50%; border: 1px solid #333; 
+                                            background:url({{cliente.social_profile_picture}}) center center no-repeat;
+                                            background-size:cover;"></div>
+
+                                <div style="float: left; margin-top: 18px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                                    {{cliente.name}} &nbsp; <b>#{{cliente.id}}</b>
+                                </div>
+                            </div>
+                            <div style="float: left; margin-bottom: 20px; width: 100%; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 15px;">
+                                <span ng-click="maisCliente()" style="padding: 10px; color: #00c198; border: 1px solid #00c198; border-radius: 5px; width: 150px; cursor: pointer;">más...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="linhaB" style="margin-top: 300px;"></div>
+
+            <div id="inputA" style="width:100%;">
+                <button type="button" ng-click="salvar()">
+                    <span ng-show="botao">Salvar</span>
+                    <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                </button>
+            </div>
+
+            <div ng-show="erros" style="float: left; margin-left: 22px; margin-bottom: 40px;">
+                <div class="status" ng-repeat="erro in erros">
+                    {{erro}}
+                </div>
+            </div>
+
+            <div id="status"   
+                style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+
+            </form>
+        </div>
+        
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

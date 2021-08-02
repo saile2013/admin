@@ -1,0 +1,264 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="restaurantes">
+            <i class="fas fa-chevron-right"></i> &nbsp; restaurantes
+        </a> &nbsp;
+        <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">refund para ordenes</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+    <div id="datas">
+        <input type="date" ng-model="ate" ng-change="seleData()">
+    </div>
+    <div id="busTxt">
+        Hasta
+    </div>
+    <div id="datas">
+        <input type="date" ng-model="de">
+    </div>
+    <div id="busTxt">
+        De
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB">
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 6%;">
+            órdenes ID
+        </div>
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 3.5%;">
+            Fuente
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 10%;">
+            Nombre
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 12%;">
+            E-mail
+        </div>
+        <div id="tsPed" style="background-color: #00c198; color: #FFF; font-weight: bold;">
+            Transacción
+        </div>
+        <div id="tpPagPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 8%;">
+            Tipo de pago
+        </div>
+        <div id="tpPagPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 7%;">
+            Fecha del pedido
+        </div>
+        <div id="qtProPed" style="background-color: #00c198; color: #FFF; font-weight: bold;">
+            Prod
+        </div>
+        <div id="stPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 9%;">
+            Estado
+        </div>
+        <div id="vlPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 5%;">
+            Valor
+        </div>
+        <div id="hsPed" style="background-color: #00c198; color: #FFF; font-weight: bold; width: 4.5%;">
+            Histórico
+        </div>
+    </div> 
+
+    <div id="contMais" ng-show="!pedidos">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-repeat="pedido in pedidos">
+        <div id="contB">
+            <a ui-sref="refunds-restaurantes.perfil-restaurantes-ordenes({idPed:pedido.restaurant_order_id})">
+                <div id="idPed" style="width: 6%;">
+                    {{pedido.restaurant_order_id}}
+                </div>
+                <div id="idPed" style="width: 3.5%; overflow-x: hidden;">
+                    <span ng-if="pedido.payment_type=='CREDITCARD'">App</span>
+                    <span ng-if="pedido.payment_type=='CREDITCARD-WEB'">Web</span>
+                </div>
+                <div id="nmCliPed" style="width: 10%;">
+                    {{pedido.buyer_name}}
+
+                    <div style="width: 100%; margin-top: 10px;">
+                        <div ng-show="pedido.user.has_alert==1">
+                            <img src="../img/2892041.svg" width="20px" />
+                        </div>
+                    </div>
+                </div>
+                <div id="emCliPed" style="overflow-x: hidden; width: 12%;">
+                    {{pedido.buyer_email}}
+                </div>
+                <div id="tsPed">
+                    {{pedido.transaction_id}}
+                </div>
+                <div id="tpPagPed" style="width: 8%;">
+                    <span ng-if="pedido.payment_type">{{pedido.payment_type}}</span>
+                    <span ng-if="!pedido.payment_type">No hay información</span>
+                </div>
+                <div id="tsPed" style="width: 7%;">
+                    {{pedido.transaction_date}}
+                </div>
+                <div id="qtProPed">
+                    {{pedido.order_items.length}}
+                </div>
+            </a>
+
+            <div id="stPed" style="width: 9%;">
+
+                <div ng-if="pedido.state=='canceled'">
+                    <div id="estatus2{{pedido.restaurant_order_id}}" style="display: inline;">Cancelada</div>
+                    <div id="estatus{{pedido.restaurant_order_id}}" style="display: inline;"></div>
+                    <div id="estatusL{{pedido.restaurant_order_id}}" 
+                            style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
+                    <br>
+                    <button type="button"
+                            ng-click="payments(pedido.restaurant_order_id)"
+                            style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
+                    <div id="alt">
+                        orden rechazada ya sea por fondos u otra razón.
+                    </div>
+                </div>
+                <div ng-if="pedido.state=='incomplete'">
+                    <div id="estatus2{{pedido.restaurant_order_id}}" style="display: inline;">Incompleta</div>
+                    <div id="estatus{{pedido.restaurant_order_id}}" style="display: inline;"></div>
+                    <div id="estatusL{{pedido.restaurant_order_id}}" 
+                            style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
+                    <br>
+                    <button type="button"
+                            ng-click="payments(pedido.restaurant_order_id)"
+                            style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
+                    <div id="alt">
+                        el cliente no terminó la compra.
+                    </div>
+                </div>
+                <div ng-if="pedido.state=='opened'">
+                    <div id="estatus2{{pedido.restaurant_order_id}}" style="display: inline;">Pagada</div>
+                    <div id="estatus{{pedido.restaurant_order_id}}" style="display: inline;"></div>
+                    <div id="estatusL{{pedido.restaurant_order_id}}" 
+                            style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
+                    <br>
+                    <button type="button"
+                            ng-click="payments(pedido.restaurant_order_id)"
+                            style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
+                    <div id="alt">
+                        Tel pago se válido de forma correcta.
+                    </div>
+                </div>
+                <div ng-if="pedido.state=='payment_pending'">
+                    <div id="estatus2{{pedido.restaurant_order_id}}" style="display: inline;">Pendiente de Pago</div>
+                    <div id="estatus{{pedido.restaurant_order_id}}" style="display: inline;"></div>
+                    <div id="estatusL{{pedido.restaurant_order_id}}" 
+                            style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
+                    <br>
+                    <button type="button"
+                            ng-click="payments(pedido.restaurant_order_id)"
+                            style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
+
+                    <div id="alt">
+                        aún se está validando el pago.
+                    </div>
+                </div>
+
+                <div ng-if="pedido.state=='delivered'">
+                    <div id="estatus2{{pedido.restaurant_order_id}}" style="display: inline;">Entregado</div>
+                    <div id="estatus{{pedido.restaurant_order_id}}" style="display: inline;"></div>
+                    <div id="estatusL{{pedido.restaurant_order_id}}" 
+                            style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
+                    <br>
+                    <button type="button"
+                            ng-click="payments(pedido.restaurant_order_id)"
+                            style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
+                    <div id="alt">
+                        El pedido ya ha sido entregado.
+                    </div>
+                </div>
+
+                <div ng-if="pedido.state=='verify'">
+                    <div id="estatus2{{pedido.restaurant_order_id}}" style="display: inline;">Verificar</div>
+                    <div id="estatus{{pedido.restaurant_order_id}}" style="display: inline;"></div>
+                    <div id="estatusL{{pedido.restaurant_order_id}}" 
+                            style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
+                    <br>
+                    <button type="button"
+                            ng-click="payments(pedido.restaurant_order_id)"
+                            style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
+                    <div id="alt">
+                        El pedido esta siendo verificado.
+                    </div>
+                </div>
+
+                <div ng-if="pedido.is_refund==1">
+                    <a ui-sref="pedidos.perfil-strefunds({idPed:pedido.id})">
+                    <button type="button"
+                            style="margin:0 auto; width: 60px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                                    border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                                    background: none;"><i class="fas fa-money-bill-alt"></i></button>
+                    </a>
+                </div>
+
+            </div>
+
+            <div id="vlPed" style="width: 5%;">
+                $ {{pedido.total_amount}}
+            </div>
+            <a ui-sref="refunds-restaurantes.perfil-restaurantes-historico({idPed:pedido.transaction_id, order_id:pedido.restaurant_order_id})">
+                <div id="hsPed" style="width: 4.5%;">
+                    <i class="fas fa-clock"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div ng-show="!pedido" ng-repeat="pedido in pedidos" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="pedidos && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

@@ -1,0 +1,40 @@
+﻿<div id="perfilPedidos">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos" style="position:fixed; left:50%; margin-left:-450px; top:50%; margin-top:-225px; background:#FFF; 
+                                width:100%; max-width:900px; height:425px; border:1px solid #333; z-index:2000; border-radius: 10px; 
+                                overflow-x: hidden;">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+            
+            <div id="tituPedidos" style="margin-top: 10px;">órdenes ID: {{idPedidos}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Fecha del Refund:</b> {{date_refund}}</div>
+            <div id="txtAPedidos">
+                <span ng-if="refund_observation"><b>Observación del Refund:</b> {{refund_observation}}</span>
+                <span ng-if="!refund_observation"><b>Observación del Refund:</b> no hay informacion</span>
+            </div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <span ng-if="historys">
+                        <b style="text-decoration: underline;">Histórico del Refund</b> <br><br> 
+                        <div ng-repeat="history in historys">
+                            <b>Total:</b> $ {{history.transaction.amount}} <br>
+                            <b>Código de Autorización:</b> {{history.transaction.authorization_code}} <br>
+                            <b>Código de transportista:</b> {{history.transaction.carrier_code}} <br>
+                            <b>Referencia de desarrollo:</b> {{history.transaction.dev_reference}} <br>
+                            <b>ID:</b> {{history.transaction.id}} <br>
+                            <b>Cuotas:</b> {{history.transaction.installments}} <br>
+                            <b>Mensaje:</b> {{history.transaction.message}} <br>
+                            <b>Fecha de pago:</b> {{history.transaction.payment_date}} <br>
+                            <b>Estado:</b> {{history.transaction.status}}
+                        </div>                        
+                </span>
+                <span ng-if="!historys"><b>Histórico del Refund:</b> no hay informacion</span>
+            </div>
+            
+        </div>
+    </div>
+</div>

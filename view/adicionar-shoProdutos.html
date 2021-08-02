@@ -1,0 +1,120 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="shoppers">
+            <i class="fas fa-chevron-right"></i> &nbsp; productos 
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">añadir productos</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="shoppers">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+
+        <div id="conTxtB">
+            <form name="contatoForm">
+            <div id="txtH">Añadir productos</div>
+
+            <div id="inputA" style="float:left; width: 100%; margin-bottom: 30px;">
+                <Label>Tiendas</Label>
+                <select ng-model="tienda">
+                        <option value="">Selecciona una tienda</option>
+                        <option ng-repeat="tienda in tiendas | orderBy:'name'" value="{{tienda.id}}">{{tienda.name}}</option>
+                </select>
+            </div>
+            
+            <div id="inputA">
+                <Label>Name</Label>
+                <input type="text" style="width: 400px;" ng-model="name" placeholder="Ej: Camisa Oslo #Four Brothers">
+            </div>
+            
+            <div id="inputA" style="width: 100%; margin-top: 10px; margin-bottom: 130px;">
+                <label>Description</label>
+                <textarea style="width: 550px; height: 100px;" ng-model="description" placeholder="Ej: Descripción del producto"></textarea>
+            </div>
+
+            <div id="inputA">
+                <label>Propiedades</label>
+                <input type="text" ng-model="properties" placeholder="Ej: Talla 42, color:#000000">
+                <a href="https://html-color-codes.info/Codigos-de-Cores-HTML/" target="_blank">
+                    <span style="margin-top: 10px; margin-left: 5px; color: #2E9AFE; text-decoration: underline;">
+                        catálogo de colores
+                    </span>
+                </a>
+            </div>
+
+            <div id="inputA">
+                <label>Precio</label>
+                <input type="text" fcsa-number="{ prepend: '$' }" ng-model="price" placeholder="Ej: $12,000">
+            </div>
+
+            <!--<div id="inputA">
+                <label>Descuento</label>
+                <input type="number" ng-model="discount" placeholder="Ej: %">
+            </div>-->
+
+            <div id="inputA">
+                <label>Cantidad</label>
+                <input type="number" ng-model="cantidad" placeholder="Min: 4">
+            </div>
+
+            <div id="linhaB" style="margin-top: 40px;"></div>
+
+            <div style="float:left; width: 100%; margin-bottom: 70px;">
+
+                <div id="inputA" style="width: 100%; margin-bottom: 100px;">
+                    <label>Main Picture (1024x1024)</label>
+                    <div style="width: 200px;  height: 100px; overflow: hidden;">
+                        <img id="bannerW1" src="{{mainPicture}}"
+                            style="position: relative; float: left; height: 100px; 
+                                    border: 1px solid color #CCC; z-index: 1;">
+                    </div>
+                    <form>
+                        <input style="position: relative; z-index: 2;" type='file' ng-change="carrega1()" ng-model='yourModel1' base-sixty-four-input>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="linhaB"></div>
+
+            <div id="inputA" style="width:100%;">
+                <button type="button" ng-click="salvar()" ng-disabled="!botao">
+                    <span ng-show="botao">Salvar</span>
+                    <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                </button>
+            </div>
+
+            <div id="status" style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+            </form>
+        </div>        
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

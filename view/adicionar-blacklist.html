@@ -1,0 +1,82 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="blacklist">
+            <i class="fas fa-chevron-right"></i> &nbsp; blacklist
+        </a> &nbsp;         
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">añadir blacklist</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="blacklist">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+        <div id="conTxtB">
+            <form name="contatoForm">
+            <div id="txtH">Agregar blacklist</div>
+            
+            <div id="inputA" style="width: 100%;">
+                <select ng-model="opcione" 
+                    ng-change="seleOpcione()"
+                    ng-options="opcione as opcione.aparence for opcione in opciones track by opcione.value">
+                </select>
+            </div>
+
+            <div id="inputA" ng-show="opcione.value==1">
+                <Label>Número Dani</Label>
+                <input type="text" ng-model="dni_number" placeholder="Ej: 123456789">
+            </div>
+            
+            <div id="inputA" ng-show="opcione.value==2">
+                <label>Teléfono</label>
+                <input type="numer" ng-model="phone" placeholder="Ej: 123456789">
+            </div>
+
+            <div id="inputA" ng-show="opcione.value==3">
+                <label>Direcciones</label>
+                <input type="text" ng-model="address" placeholder="Ej: Calle 80">
+            </div>
+
+            <div id="linhaB" style="margin-top: 30px;"></div>
+            
+            <div id="inputA" style="width:100%;">
+                <button type="button" ng-click="salvar(dados)">                    
+                    <span ng-show="botao">Salvar</span>
+                    <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                </button>
+            </div>
+            
+            <div id="status" style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;"></div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

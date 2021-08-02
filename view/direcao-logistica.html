@@ -1,0 +1,134 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">editar dirección de tiendas</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+            <a ui-sref="cotacao-logistica">
+                <i class="fas fa-folder"></i> hacer cotizaciones
+            </a>   
+        </div>
+        <div id="txtA">
+        	<a ui-sref="encomendas-logistica">
+            	<i class="fas fa-folder"></i> enviar ordenes
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="status-logistica">
+            	<i class="fas fa-folder"></i> status de las ordenes
+            </a>
+        </div>
+        <div id="txtA" style="text-decoration: underline;">
+        	<a ui-sref="direcao-logistica">
+            	<i class="fas fa-folder-open"></i> editar dirección de tiendas
+            </a>
+        </div>
+        <div id="txtA" style="float:right; margin-right: 20px;">
+        	<a ui-sref="reportar-vendas({id:4})">
+            	<i class="fas fa-folder"></i> reporte ventas
+            </a>
+        </div>
+        <div id="txtA" style="float:right;">
+        	<a ui-sref="exportar-logistica">
+            	<i class="fas fa-file-csv"></i> exportar guías
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div id="div5">
+
+    <div id="contB">
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 10%;">
+            ID
+        </div>
+        <div id="nmCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; width: 23%;">
+            Tienda
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; width: 23%;">
+            Ciudad
+        </div>
+        <div id="emCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; width: 23%;">
+            Departamento
+        </div>
+        <div id="fnCliPed" style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; width: 9%;">
+            Editar
+        </div>
+    </div> 
+
+    <div id="contMais" ng-show="!tiendas">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-repeat="tienda in tiendas">
+        <div id="contB">
+            <div id="nmCliPed" style="width: 10%; text-align: center;">
+                {{tienda.id}}
+            </div>
+            <div id="emCliPed" style="width: 23%; text-align: center;">
+                {{tienda.name}}
+            </div>
+            <div id="fnCliPed" style="width: 23%;">
+                <span ng-if="tienda.city">{{tienda.city}}</span>
+                <span ng-if="!tienda.city">No hay informacion</span>
+            </div>
+            <div id="fnCliPed" style="width: 23%;">
+                <span ng-if="tienda.c_state">{{tienda.c_state}}</span>
+                <span ng-if="!tienda.c_state">No hay informacion</span>
+            </div>
+            <div id="tsPed" style="float:left; width: 9%;">
+                <div style="float: left; width: 100%;">
+                <a ui-sref="editar-direcao-logistica({id:tienda.id})"
+                   style="margin:0 auto; width: 60px; border-radius:5px; padding-left: 10px; padding-right: 10px;
+                          border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
+                          background: none;"><i class="fas fa-edit"></i></a>
+                </div>               
+            </div>
+        </div>
+    </div>
+    
+    <div ng-show="!tienda" ng-repeat="tienda in tiendas" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="tiendas && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

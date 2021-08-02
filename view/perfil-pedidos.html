@@ -1,0 +1,101 @@
+﻿<div id="perfilPedidos">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+            
+            <div id="tituPedidos">
+                órdenes ID: {{idPedidos}}
+                <div style="float: right; cursor: pointer;" ng-click="abrirDados()">
+                    <i class="fas fa-user-edit"></i>
+                </div>
+
+                <div ng-show="novDados" style="position: absolute; width: 200px; right: 20px; background-color: #FFF; padding: 10px; border: 1px solid #CCC;">
+                    <input type="text" ng-model="nameNv" placeholder="Nombre" 
+                        style="padding: 8px; margin-bottom: 10px; width: 90%;">
+                    <input type="text" ng-model="last_nameNv" placeholder="Apellido" 
+                        style="padding: 8px; margin-bottom: 10px; width: 90%;">
+                    <input type="text" ng-model="phone_numberNv" placeholder="teléfono" 
+                        style="padding: 8px; margin-bottom: 10px; width: 90%;">
+                    <button type="text" ng-click="NvDados()" 
+                        style="padding: 8px; cursor: pointer; width: 100%;">Actualizar</button>
+                    <div id="status" class="status"></div>
+                </div>
+            </div>
+
+            <div id="txtAPedidos">{{city}}, {{c_state}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">{{street_one}}</div>
+            
+            <div id="txtAPedidos">{{street_two}}</div>
+
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Pasarela de pago</b>: {{payment_gateway}}</div>
+            
+            <div id="txtAPedidos"><b>Creado en</b>: {{created_at}}</div>
+
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Fecha de Transacción</b>: {{transaction_date}}</div>
+            <div id="txtAPedidos"><b>Sub total:</b> $ {{subtotal}}</div>
+            
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <span ng-if="shipping"><b>Costo de envío:</b> $ {{shipping}}</span>
+                <span ng-if="!shipping"><b>Costo de envío:</b> $ {{shipping}}</span>
+            </div>
+
+            <div id="txtAPedidos">
+                <span ng-if="discount"><b>Descuento:</b> $ {{discount}}</span>
+                <span ng-if="!discount"><b>Descuento:</b> no hay informacion</span>
+            </div>
+            
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Impuesto:</b> $ {{tax}}</div>
+            <div id="txtAPedidos"><b>Valor total:</b> $ {{total}}</div>
+
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 10px;">Comprador</div>
+
+            <div id="tituPedidos">{{name}} {{last_name}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">{{email}}</div>
+            <div id="txtAPedidos">{{phone}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">{{dni_number}} - {{dni_type}}</div>
+
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 10px;">Recipiente</div>
+
+            <div id="tituPedidos" style="background-color: #F4F4F4;">{{nameNv}} {{last_nameNv}}</div>
+            <div id="txtAPedidos">{{phone_numberNv}}</div>
+
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 20px;">
+                Productos
+            </div>
+
+            <div id="lisProdutos" ng-repeat="produto in produtos">
+                <div id="ftoProdutos" style="background-image: url({{produto.main_picture}}); background-position: center center; 
+                                             background-size: cover;"></div>
+                
+                <div id="txtAProdutos" style="font-weight: bold;">
+                    {{produto.name}}
+                </div>
+                <div id="txtAProdutos">
+                    <b>SKU:</b> {{produto.sku}}
+                </div>
+                <div id="txtAProdutos">
+                    <b>Precio:</b> $ {{produto.price}}
+                </div>
+                <div id="txtAProdutos">
+                    <b>Tienda:</b> {{produto.store.name}}
+                </div>
+            </div>
+
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 20px;">
+                Propiedades
+            </div>
+
+            <div id="lisProdutos" ng-repeat="prValue in prValues" ng-show="prValue.name!=''">
+                <div id="txtAProdutos" style="font-weight: bold;">
+                    {{prValue.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,150 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="editar-tiendas({id:idTien})">
+            <i class="fas fa-chevron-right"></i> &nbsp; tiendas &nbsp; 
+        </a>
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">descuentos tienda</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="editar-tiendas({id:idTien})">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+        <div id="txtA">
+        	<a ui-sref="descuentos-tiendas({id:idTien})" style="text-decoration: underline;">
+            	<i class="fas fa-dollar-sign"></i> descuentos
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+
+        <div id="conTxtB">
+            <form name="contatoForm">
+            <div id="txtH">Descuentos tiendas</div>
+
+            <div id="inputA" style="float: left; width: 30%; margin-left: 20px; margin-top: 10px; margin-bottom: 50px;">
+                <label>Descuento General</label>
+                <input type="radio" value="1" ng-model="descG" ng-click="descGn=1" ng-checked="descGn==1" style="float: left; margin-left: 10px; margin-top: 5px; width: 10px;">
+            </div>
+
+            <div id="inputA" style="float: left; width: 40%; margin-left: 45px; margin-top: 10px; margin-bottom: 50px;">
+                <label>Descuento por Producto</label>
+                <input type="radio" value="0" ng-model="descG" ng-click="descGn=0" ng-checked="descGn==0" style="float: left; margin-left: 10px; margin-top: 5px; width: 10px;">
+            </div>
+
+            <div id="linhaB" style="margin-top: 0px;"></div>
+            
+            <div ng-show="descGn==1">
+                <div style="float: left; width: 100%; margin-bottom: 0px;"> 
+                    <!--<div id="inputA" style="float: left; width: 30%; margin-left: 20px; margin-top: 10px; margin-bottom: 50px;">
+                        <label>Apply Store</label>
+                        <div style="float:left; margin-left: 10px; margin-top: 10px; font-size: 15px; color: #333;">
+                            <span style="float: left; font-weight: bold;">Activar</span> 
+                            <input style="float: left; margin-left: 10px; margin-top: 5px; width: 10px;" 
+                                type="radio" value="1" ng-model="apply" ng-checked="applys==1"> &nbsp; 
+                        </div>
+                        <div style="float:left; margin-top: 10px; font-size: 5px; color: #333;">
+                            <span style="float: left; font-weight: bold;">Desactivar</span> 
+                            <input style="float: left; margin-left: 10px; margin-top: 5px; width: 10px;" 
+                                type="radio" value="0" ng-model="apply" ng-checked="applys==0">
+                        </div>
+                    </div>-->
+
+                    <div id="inputA" style="float: left; width: 34%; margin-left: 20px; margin-top: 10px; margin-bottom: 50px;">
+                        <label>Descuento General</label>
+                        <input type="text" style="width: 100px;" ng-model="general_discount" placeholder="Ej: 10%">
+                    </div>
+                    
+                    <div id="inputA" style="float: left; width: 32%; margin-left: 0px; margin-top: 10px; margin-bottom: 50px;">
+                        <label>Fecha de Descuento de inicio</label>
+                        <div id="datas">
+                            <input type="date" ng-model="date_start_discount">
+                            <input type="time" id="hra1" style="float: left; padding-left: 10px; width: 95px; border: none;">
+                        </div>
+                    </div>
+
+                    <div id="inputA" 
+                        style="float: left; width: 40%; margin-top: 10px; margin-bottom: 0px;">
+                        <label>Descuento de Fin de Fecha</label>
+                        <div id="datas">
+                            <input type="date" ng-model="date_end_discount">
+                            <input type="time" id="hra2" style="float: left; padding-left: 10px; width: 95px; border: none;">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="linhaB" style="margin-top: 50px;"></div>
+                
+                <div id="inputA" style="width:100%;">
+                    <button type="button" ng-click="salvar1()">
+                        <span ng-show="botao">Salvar</span>
+                        <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                    </button>
+
+                    <button type="button" style="background-color: sandybrown; color: #FFF;" ng-click="quitar()">
+                        <span ng-show="botao2">Quitar todos los descuentos</span>
+                        <span ng-show="!botao2"><img src="../img/loader.png" width="20px"></span>
+                    </button>
+                </div>
+
+                <div id="status" style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:20px;"></div>
+            </div>
+
+            <div ng-show="descGn==0">
+                <div style="float: left; width: 100%; margin-bottom: 0px;">
+                    <div id="inputA" style="float: left; width: 40%; margin-left: 20px; margin-bottom: 50px;">
+                        <label>Archivo CSV</label>
+                        <div 
+                            style="float:left; margin-left: 20px; margin-top: 10px; font-size: 2em; color: #00c198;" 
+                            class="button" ngf-select="selec($file)" ng-model="file" name="file" ngf-pattern="'.csv'"
+                            ngf-accept="'.csv'"><i class="fas fa-upload"></i>
+                            <span style="font-size: 12px; width: 100%;">{{nameFile}}</span>
+                        </div>
+                    </div>
+
+                    <div id="linhaB" style="margin-top: 20px;"></div>
+                
+                    <div id="inputA" style="width:100%;">
+                        <button type="button" ng-click="submit()">
+                            <span ng-show="botao">Salvar</span>
+                            <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                        </button>
+                    </div>
+                    
+                    <div id="status2" class="status" 
+                        style="text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:20px;"></div>
+                </div>
+            </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

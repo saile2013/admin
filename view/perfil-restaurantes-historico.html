@@ -1,0 +1,33 @@
+﻿<div id="perfilPedidos">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos" style="position:fixed; left:50%; margin-left:-450px; top:50%; margin-top:-250px; background:#FFF; 
+                                width:100%; max-width:900px; height:500px; border:1px solid #333; z-index:2000; border-radius: 10px; 
+                                overflow-x: hidden;">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+
+            <div id="tituPedidos">órdenes ID: {{order_id}}</div>
+            
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 10px;">Transacción</div>
+
+            <div ng-repeat="transacion in transaciones">
+                <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Total:</b> $ {{transacion.transaction.amount}}</div>
+                <div id="txtAPedidos"><b>Código de autorización:</b> {{transacion.transaction.authorization_code}}</div>
+                <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Código de operador:</b> {{transacion.transaction.carrier_code}}</div>
+                <div id="txtAPedidos"><b>Referencia:</b> {{transacion.transaction.dev_reference}}</div>
+                <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>ID de transacción:</b> {{id}}</div>
+                <div id="txtAPedidos"><b>Cuotas:</b> {{transacion.transaction.installments}}</div>
+                <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Publicar:</b> {{transacion.transaction.message}}</div>
+                <div id="txtAPedidos"><b>Fecha de pago:</b> {{transacion.transaction.payment_date}}</div>
+                <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Estado:</b> {{transacion.transaction.status}}</div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>

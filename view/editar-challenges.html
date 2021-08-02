@@ -1,0 +1,153 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+        <a ui-sref="perfil-challenges({alias: alias})">
+            <i class="fas fa-chevron-right"></i> &nbsp; {{name}}
+        </a> &nbsp;         
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">editar challenges</font> &nbsp; 
+    </div>
+</div>
+
+<div id="div6">
+    <div id="contC">
+        <div id="conTxtB">
+            <form name="contatoForm">
+
+            <div style="float: left; margin-left: 20px; margin-bottom: 80px; margin-top: 20px; border-radius: 10px; 
+                        width: 950px; padding: 10px; background-color: white;">
+
+                <div style="float: left; width: 750px;">
+                    <div id="inputA">
+                        <Label style="color: #333;">Nombre del challenge</Label>
+                        <input type="text" ng-model="name" placeholder="#" style="border:1px solid #CCC;">
+                    </div>
+                    
+                    <div id="inputA">
+                        <label style="color: #333;">Tiendas</label>
+                        <select style="float: left; width: 200px; border: 1px solid #CCC;" 
+                            ng-model="tienda">
+                            <option value="">Selecciona una tienda</option>
+                            <option ng-repeat="tienda in tiendas | orderBy:'value'" value="{{tienda.key}}">{{tienda.value}}</option>
+                        </select>
+                    </div>
+
+                    <div id="inputA">
+                        <label style="color: #333;">Premio</label>
+                        <input type="text" ng-model="premio" placeholder="Escribe el premio" style="border:1px solid #CCC;">
+                    </div>
+
+                    <div id="inputA" style="width: 450px;">
+                        <label style="color: #333;">Empieza en</label>
+                        <input type="date" id="iniciar" name="iniciar" ng-model="iniciar" 
+                            style="border:1px solid #CCC; width: 185px;">
+                        <input type="time" id="iniciar2" name="iniciar2" ng-model="iniciar2" ng-change="mudaHr1()"
+                            style="border:1px solid #CCC; width: 90px;">
+                    </div>
+
+                    <div id="inputA">
+                        <label style="color: #333;">Términos y condiciones</label>
+                        <div style="float: left; width: 100%; font-size: 14px; font-weight: 300; 
+                                    font-style: normal; color: #CCC; text-align: center; margin-top: 10px;"
+                                    ngf-select="selec($file)" ng-model="file" name="file">
+                            <input type="text" ng-model="termos" placeholder="Sube un archivo pdf" style="border:1px solid #CCC;">
+                        </div>                        
+                    </div>
+
+                    <div id="inputA" style="width: 450px;">
+                        <label style="color: #333;">Finaliza en</label>
+                        <input type="date" id="finaliza" name="finaliza" ng-model="finaliza" 
+                            style="border:1px solid #CCC; width: 185px;">
+                        <input type="time" id="finaliza2" name="finaliza2" ng-model="finaliza2" ng-change="mudaHr2()" 
+                            style="border:1px solid #CCC; width: 90px;">
+                    </div>
+
+                    <div id="inputA" style="margin-top: 15px; width: 100%;">
+                        <label style="color: #333;">Comentarios</label>
+                        <input type="text" ng-model="comentarios" 
+                            placeholder="Comentarios" 
+                            style="border:1px solid #CCC;"
+                            maxlength="120" 
+                            required>
+
+                        <div style="float: left; width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 15px; margin-top: 10px;"> 
+                            Máximo 120 caracteres requeridos. ({{comentarios.length}})</div>
+                    </div>
+                </div>
+
+                <div style="float: left; width: 200px;">
+
+                    <div style="float: left; width: 100%; font-size: 14px; font-weight: 300; 
+                                font-style: normal; color: #CCC; text-align: center; margin-top: 10px;"
+                                ngf-select="selec2($file)" ng-model="file2" name="file2">
+
+                        <div ng-show="thumbVideo" style="width: 150px; height: 150px; border: 1px solid #CCC; border-radius: 5px; 
+                                    background-image: url({{thumbVideo}}); background-position: center center; 
+                                    background-repeat: no-repeat; background-size: cover; margin-top: 20px;">
+                            <i class="fas fa-play" 
+                                style="color: white; font-size: 2em; margin-left: 0px; margin-top: 60px;"></i>
+                        </div>
+
+                        <div ng-show="!thumbVideo" style="width: 150px; height: 150px; border: 1px solid #CCC; border-radius: 5px; 
+                                    background-color: #F4F4F4; margin-top: 20px;">
+
+                            <div ng-show="nameFile=='Sube un vídeo'" style="float: left; width: 100%; margin-top: 70px;">
+                                <div style="position: relative; width: 50px; height: 36px; left: 50%; margin-left: -25px;
+                                            top: 50%; margin-top: -25px;">
+                                    <i class="fas fa-video" style="font-size: 2em; color: #CCC;"></i>
+                                </div>
+                            </div>
+
+                            <div ng-show="nameFile!='Sube un vídeo'" style="float: left; width: 100%; margin-top: 50px;">
+                                <div style="position: relative; width: 50px; height: 36px; left: 50%; margin-left: -25px;
+                                            top: 50%; margin-top: -25px;">
+                                    <i class="fas fa-video" style="font-size: 2em; color: #000;"></i>
+                                </div>
+                            </div>
+                            {{nameFile}}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="inputA" style="width:100%; margin-top: 40px;">
+                    <button type="button" style="border-radius: 20px;">
+                        <span ng-show="botao" ng-click="submit()">Update Challenge</span>
+                        <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                    </button>
+                </div>
+
+                <div ng-if="error" class="status" ng-repeat="erro in error" 
+                    style="float: left; width: 100%; text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;">
+                    {{erro}}
+                </div>
+                
+                <div ng-if="!error" id="status2" 
+                    class="status"
+                    style="float: left; width: 100%; text-align:left; padding-left:20px; margin-top:-10px; margin-bottom:10px;">
+                </div>
+
+            </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

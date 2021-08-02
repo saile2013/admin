@@ -1,0 +1,41 @@
+﻿<div id="perfilPedidos">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos" style="position:fixed; left:50%; margin-left:-450px; top:50%; margin-top:-150px; background:#FFF; width:100%; max-width:900px; 
+	height:300px; border:1px solid #333; z-index:2000; border-radius: 10px; overflow-x: hidden;">
+
+        <div id="contMais" ng-show="loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos">
+            
+            <div id="tituPedidos">ID: {{idOrd}}</div>
+            <div id="txtAPedidos" 
+                 style="background-color: #00c198; color: #FFF; margin-bottom: 10px;">Fecha del Dia - {{data}}</div>
+
+            <div id="tituPedidos">
+                <form name="personForm" novalidate>
+                    <textarea name="pincode" ng-model="txtpin" ng-minlength="100" required
+                              style="float: left; width: 100%; height: 90px; resize: none; border-radius: 5px; 
+                                    border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;"></textarea>
+                    
+                    <div  ng-show="personForm.pincode.$dirty&&personForm.pincode.$error.minlength"
+                          style="float: left; font-family: Arial, Helvetica, sans-serif; font-size: 15px; margin-top: 5px;"> 
+                          Mínimo 100 caracteres requeridos </div>
+                </form>
+            </div>
+            
+            <div id="inputA" style="width:100%;" ng-show="txtpin.length>100">
+                <button type="button" ng-click="enviar()">                    
+                    <span ng-show="botao">Refunds</span>
+                    <span ng-show="!botao"><img src="../img/loader.png" width="20px"></span>
+                </button>
+                
+            </div>
+
+            <div id="status" style="text-align:left; padding-left:20px; margin-top:10px; margin-bottom:10px;"></div>
+
+        </div>
+    </div>
+</div>

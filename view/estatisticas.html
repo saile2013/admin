@@ -1,0 +1,136 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp;
+        <a ui-sref="tiendas-estatisticas">
+            <i class="fas fa-chevron-right"></i> &nbsp; tiendas
+        </a> &nbsp;
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">{{name}}</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+        	<a ui-sref="tiendas-estatisticas">
+            	<i class="fas fa-arrow-circle-left"></i> vuelve
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div id="contB" style="padding-top: 80px; padding-bottom: 80px;">
+        <div style="margin: 0 auto; width: 1200px;">
+            
+            <a ui-sref="seguidores-estatisticas({id:id})">
+                <div style="float: left; margin-left: 20px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-users"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Seguidores
+                    </div>
+                </div>
+            </a>
+
+            <a ui-sref="likes-estatisticas({id:id})">
+                <div style="float: left; margin-left: 40px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="far fa-thumbs-up"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Likes
+                    </div>
+                </div>
+            </a>
+
+            <a ui-sref="vendidos-estatisticas({id:id})">
+                <div style="float: left; margin-left: 40px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-cash-register"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Más vendidos
+                    </div>
+                </div>
+            </a>
+
+            <a ui-sref="gustados-estatisticas({id:id})">
+                <div style="float: left; margin-left: 40px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="far fa-heart"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Más gustados
+                    </div>
+                </div>
+            </a>
+
+            <a ui-sref="dias-estatisticas({id:id})">
+                <div style="float: left; margin-left: 40px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Por dias
+                    </div>
+                </div>
+            </a>
+
+            <a ui-sref="demograficos-estatisticas({id:id})">
+                <div style="float: left; margin-left: 40px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-id-card-alt"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Demograficos
+                    </div>
+                </div>
+            </a>
+
+            <a ui-sref="porcidade-estatisticas({id:id})">
+                <div style="float: left; margin-left: 20px; margin-top: 40px; width: 150px;">
+                    <div style="float: left; width: 150px; background-color: #00c198; box-sizing: border-box; text-align: center; padding: 20px; border-radius: 10px;
+                                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px; cursor: pointer;">
+                        <i style="font-size: 2em; color: #FFF;" class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div style="float: left; font-size: 15px; width: 100%; text-align: center; color: #333; margin-top: 10px;">
+                        Ventas por ciudad
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="footer" style=" position: fixed; bottom: 5px;">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

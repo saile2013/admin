@@ -1,0 +1,121 @@
+﻿<div id="perfilPedidos">
+    
+    <div id="fndPedidos" ng-click="back()"></div>
+    <div id="cntPedidos">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+            
+            <div id="tituPedidos">
+                órdenes ID: {{idPedidos}} 
+            </div>
+
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">{{city}}, {{c_state}}</div>
+            <div id="txtAPedidos">{{street_one}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">{{street_two}}</div>
+            <div id="txtAPedidos"><b>Creado en</b>: {{created_at}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Fecha de Transacción</b>: {{transaction_date}}</div>
+
+            <div id="txtAPedidos"><b>Impuesto:</b> $ {{tax}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Valor total:</b> $ {{total}}</div>
+            
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 10px;">Comprador</div>
+
+            <div id="txtAPedidos">{{name}} {{last_name}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">{{email}}</div>
+            <div id="txtAPedidos">{{phone}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">{{fiscal_number}}</div>
+
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 10px;">Tarjeta de crédito</div>
+
+            <div id="txtAPedidos"><b>Código de confirmación:</b> {{confirmation_code}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>ID de la tarjeta de crédito:</b> {{credit_card_id}}</div>
+            <div id="txtAPedidos"><b>Fecha colocada:</b> {{date_placed}}</div>
+
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 20px;">
+                Entrega
+            </div>
+
+            <div id="txtAPedidos" style="background-color: #F4F4F4;"><b>Fecha iniciada:</b> {{date_started}}</div>
+            <div id="txtAPedidos"><b>Fecha de entrega:</b> {{delivery_date}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <b>Instrucciones de entrega:</b> {{delivery_instructions}}
+            </div>
+            <div id="txtAPedidos"><b>Precio de entrega:</b> {{delivery_price}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <b>Referencia de la app:</b> {{order_app_reference}}
+            </div>
+
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 20px;">
+                Transacción
+            </div>
+
+            <div id="txtAPedidos"><b>Código de reserva:</b> {{reserve_code}}</div>
+
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <b>Tipo de pago:</b> {{payment_type}}
+            </div>
+            <div id="txtAPedidos"><b>Código de reserva:</b> {{reserve_code}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <b>ID del restaurantes:</b> {{restaurant_id}}
+            </div>
+            <div id="txtAPedidos"><b>Enviado a:</b> {{sended_at}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <b>Estado:</b> {{state}}
+            </div>
+
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <b>Descripción de la Situación:</b> {{status_description}}
+            </div>
+            <div id="txtAPedidos"><b>ID de transacción:</b> {{transaction_id}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <b>Actualizado en:</b> {{updated_at}}
+            </div>
+            <div id="txtAPedidos"><b>ID de usuario:</b> {{user_id}}</div>
+            <div id="txtAPedidos" style="background-color: #F4F4F4;">
+                <b>Referencia de usuario:</b> {{user_reference}}
+            </div>
+
+            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 20px;">
+                Productos
+            </div>
+
+            <div id="lisProdutos" ng-repeat="produto in produtos">
+                <div id="ftoProdutos" 
+                    style="background-image: url({{produto.image}}); background-position: center center; 
+                           background-size: cover;">
+                </div>
+                
+                <div style="width: 40%; margin-top: -5px;">
+                    <div id="txtAProdutos" style="font-weight: bold;">
+                        {{produto.product_name}}
+                    </div>
+                    <div id="txtAProdutos" style="font-weight: bold;">
+                        <b>Anotaciones:</b> {{produto.annotations}}
+                    </div>
+                    <div id="txtAProdutos">
+                        <b>ID:</b> {{produto.id}}
+                    </div>
+                    <div id="txtAProdutos" style="font-weight: bold;">
+                        <b>Descuento:</b> {{produto.discount}}
+                    </div>
+                </div>
+                
+                <div style="float:left; width: 40%;">
+                    <div id="txtAProdutos">
+                        <b>Cantidad unitaria:</b> $ {{produto.unit_amount}}
+                    </div>
+                    <div id="txtAProdutos">
+                        <b>Impuesto:</b> $ {{produto.tax}}
+                    </div>
+                    <div id="txtAProdutos">
+                        <b>Precio:</b> $ {{produto.total_amount}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

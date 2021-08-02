@@ -1,0 +1,290 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; categorization
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">encontrar productos</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <!--<div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>-->
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+            <i class="fas fa-folder-open"></i> <font class="home">encontrar productos</font>
+        </div>
+        <div id="txtA">
+            <a ui-sref="categorizacao-paca">
+                <i class="fas fa-folder"></i> diccionarios de pasillos y sub-categorías.
+            </a>   
+        </div>
+    </div>
+</div>
+
+<div id="div4" style="background-color: #F4F4F4; padding-top: 30px;">
+    <div style="margin: 0 auto; width: 1200px;">
+        <div style="margin: 0 auto; width: 900px;">
+            <div style="float: left; border: 1px solid #00c198; background-color: white; padding-left: 30px; padding-right: 30px; border-radius: 10px; width: 730px;">
+                <div style="float: left; margin-top: 20px; font:14px Arial; width: 100%; font-weight: bold;">
+                    Filtros encontar productos
+                </div>
+                <div style="float: left; margin-top: 20px; margin-bottom: 20px; width: 200px;">
+                    <select style="float: left; width: 200px; border: 1px solid #CCC; padding-top: 12px; 
+                                padding-bottom: 12px;" 
+                            ng-model="tipo"
+                            ng-change="chaTipo()">
+                            <option value="">Categorias/Tiendas</option>
+                            <option ng-repeat="tipo in tipos | orderBy:'value'" value="{{tipo.key}}">{{tipo.value}}</option>
+                    </select>
+                </div>
+    
+                <div style="float: left; margin-left: 10px; margin-top: 20px; margin-bottom: 20px; width: 250px;">
+                    <select style="float: left; width: 100%; border: 1px solid #CCC; padding-top: 12px; padding-bottom: 12px;" 
+                            ng-model="lisCatTie"
+                            ng-change="chaCatTien(tipo, lisCatTie)">
+                            <option value="">Listado de Categorias o Tiendas</option>
+                            <option ng-repeat="lisCatTie in lisCatTies | orderBy:'lisCatTie.name'" value="{{lisCatTie.id}}">{{lisCatTie.name}}</option>
+                    </select>
+                </div>
+    
+                <div style="float: left; margin-left: 10px; margin-top: 20px; margin-bottom: 20px; width: 250px;">
+                    <select style="float: left; width: 100%; border: 1px solid #CCC; padding-top: 12px; padding-bottom: 12px;" 
+                            ng-model="lisCatTie2"
+                            ng-change="chaCatTien2(tipo, lisCatTie, lisCatTie2)">
+                            <option value="">Listado de Pasillos o Categorias</option>
+                            <option ng-show="lisCatTie && tipo=='2'" value="todos">Todos</option>
+                            <option ng-show="lisCatTie2s" ng-repeat="lisCatTie2 in lisCatTie2s | orderBy:'lisCatTie2.parent_category_name'" value="{{lisCatTie2.parent_category_id}}">{{lisCatTie2.parent_category_name}}</option>
+                            <option ng-show="lisCatTie22s" ng-repeat="lisCatTie22 in lisCatTie22s | orderBy:'lisCatTie22.hall_name'" value="{{lisCatTie22.hall_id}}">{{lisCatTie22.hall_name}}</option>
+                    </select>
+                </div>
+    
+                <!--<button ng-click="clicaResulta1()"
+                        style="float:left; background:#CCC; border-radius:5px; padding-left: 20px; padding-right: 20px;
+                               border:none; color:#333; font-weight:bold; cursor:pointer; padding-top: 12px; margin-left: 10px;
+                               padding-bottom: 12px; font-family: Arial, Helvetica, sans-serif; margin-top: 21px;">ok</button>-->
+            </div>
+        </div>
+
+        <div style="float: left; margin-top: 20px; margin-bottom: 40px; width: 1200px;">
+            <div style="margin: 0 auto; width: 900px;">
+
+                <div style="float: left; border: 1px solid #00c198; padding-left: 30px; padding-right: 30px; border-radius: 10px; width: 250px; margin-right: 20px; background-color: white;">
+                    <div style="float: left; margin-top: 20px; font:14px Arial; width: 100%; font-weight: bold;">
+                        Buscar productos
+                    </div>
+
+                    <div style="float: left; margin-top: 20px; margin-bottom: 20px; width: 250px;">    
+                        <input style="float: left; width: 230px; padding-left: 10px; border-radius: 5px; border: 1px solid #CCC; padding-top: 12px; padding-bottom: 12px;"
+                            type="text" 
+                            ng-model="buscar"
+                            ng-keyup="digitou($event)"
+                            placeholder="Buscar...">
+                    </div>
+                </div>
+                
+                <div style="float: left; border: 1px solid #00c198; padding-left: 30px; padding-right: 30px; border-radius: 10px; width: 400px; background-color: white;">
+
+                    <div style="float: left; margin-top: 20px; font:14px Arial; width: 100%; font-weight: bold;">
+                        Insertar / Deletar
+                    </div>
+                    
+                    <div style="float: left; margin-top: 20px; margin-bottom: 20px; width: 150px;">
+                        <select style="float: left; width: 100%; border: 1px solid #CCC; padding-top: 12px; padding-bottom: 12px;" 
+                                ng-model="tipo2"
+                                ng-change="chaTipos2()">
+                                <option value="">Insertar / Deletar</option>
+                                <option ng-repeat="tipo in tipos2" value="{{tipo.key}}">{{tipo.value}}</option>
+                        </select>
+                    </div>
+    
+                    <div style="float: left; margin-top: 20px; margin-left: 10px; margin-bottom: 20px; width: 210px;">
+        
+                        <input style="float: left; width: 198px; padding-left: 10px; border-radius: 5px; border: 1px solid #CCC; padding-top: 12px; padding-bottom: 12px;"
+                                type="text" 
+                                ng-model="words"
+                                id="words"
+                                placeholder="Escribe una palabra...">
+                    </div>
+                    
+                    <div style="float: left; width: 100%; margin-bottom: 20px;">
+                        <button ng-click="clicaResulta1(tipo2, lisCatTie, lisCatTie2, tipo)"
+                                style="float:left; background:#CCC; border-radius:5px; padding-left: 20px; padding-right: 20px; width: 250px;
+                                       border:none; color:#333; font-weight:bold; cursor:pointer; padding-top: 12px; padding-bottom: 12px; 
+                                       font-family: Arial, Helvetica, sans-serif; margin-top: 1px;">ok</button>
+        
+                        <div ng-show="ok" style="float:left; margin-top: 5px; width:100%; font:12px Arial; color:#B70609;">
+                            {{ok}}
+                        </div>
+                        <div ng-show="ok2" style="float:left; margin-top: 5px; width:100%; font:12px Arial; color:#B70609;">
+                            {{ok2}}
+                        </div>
+                        <div ng-show="ok3" style="float:left; margin-top: 5px; width:100%; font:12px Arial; color:#B70609;">
+                            {{ok3}}
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="float: left; width: 100%; display: none;">
+    <div style="position:fixed; background:#333; left:0px; top:0px; width:100%; height:100%; z-index:1000; opacity:0.3; filter:alpha(opacity=30);"></div>
+    <div style="position:fixed; left:50%; margin-left:-200px; top:50%; margin-top:-90px; background:#F4F4F4; width:100%; max-width:400px; height:180px; border:1px solid #00c198; z-index:2000; border-radius: 10px; padding: 20px;">
+
+        <!--<div ng-show="infTipo==1" style="float: left; width: 100%; font-family: Arial, Helvetica, sans-serif; line-height: 35px;">
+           <h1 style="display: inline; font-size: 20px;">1°</h1> <b>CATEGORIA:</b> Tecnologia <br/>
+           <h1 style="display: inline; font-size: 20px;">2°</h1> <b>SUB-CATEGORIA:</b> teconlogia <br/>
+           <h1 style="display: inline; font-size: 20px;">3°</h1> <b>INSERIR:</b> teste1, teste2
+        </div>-->
+
+        <div style="float: left; width: 100%; margin-top: 20px;">
+            <div style="float:left; cursor: pointer; margin-left: 20px; border: 1px solid #CCC; width: 170px; padding-top: 10px; padding-bottom: 10px; text-align: center; border-radius: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #333;">
+                Confirmar
+            </div>
+            <div style="float:left; cursor: pointer; width: 170px; margin-left: 20px; padding-top: 10px; padding-bottom: 10px; background-color: #CCC; text-align: center; border-radius: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #333;">
+                Cancelar
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div5" style="margin-top: -20px;">
+
+    <div ng-show="logisticas" style="float: left; width: 100%; background-color: #F4F4F4; padding-bottom: 20px;">
+        <div style="float:right; font-family: Arial, Helvetica, sans-serif; margin-right: 20px; 
+                    font-weight: bold;">
+            {{contar}} Seleccionados de {{logisticas.length}}
+        </div>
+    </div>
+
+    <div id="contB">
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 2%;">
+            <input type="checkbox" id="selectedAll" ng-model="selectedAll" ng-click="selectAll()">
+        </div>
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 10%;">
+            ID
+        </div>
+        <div id="nmCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 20%;">
+            Productos
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 20%;">
+            Sub-categorías
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 16%;">
+            Pasillos
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; 
+                    width: 18%;">
+            Palabra en el Diccionario
+        </div>
+    </div> 
+
+    <div id="contMais" ng-show="!logisticas && !carregaDados">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-show="logisticas" ng-repeat="resultDato in logisticas | filter:buscar">
+
+        <div id="contB">
+            <div id="idPed" style="width: 2%;">
+                <input type="checkbox" ng-model="resultDato.Selected" data-val="true" 
+                       ng-click="checkboxClick($event, resultDato)" ng-selected="selectAll">
+            </div>
+            <div id="nmCliPed" style="width: 10%; text-align: center;">
+                {{resultDato.id}}
+            </div>
+            <div id="emCliPed" style="width: 20%; text-align: center;">
+                {{resultDato.product_name}}
+            </div>
+            <div id="fnCliPed" style="width: 20%;">
+                {{resultDato.category_names}}
+            </div>
+            <div id="fnCliPed" style="width: 16%;">
+                <div ng-show="!resultDato.hall_name">sin información</div>
+                <div ng-show="resultDato.hall_name">{{resultDato.hall_name}}</div>
+            </div>
+            <div id="fnCliPed" style="width: 18%;">                
+                <div ng-show="resultDato.words_dictionary==null">sin información</div>
+                <div ng-show="resultDato.words_dictionary!=null">{{resultDato.words_dictionary}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="!logistica" ng-repeat="logistica in logisticas" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <div id="contMais" ng-show="logisticas && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>
+    
+</div>
+
+<div id="perfilPedidos" ng-if="abreProds">
+    
+    <div id="fndPedidos" ng-click="back2()"></div>
+    <div id="cntPedidos">
+
+        <div id="contMais" ng-show="!loader">
+            <div id="loaderMais"><img src="../img/loader.png"></div>
+        </div>
+
+        <div id="lisPedidos" ng-show="loader">
+            
+            <div id="tituPedidos">ID: {{id}}</div>
+            <div id="txtAPedidos" 
+                 style="background-color: #00c198; color: #FFF; margin-bottom: 20px;">
+                 Productos (cantidad {{produtos.length}})
+            </div>
+
+            <div id="lisProdutos" ng-repeat="produto in produtos">
+                <div id="txtAPedidos" ><b>Nombre del producto:</b> {{produto.product_name}}</div>
+                
+                <div id="txtAPedidos" 
+                     style="background-color: #F4F4F4;"><b>Estado:</b> {{produto.status}}</div>
+
+                <div id="txtAPedidos" ><b>Nombre de la tienda:</b> {{produto.store_name}}</div>
+
+                <div id="txtAPedidos" 
+                     style="background-color: #F4F4F4;"><b>Precio unitario:</b> $ {{produto.unit_price}}</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

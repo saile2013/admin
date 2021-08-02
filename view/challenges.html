@@ -1,0 +1,148 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">challenges</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+    <!--<div id="tipos">
+        <select ng-model="estatu" 
+                ng-change="seleStatus()"
+                ng-options="stato as stato.aparence for stato in statos track by stato.value">
+        </select>
+    </div>-->
+</div>
+
+<div style="float: left; width: 100%; background-color: #F4F4F4; position: relative; z-index: 2;">
+    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+        <div style="float: left; width: 100%; max-width: 1300px;">
+            <a ui-sref="adicionar-challenges">
+                <div style="float:left; margin-top: 15px; margin-left: -20px; width: 100%; max-width: 200px; 
+                            background-color: #00c198; height:auto; padding: 10px; padding-left: 30px; 
+                            padding-right: 30px; border-radius: 30px; font-family: Arial, Helvetica, sans-serif; 
+                            color: #FFF; text-align: center;">
+                + Crear nuevo Challenge
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div style="float: left; width: 100%; margin-top: -25px; position: relative; z-index: 1;">
+    <div id="div5" style="float: left; background-color: #F4F4F4; display: flex; flex-direction: row; justify-content: center; align-items: center;">
+        <div style="float:left; width: 100%; max-width: 1300px; background-color: white; height:auto; padding: 20px; border-radius: 5px; margin-top: 40px; margin-bottom: 40px;">
+
+            <div id="contB" style="border-bottom: 1px solid #CCC; background-color: white; margin-top: -10px;">
+                <div id="nmCliPed" style="color: #333; font-weight: bold; width: 13%; text-align: center;">
+                    Nombre del challenge
+                </div>
+                <div id="nmCliPed" style="color: #333; font-weight: bold; width: 11%; text-align: center;">
+                    Alias
+                </div>
+                <div id="nmCliPed" style="color: #333; font-weight: bold; width: 11%; text-align: center;">
+                    Marca
+                </div>
+                <div id="nmCliPed" style="color: #333; font-weight: bold; width: 11%; text-align: center;">
+                    Estado
+                </div>
+                <div id="nmCliPed" style="color: #333; font-weight: bold; width: 11%; text-align: center;">
+                    Participantes
+                </div>
+                <div id="nmCliPed" style="color: #333; font-weight: bold; width: 11%; text-align: center;">
+                    Premio
+                </div>
+                <div id="nmCliPed" style="color: #333; font-weight: bold; width: 13%; text-align: center;">
+                    Link del challenge
+                </div>        
+            </div> 
+        
+            <div id="contMais" ng-show="!pedidos">
+                <div id="loaderMais"><img src="../img/loader.png"></div>
+            </div>
+        
+            <div ng-repeat="pedido in pedidos">
+                <div id="contB" ng-style="pedido.cores=='#FFFFFF' && {'background-color':'#FFFFFF'}" style="margin-top: 0px;">
+                    <a ui-sref="perfil-challenges({alias:pedido.pedidos.alias})">
+                        <div id="nmCliPed" style="width: 13%; text-align: center; background-color:transparent;">
+                            {{pedido.pedidos.name}}
+                        </div>
+                        <div id="nmCliPed" style="width: 11%; text-align: center; background-color:transparent;">
+                            {{pedido.pedidos.alias}}
+                        </div>
+                        <div id="nmCliPed" style="width: 11%; text-align: center; background-color:transparent;">
+                            {{pedido.pedidos.author.name}}
+                        </div>
+                        <div id="nmCliPed" style="width: 11%; text-align: center; background-color:transparent;">
+                            <div ng-show="!pedido.pedidos.is_active && pedido.pedidos.status == 'pending'" 
+                                style="padding: 8px; border-radius: 15px; background-color: #ffd215;">
+                                Creado
+                            </div>
+                            <div ng-show="pedido.pedidos.is_active && pedido.pedidos.status == 'available'" 
+                                style="padding: 8px; border-radius: 15px; background-color: #47d3dd;">
+                                En curso
+                            </div>
+                            <div ng-show="!pedido.pedidos.is_active && pedido.pedidos.status == 'finished'" 
+                                style="padding: 8px; border-radius: 15px; background-color: #f1545b;">
+                                Cerrado 
+                            </div>
+                            <div ng-show="!pedido.pedidos.is_active && pedido.pedidos.status == 'available'" 
+                                style="padding: 8px; border-radius: 15px; background-color: #ffd215;">
+                                Creado pero no publicado
+                            </div>
+                        </div>
+                        <div id="nmCliPed" style="width: 11%; text-align: center; background-color:transparent;">
+                            {{pedido.pedidos.participant_counter}}
+                        </div>
+                        <div id="nmCliPed" style="width: 11%; text-align: center; background-color:transparent;">
+                            {{pedido.pedidos.description}}
+                        </div>
+                    </a>
+                    <div id="nmCliPed" ng-click="abrirLink(pedido.pedidos.alias, pedido.pedidos.description, pedido.pedidos.name)"
+                        style="width: 13%; text-align: center; background-color:transparent; color: #00c198; cursor: pointer;">
+                        <i class="far fa-copy"></i>
+                        <div id="copy{{pedido.pedidos.alias}}"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div ng-show="!pedido" ng-repeat="pedido in pedidos" id="nehnRes">
+                ¡No hay resultados!
+            </div>
+            
+            <div id="contMais" ng-show="pedidos && !parou">
+                <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+                <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

@@ -1,0 +1,218 @@
+﻿<style>.home { text-decoration:underline; }</style>
+
+<div id="div1">
+    <div id="logo"><img src="../img/logoLoro.svg"></div>
+    <div id="nmUser"></div>
+    <div id="buttonA">
+    	<a href="javascript:" ng-click="sair()"><i class="fas fa-sign-out-alt"></i> &nbsp; Sal</a>
+    </div>
+    <div id="buttonA">
+    	<i class="fas fa-user"></i> &nbsp; <font class="usuarios">{{nome}}</font>
+    </div>
+</div>
+
+<div id="div2">
+    <div id="itenA">
+        <a ui-sref="home">
+            <i class="fas fa-home" aria-hidden="true"></i> &nbsp; comienzo
+        </a> &nbsp; 
+            <i class="fas fa-chevron-right"></i> &nbsp; <font class="home">día sin IVA</font>
+    </div>
+</div>
+
+<div id="div2Bus">
+    
+    <div id="buttOn">
+        <button ng-click="buscar()"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="busca">
+        <input type="search" ng-model="buscando" ng-keypress="enter(event)" placeholder="Buscar...">        
+    </div>
+    <div id="tipos">
+        <select ng-model="tienda" 
+                ng-change="busTienda()">
+                <option value="">Selecciona una tienda</option>
+                <option ng-repeat="tienda in tiendas | orderBy:'value'" value="{{tienda.key}}">{{tienda.value}}</option>
+        </select>
+    </div>
+</div>
+
+<div id="div4">
+    <div id="conTxt">
+        <div id="txtA">
+            <a href="javascript:" ng-click="csvProductosIVA()">
+                <i class="fas fa-file-csv"></i> exportar a csv
+                <img ng-show="!btnCSV" src="../img/loader.png" width="12px">
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="div5">
+
+    <div style="float: left; width: 100%;">
+        <span style="float: right; margin-right: 20px; margin-bottom: 8px; font-size: 15px; color: #333; font-family: Arial, Helvetica, sans-serif;">
+            <div style="float: left; margin-top: 10px; margin-right: 15px;">
+                {{limite}} views
+            </div>
+            <div ng-click="pagSoma(100)" style="float: left; margin-right: 10px; border-radius: 5px; padding: 10px; background-color: #F4F4F4; cursor: pointer; color: #333;">
+                100
+            </div>
+            <div ng-click="pagSoma(200)" style="float: left; margin-right: 10px; border-radius: 5px; padding: 10px; background-color: #F4F4F4; cursor: pointer; color: #333;">
+                200
+            </div>
+            <div ng-click="pagSoma(500)" style="float: left; border-radius: 5px; padding: 10px; background-color: #F4F4F4; cursor: pointer; color: #333;">
+                500
+            </div>
+        </span>
+    </div>
+
+    <div id="contB">
+
+        <div id="idPed" style="background-color: #00c198; color: #FFF; width: 12%; text-align: left;">
+            SKU
+        </div>
+        <div id="nmCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: left; width: 20%;">
+            Nombre del prodcuto
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: left; width: 15%;">
+            Tienda
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; width: 9.5%;">
+            Precio
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; width: 7%;">
+            Día sin IVA
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; width: 15%;">
+            Categorías
+        </div>
+        <div id="emCliPed" 
+             style="background-color: #00c198; color: #FFF; font-weight: bold; text-align: center; width: 5%;">
+            Acción
+        </div>        
+    </div> 
+
+    <div id="contMais" ng-show="!logisticas">
+        <div id="loaderMais"><img src="../img/loader.png"></div>
+    </div>
+
+    <div ng-show="logisticas" ng-repeat="logistica in logisticas">
+        <div id="contB">
+            <div id="nmCliPed" style="width: 12%; text-align: left;">
+                <span ng-if="logistica.sku">{{logistica.sku}}</span>
+                <span ng-if="!logistica.sku">No hay informacion</span>
+                <input type="hidden" id="sku{{logistica.id}}" value="{{logistica.sku}}">
+                <input type="hidden" id="store{{logistica.id}}" value="{{logistica.store_id}}">
+            </div>
+            <div id="emCliPed" style="text-align: left; width: 20%;">
+                {{logistica.name}}
+            </div>
+            <div id="fnCliPed" style="text-align: left; width: 15%;">
+                {{logistica.store_name}}
+            </div>
+            <div id="emCliPed" style="text-align: center; width: 9.5%;">
+                $ {{logistica.price}}
+            </div>
+            <div id="fnCliPed" style="text-align: center; width: 7%;">
+                <input type="checkbox" ng-model="logistica.Selected" data-val="true" 
+                       ng-click="checkboxClick($event, logistica)" ng-checked="logistica.taxfree==true">
+            </div>
+            <div id="fnCliPed" style="text-align: left; width: 15%;">
+                <select ng-if="logistica.taxfree_category == 1" 
+                        style="border: 1px solid #CCC; width: 100%;" 
+                        id="categorias{{logistica.id}}"
+                        ng-model="categoria"
+                        ng-init="categoria.id = categorias[0].id"
+                        ng-options="categoria.name for categoria in categorias track by categoria.id">                        
+                </select>
+
+                <select ng-if="logistica.taxfree_category == 2"
+                        style="border: 1px solid #CCC; width: 100%;" 
+                        id="categorias{{logistica.id}}"
+                        ng-model="categoria"
+                        ng-init="categoria.id = categorias[1].id"
+                        ng-options="categoria.name for categoria in categorias track by categoria.id">
+                </select>
+
+                <select ng-if="logistica.taxfree_category == 3"
+                        style="border: 1px solid #CCC; width: 100%;" 
+                        id="categorias{{logistica.id}}"
+                        ng-model="categoria"
+                        ng-init="categoria.id = categorias[2].id"
+                        ng-options="categoria.name for categoria in categorias track by categoria.id">
+                </select>
+
+                <select ng-if="logistica.taxfree_category == 4"
+                        style="border: 1px solid #CCC; width: 100%;" 
+                        id="categorias{{logistica.id}}"
+                        ng-model="categoria"
+                        ng-init="categoria.id = categorias[3].id"
+                        ng-options="categoria.name for categoria in categorias track by categoria.id">
+                </select>
+
+                <select ng-if="logistica.taxfree_category == 5"
+                        style="border: 1px solid #CCC; width: 100%;" 
+                        id="categorias{{logistica.id}}"
+                        ng-model="categoria"
+                        ng-init="categoria.id = categorias[4].id"
+                        ng-options="categoria.name for categoria in categorias track by categoria.id">
+                </select>
+
+                <select ng-if="logistica.taxfree_category == 6"
+                        style="border: 1px solid #CCC; width: 100%;" 
+                        id="categorias{{logistica.id}}"
+                        ng-model="categoria"
+                        ng-init="categoria.id = categorias[5].id"
+                        ng-options="categoria.name for categoria in categorias track by categoria.id">
+                </select>
+
+                <select ng-if="!logistica.taxfree_category"
+                        style="border: 1px solid #CCC; width: 100%;" 
+                        id="categorias{{logistica.id}}"
+                        ng-model="categoria"
+                        ng-options="categoria.id as categoria.name for categoria in categorias track by categoria.id">
+                        <option value="">Categorías</option>
+                </select>
+            </div>
+            <div id="fnCliPed" style="text-align: center; width: 5%;">
+                <button type="button" ng-click="salvar(logistica.id)">                    
+                    <span id="btn1{{logistica.id}}">Salvar</span>
+                    <span id="btn2{{logistica.id}}" style="display: none;">
+                        <img src="../img/loader.png" width="20px">
+                    </span>
+                </button>
+            </div>
+            <div id="status{{logistica.id}}" 
+                style="float:right; margin-right: 17px; margin-top:5px; font:12px Arial; color:#B70609;">
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="!logistica" ng-repeat="logistica in logisticas" id="nehnRes">
+    	¡No hay resultados!
+    </div>
+    
+    <!--<div id="contMais" ng-show="logisticas && !parou">
+        <div id="borderMais" ng-show="apa" ng-click="maisPag()">+ más</div>
+        <div id="borderMais" ng-show="!apa"><img src="../img/loader.png" width="20"></div>
+    </div>-->
+
+    <div id="contMais" style="width: 100%;">
+        <div id="borderMais" style="float: left; margin-left: 15px; margin-right: 5px; width: 50px;" ng-click="volPag()"><</div>
+        <div id="borderMais" style="float: left; margin-right: 5px; width: 50px;">{{pag}}</div>
+        <div id="borderMais" style="float: left; width: 50px;" ng-click="nexPag()">></div>
+    </div>
+    
+</div>
+
+<ui-view></ui-view>
+
+<div id="footer">
+    <div id="txtFoo">Todos los derechos reservados a loro</div>
+</div>

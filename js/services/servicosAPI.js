@@ -119,6 +119,14 @@ angular.module("sop").factory("servicosAPI", function($http, baseAPI){
 			data: dados
 		});
 	};
+
+	var _putMudaTiendas = function(idStore, id){
+		return $http({
+			method: 'PUT', 
+			url: baseAPI.baseURL + 'api/wb/admin/order/update-store/'+id,
+			data: {'store_id': idStore}
+		});
+	};
 	//
 
 
@@ -3155,6 +3163,7 @@ angular.module("sop").factory("servicosAPI", function($http, baseAPI){
 		historicoPedidos:	_historicoPedidos,
 		putNovosDados:		_putNovosDados,
 		putEstadosOrdens:	_putEstadosOrdens,
+		putMudaTiendas:		_putMudaTiendas,
 		//
 
 		//Pedidos PLANS

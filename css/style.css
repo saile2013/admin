@@ -18,6 +18,8 @@ body { overflow-x:hidden; }
 }
 .hasCida span:hover { background-color: #F4F4F4; }
 
+.tloja div:hover { background-color: #F4F4F4; }
+
 #contPagina { float:left; margin-left:5%; margin-top:10px; margin-bottom:20px; width:90%; }
 #contPagina #pagina { float:left; width:100%; }
 #contPagina #pagina .ng-isolate-scope { float:left; width:100%; margin-top:20px; }
@@ -451,7 +453,7 @@ body { overflow-x:hidden; }
 
 #perfilPedidos #cntPedidos #lisProdutos { float: left; width: 100%; margin-bottom: 20px; }
 #perfilPedidos #cntPedidos #lisProdutos #ftoProdutos {
-	float: left; width: 90px; height: 90px; border-radius: 5px; border: 1px solid #333; margin-right: 10px;
+	float: left; width: 90px; height: 115px; border-radius: 5px; border: 1px solid #333; margin-right: 10px;
 }
 #perfilPedidos #cntPedidos #lisProdutos #txtAProdutos { 
 	width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 15px; margin-top: 5px;

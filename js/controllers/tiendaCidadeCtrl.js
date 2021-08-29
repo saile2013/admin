@@ -14,6 +14,9 @@ angular.module("sop").controller("tiendaCidadeCtrl", function($scope, $cookies, 
 
 	$scope.id = $stateParams.id;
 	$scope.botao = true;
+	$scope.botao2 = true;
+	$scope.botao3 = true;
+	$scope.botao4 = true;
 	$scope.active = false;
 	$scope.page = 1;
 	var tiendas = [];
@@ -35,8 +38,6 @@ angular.module("sop").controller("tiendaCidadeCtrl", function($scope, $cookies, 
 	if($scope.id != 0){
 		$scope.tienda = $scope.id;
 		servicosAPI.dtlTiendas($scope.id).then(function (result) {
-			console.log(result.data.data);
-
 			$scope.not_attend_days = result.data.data.not_attend_days;			
 			$scope.monday_start_hour = result.data.data.monday_start_hour;
 			$scope.monday_limit_hour = result.data.data.monday_limit_hour;
@@ -145,7 +146,7 @@ angular.module("sop").controller("tiendaCidadeCtrl", function($scope, $cookies, 
 	$scope.salvar1 = function(){
 		$scope.botao = false;
 
-		var dados = {
+		var dados1 = {
 			store_id: $scope.id,
 			radio: $scope.radio1_1,
 			//shipping_time: $scope.tiempo1,
@@ -189,7 +190,9 @@ angular.module("sop").controller("tiendaCidadeCtrl", function($scope, $cookies, 
 			sunday_after_limit_hour: $scope.sunday_after_limit_hour,
 		}
 
-		servicosAPI.putStoreCity($scope.id, dados).then(function(result){
+		console.log(dados1);
+
+		servicosAPI.putStoreCity($scope.id, dados1).then(function(result){
 			document.getElementById('status').innerHTML = '¡Salvo con éxito!';
 			$scope.botao = true;
 		});
@@ -204,19 +207,21 @@ angular.module("sop").controller("tiendaCidadeCtrl", function($scope, $cookies, 
 	}
 
 	$scope.putEnde = function(id) {
-		var dados = {
+		var dados2 = {
 			name_city: document.getElementById('ciudad'+id).value,
 			shipping_time: document.getElementById('tiempo'+id).value,
 			shipping_cost:  document.getElementById('costo'+id).value,
 		}
 
-		servicosAPI.putTiendaCity(id, dados).then(function(result) {
+		console.log(dados2);
+
+		servicosAPI.putTiendaCity(id, dados2).then(function(result) {
 			document.getElementById('status'+id).innerHTML = '¡Enviado con éxito!';
 		});
 	};
 
 	$scope.salvar = function(){
-		$scope.botao = false;
+		$scope.botao3 = false;
 
 		var daDos = {
 			store_id: $scope.id,
@@ -227,6 +232,8 @@ angular.module("sop").controller("tiendaCidadeCtrl", function($scope, $cookies, 
 			is_active: 1
 		}
 
+		console.log(daDos);
+
 		servicosAPI.postStoreCity(daDos).then(function(result){
 			
 			servicosAPI.getStoreCity($scope.id, $scope.page).then((result) => {
@@ -236,19 +243,21 @@ angular.module("sop").controller("tiendaCidadeCtrl", function($scope, $cookies, 
 				$scope.costo2 = "";
 			});
 
-			$scope.botao = true;
+			$scope.botao3 = true;
 		});
 	};
 
 	$scope.salvar2 = function(){
-		$scope.botao = false;
+		$scope.botao2 = false;
 
-		var daDos = {
+		var daDos3 = {
 			shipping_time: $scope.tiempo22,
 			shipping_cost: $scope.costo22,
 		}
 
-		servicosAPI.putStoreMass($scope.id, daDos).then(function(result){
+		console.log(daDos3);
+
+		servicosAPI.putStoreMass($scope.id, daDos3).then(function(result){
 			
 			servicosAPI.getStoreCity($scope.id, $scope.page).then((result) => {
 				$scope.citys = result.data.data;
@@ -257,7 +266,7 @@ angular.module("sop").controller("tiendaCidadeCtrl", function($scope, $cookies, 
 				document.getElementById('status2').innerHTML = '¡Salvo con éxito!';
 			});
 
-			$scope.botao = true;
+			$scope.botao2 = true;
 		});
 	};
 

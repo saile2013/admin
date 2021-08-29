@@ -144,17 +144,17 @@
 
             <div id="stPed" style="width: 9%;">
 
-                <div ng-if="pedido.state=='canceled'">
+                <!--<div ng-if="pedido.state=='canceled'">
                     <div id="estatus2{{pedido.id}}" style="display: inline; color:#00c198; font-weight:bold;">Cancelada</div>
                     <div id="estatus{{pedido.id}}" style="display: inline;"></div>
                     <div id="estatusL{{pedido.id}}" 
                             style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
                     <br>
-                    <!--<button type="button"
+                    <button type="button"
                             ng-click="payments(pedido.id)"
                             style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
                                     border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
-                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>-->
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
                     <div id="alt">
                         orden rechazada ya sea por fondos u otra razón.
                     </div>
@@ -165,11 +165,11 @@
                     <div id="estatusL{{pedido.id}}" 
                             style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
                     <br>
-                    <!--<button type="button"
+                    <button type="button"
                             ng-click="payments(pedido.id)"
                             style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
                                     border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
-                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>-->
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
                     <div id="alt">
                         el cliente no terminó la compra.
                     </div>
@@ -180,11 +180,11 @@
                     <div id="estatusL{{pedido.id}}" 
                             style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
                     <br>
-                    <!--<button type="button"
+                    <button type="button"
                             ng-click="payments(pedido.id)"
                             style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
                                     border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
-                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>-->
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
                     <div id="alt">
                         Tel pago se válido de forma correcta.
                     </div>
@@ -195,11 +195,11 @@
                     <div id="estatusL{{pedido.id}}" 
                             style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
                     <br>
-                    <!--<button type="button"
+                    <button type="button"
                             ng-click="payments(pedido.id)"
                             style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
                                     border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
-                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>-->
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
 
                     <div id="alt">
                         aún se está validando el pago.
@@ -212,25 +212,41 @@
                     <div id="estatusL{{pedido.id}}" 
                             style="display: none; position: absolute; margin-top: 6px;"><img src="../img/loader.png" width="20"></div>
                     <br>
-                    <!--<button type="button"
+                    <button type="button"
                             ng-click="payments(pedido.id)"
                             style="margin:0 auto; width: 100px; border-radius:5px; padding-left: 10px; padding-right: 10px;
                                     border:none; color:#00c198; font-weight:bold; cursor:pointer; font-size: 14px;
-                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>-->
+                                    background: none; padding-bottom: 5px; padding-top: 5px;">actualizar</button>
                     <div id="alt">
                         El pedido ya ha sido entregado.
+                    </div>
+                </div>-->
+
+                <div id="fundo2" ng-click="tiraFundo2()"
+                    style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; background-color: #333;
+                        opacity: 0.5; z-index: 1; display: none;">
+                </div>
+
+                <div 
+                    id="loja2" class="tloja"
+                    style="position: fixed; display: none; width: 300px; height: 143px; top: 50%; left: 50%; 
+                        margin-left: -150px; margin-top: -71px; background-color:#FFF; border:1px solid #CCC; 
+                        z-index: 2; border-radius: 5px;">
+                    <div 
+                        ng-repeat="group in groups"
+                        ng-click="seleGroup(pedido.id, group.id)"
+                        style="float: left; border-bottom: 1px solid #CCC; padding:5%; width: 90%; font-family: Arial, Helvetica, sans-serif;
+                            cursor: pointer;">
+                        <a>{{group.name}}</a>
                     </div>
                 </div>
 
                 <div>
-                    <!--<select style="width: 120px; border: 1px solid #CCC; margin-top: 8px;" 
-                            ng-change="selEstado(pedido.id, estado)"
-                            ng-model="estado">
-                            <option value="">Cambiar</option>
-                            <option ng-repeat="estado in estados" value="{{estado.value}}">
-                                {{estado.aparence}}
-                            </option>
-                    </select>-->
+                    <div style="float: left; margin-top: 0px; cursor: pointer; width: 100%; text-align: center;"
+                        id="{{sele}}pedido.id"
+                        ng-click="selEstado()">
+                        {{pedido.state}}
+                    </div>
 
                     <div id="succState{{pedido.id}}" class="status" style="display: none;">
                         actualizado con éxito!

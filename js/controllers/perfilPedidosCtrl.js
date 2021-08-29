@@ -17,10 +17,9 @@ angular.module("sop").controller("perfilPedidosCtrl", function($scope, $state, $
 	$scope.loader = false;
 	var produtos = [];
 	var prValues = [];
+	var tiendas = [];
 
 	servicosAPI.dtlPedidos($scope.idPed).then(function(result){
-
-		console.log(result.data.data);
 
 		$scope.idPedidos = result.data.data.order_id;
 		$scope.city = result.data.data.city;
@@ -51,20 +50,50 @@ angular.module("sop").controller("perfilPedidosCtrl", function($scope, $state, $
 
 
 		for(var a=0; a<result.data.data.product_items.length; a++){
-			produtos.push(result.data.data.product_items[a].product);
-			prValues.push(result.data.data.product_items[a].property_value);
+			produtos.push({produtos: result.data.data.product_items[a], prValues: result.data.data.product_items[a].property_value});
 			$scope.loader = true;
-
-			
 		}
 
-		servicosAPI.getTiendasGroup(775).then(function(resultB){
-			console.log(resultB);
-		});
-
 		$scope.produtos = produtos;
-		$scope.prValues = prValues;
 	});
+
+	$scope.seleGroup = function(idStore, nameStore, idProd){
+		servicosAPI.putMudaTiendas(idStore, idProd).then(function(result){
+			console.log(result.data.data);
+			if(result.data.data.id){
+				document.getElementById('mudou'+idProd).innerHTML = nameStore;
+				document.getElementById('muda'+idProd).innerHTML = '¡actualizado con exito!';
+			}else{
+				document.getElementById('muda'+idProd).innerHTML = result.data.message;
+			}
+		});
+	}
+
+	$scope.abrirSelect = function(idStore, idProd){
+		$scope.idProd = idProd;
+		if(document.getElementById('loja').style.display == 'block'){
+			document.getElementById('fundo').style.display = 'none';
+			document.getElementById('loja').style.display = 'none';
+		}else{
+			document.getElementById('fundo').style.display = 'block';
+			document.getElementById('loja').style.display = 'block';
+		}
+		servicosAPI.getTiendasGroup(idStore).then(function(resultB){
+			$scope.groups = resultB.data.data;
+		});		
+	}
+
+	$scope.tiraFundo = function(){
+		if(document.getElementById('loja').style.display == 'block'){
+			document.getElementById('fundo').style.display = 'none';
+			document.getElementById('loja').style.display = 'none';
+		}else{
+			document.getElementById('fundo').style.display = 'block';
+			document.getElementById('loja').style.display = 'block';
+		}
+
+		$scope.groups = "";
+	}
 
 	$scope.abrirDados = function(){
 		$scope.novDados = !$scope.novDados;

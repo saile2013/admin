@@ -28,8 +28,6 @@ angular.module("sop").controller("distribuirCreditoCtrl", function($scope, $cook
 
 	$scope.upload = function (file) {
 
-		$scope.botao = false;
-
 		var dados = {
 			file: file
 		}
@@ -46,19 +44,22 @@ angular.module("sop").controller("distribuirCreditoCtrl", function($scope, $cook
 			document.getElementById('status2').innerHTML = '¡Enviado con Exito!';
 			setTimeout(function(){ $state.go('perfil-lorob2b', {id:$scope.id}, {reload: true}); }, 1000);
 		}).catch(function(erro){
-			console.log(erro.data.error);
 			if(erro.data.error){
+				$scope.botao = true;
 				document.getElementById('status2').innerHTML = 'Error status: ' + erro.data.error;
 			}
 			if(erro.data.error.file){
+				$scope.botao = true;
 				document.getElementById('status2').innerHTML = 'Error status: ' + erro.data.error.file[0];
 			}
 		}, function (resp) {
 			if(resp.data.error.file){
+				$scope.botao = true;
 				console.log(resp.data.error.file[0]);
 				document.getElementById('status2').innerHTML = 'Error status: ' + resp.data.error.file[0];
 			}
 		}, function (evt) {
+			$scope.botao = true;
 			var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
 			console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
 			document.getElementById('status2').innerHTML = 'progress: ' + progressPercentage + '% ' + evt.config.data.file.name;

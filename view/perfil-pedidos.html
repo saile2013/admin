@@ -70,30 +70,51 @@
             </div>
 
             <div id="lisProdutos" ng-repeat="produto in produtos">
-                <div id="ftoProdutos" style="background-image: url({{produto.main_picture}}); background-position: center center; 
+                <div id="ftoProdutos" style="background-image: url({{produto.produtos.product.main_picture}}); background-position: center center; 
                                              background-size: cover;"></div>
                 
                 <div id="txtAProdutos" style="font-weight: bold;">
-                    {{produto.name}}
+                    {{produto.produtos.product.name}} {{produto.produtos.product.store.id}}
                 </div>
                 <div id="txtAProdutos">
-                    <b>SKU:</b> {{produto.sku}}
+                    <b>SKU:</b> {{produto.produtos.product.sku}}
                 </div>
                 <div id="txtAProdutos">
-                    <b>Precio:</b> $ {{produto.price}}
+                    <b>Propiedades:</b> {{produto.prValues.name}}
                 </div>
                 <div id="txtAProdutos">
-                    <b>Tienda:</b> {{produto.store.name}}
+                    <b>Precio:</b> ${{produto.produtos.product.price}}
+                </div>                
+                <div id="txtAProdutos">
+                    <b style="float: left;">Tienda:</b> 
+                    <span id="mudou{{produto.produtos.product_item_id}}" style="float: left; margin-left: 5px;">{{produto.produtos.product.store.name}}</span>
+                    <div style="float: left; margin-left: 15px; border: 1px solid #CCC; padding:8px; 
+                                margin-top: -7px; cursor: pointer;"
+                        ng-click="abrirSelect(produto.produtos.product.store.id, produto.produtos.product_item_id)">
+                        Cambiar tienda
+                    </div>
+                    <div id="muda{{produto.produtos.product_item_id}}" 
+                        style="float: left; margin-left: 15px; margin-top: 3px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: red;">                        
+                    </div>
                 </div>
             </div>
 
-            <div id="txtAPedidos" style="background-color: #00c198; color: #FFF; margin-bottom: 20px;">
-                Propiedades
+            <div id="fundo" ng-click="tiraFundo()"
+                style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; background-color: #333;
+                       opacity: 0.5; z-index: 1; display: none;">
             </div>
 
-            <div id="lisProdutos" ng-repeat="prValue in prValues" ng-show="prValue.name!=''">
-                <div id="txtAProdutos" style="font-weight: bold;">
-                    {{prValue.name}}
+            <div 
+                id="loja" class="tloja"
+                style="position: fixed; display: none; width: 300px; height: 300px; top: 50%; left: 50%; 
+                       margin-left: -150px; margin-top: -150px; background-color:#FFF; border:1px solid #CCC; 
+                       z-index: 2; border-radius: 5px; overflow-x: hidden;">
+                <div 
+                    ng-repeat="group in groups"
+                    ng-click="seleGroup(group.id, group.name, idProd)"
+                    style="float: left; border-bottom: 1px solid #CCC; padding:5%; width: 90%; font-family: Arial, Helvetica, sans-serif;
+                           cursor: pointer;">
+                    <a>{{group.name}}</a>
                 </div>
             </div>
         </div>

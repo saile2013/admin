@@ -100,6 +100,40 @@ angular.module("sop").controller("searchPedidosCtrl", function($scope, $cookies,
 		$scope.pedidos = pedidos;
 	});
 
+	$scope.selEstado = function(){
+		if(document.getElementById('loja2').style.display == 'block'){
+			document.getElementById('fundo2').style.display = 'none';
+			document.getElementById('loja2').style.display = 'none';
+		}else{
+			document.getElementById('fundo2').style.display = 'block';
+			document.getElementById('loja2').style.display = 'block';
+		}
+
+		$scope.groups = [
+			{id: 'delivered', name: 'Entregado'},
+			{id: 'canceled', name: 'Cancelado'},
+			{id: 'refund', name: 'Reembolsado'}
+		];
+	};
+
+	$scope.seleGroup = function(id, estado){
+		servicosAPI.putEstadosOrdens(id, {"state": estado}).then(function(result){
+			document.getElementById('succState'+id).style.display = "block";
+			document.getElementById('sele'+id).innerHTML = estado;
+		});
+	}
+
+	$scope.tiraFundo2 = function(){
+		if(document.getElementById('loja2').style.display == 'block'){
+			document.getElementById('fundo2').style.display = 'none';
+			document.getElementById('loja2').style.display = 'none';
+		}else{
+			document.getElementById('fundo2').style.display = 'block';
+			document.getElementById('loja2').style.display = 'block';
+		}
+		$scope.groups = "";
+	}
+
 	$scope.enter = function(event){
 		if(window.event.keyCode == 13){
 			console.log('enter');
